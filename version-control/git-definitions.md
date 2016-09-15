@@ -17,3 +17,5 @@ A commit creates a save point in Git to be used after a file has been edited. A 
 * What is a merge conflict?
 
 A merge conflict occurs when a user is attempting to integrate or merge one branch with another branch and the content is inconsistent. When branches are merged an index of the different files is created and compared (original, edited, merged). If those files present with conflict the user will be presented with a merge conflict. Luckily, with some backtracking merge conflicts can be resolved. 
+
+Adding this sentence for the second release!
