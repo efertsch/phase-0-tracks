@@ -18,13 +18,13 @@ body{
 
 #hat {
 	position: absolute;
-	top: 90px;
-	left: 250px;
+	top: 195px;
+	left: 400px;
 }
 
 #glasses {
 	position: absolute;
-	top: 355px;
-	left: 290px;
+	top: 460px;
+	left: 440px;
 	z-index: 1;
 }
