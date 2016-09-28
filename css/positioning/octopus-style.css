@@ -5,15 +5,14 @@
 3. Adjust glass and hat*/
 
 body{
-	display: block;
-	max-width: 500px;
-	max-height: 500px;
+	width: 1000px;
+	height: 1000px;
 }
 
 #octopus {
 	position: absolute;
-	top: 250px;
-	left: 250px;
+	top: 356px;
+	left: 395px;
 	margin-top: 5px;
 	}
 
@@ -25,13 +24,7 @@ body{
 
 #glasses {
 	position: absolute;
-	top: 325px;
-	left: 390px;
+	top: 355px;
+	left: 290px;
 	z-index: 1;
-
-
-	/*bottom: 10px;*/
-	/*z-index: 1;*/
-	
-	
 }
