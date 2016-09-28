@@ -1,6 +1,5 @@
-body {
-	background-color:yellow;
-}
-img {
-	margin: 500px;
+
+img.img1 {
+	margin: 100px;
+	position: fixed;
 }
