@@ -1,5 +1,9 @@
+img{
+	
+}
 
-img.octopus {
+
+.octopus {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -8,4 +12,16 @@ img.octopus {
 	z-index: 1;
 }
 
-img.octopus
+
+.hat {
+	display: block;
+	vertical-align: top;
+	padding: 100px;
+}
+
+.glasses {
+	display: block;
+	z-index: 2;
+	padding:20px;
+	
+}
