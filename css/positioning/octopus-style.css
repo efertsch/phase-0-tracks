@@ -1,30 +1,38 @@
+/*1. set paramters for size of body
 
+2. Move octopus to center
 
+3. Adjust glass and hat*/
+
+body{
+	max-width: 500px;
+	max-height: 500px;
+}
 
 #octopus {
-	max-width: 100px
-	max-height:100px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 200px;
 	position: fixed relative;
-	z-index: 1;
+	/*z-index: 2;*/
 }
 
 
-#hat {
+/*hat {
 	position: absolute;
 	top:-165px;
 	left:450px;
 	max-width: 100px
 	max-height:100px;
-}
+}*/
 
 #glasses {
-	position:absolute;
-	max-width: 100px
-	max-height:100px;
-	z-index: 2;
+	position: absolute;
+	/*max-width: 50px;
+	max-height:50px;*/
+	top: 110px;
+	left: 50px;
+
+
+	/*bottom: 10px;*/
+	/*z-index: 1;*/
 	
 	
 }
