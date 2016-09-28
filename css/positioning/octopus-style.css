@@ -12,17 +12,15 @@ body{
 
 #octopus {
 	position: absolute;
-	left:350px;
-	top: 225px;
-	
-}
+	top: 250px;
+	left: 250px;
+	margin-top: 5px;
+	}
 
 #hat {
 	position: absolute;
-	top: 325px;
-	left:350px;
-	max-width: 100px
-	max-height:100px;
+	top: 90px;
+	left: 250px;
 }
 
 #glasses {
