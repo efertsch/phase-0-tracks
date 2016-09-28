@@ -1,5 +1,11 @@
 
-img.img1 {
-	margin: 100px;
-	position: fixed;
+img.octopus {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 200px;
+	position: center fixed;
+	z-index: 1;
 }
+
+img.octopus
