@@ -1,5 +1,7 @@
 body{
-  width: 960px;
+  /*width: 960px;*/
+  max-width: 960px;
+ 
   
 }
 
@@ -19,7 +21,8 @@ cite {
   position: absolute;
   display: inline-block;
   vertical-align:top;
-  width: 200px;
+  width: 20%;
+  padding-right:10px;
 }
 
 #external-links ul {
@@ -35,7 +38,8 @@ main {
   left: 204px; 
   display:inline-block;
   vertical-align: top;
-  width: 756px;
+  width: 80%;
+  padding-left: 20px;
   
 }
 
