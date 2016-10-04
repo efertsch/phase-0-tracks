@@ -23,5 +23,60 @@ When door opens:
 * Carry on, little robot, carry on. 
 
 
-#Algorithm for Making Morning Coffee
-
+#Algorithm for Making Morning Coffee (Black)
+* Locate coffee pot on countertop:
+    - Ensure coffee pot is clean and empty.
+    - Ensure built-in water unit is clean and empty.
+* Locate and gather remaining items needed to complete task:
+    - Pre-ground coffee beans [to the right of coffee pot]
+    - Coffee filters [in cabinet above stovetop]
+    - Water [can be taken directly from faucet attached to the sink]
+    - Tablespoon measuring device
+* Remove coffee pot from the base platform
+* Determine desired amount of cups of coffee to make:
+    - If 1 person drinking make 2 cups
+    - If 2 people are drinking make 4 cups
+    - If 4 people are drinking make 8 cups
+    - If 6 people are drinking make 12 cups 
+    - Otherwise, make a second pot. 
+* Turn on the faucet.
+* If water is running:
+    -Fill coffee pot with amount of water that corresponds to number of cups desired:
+        - See markings on the outside of the pot.
+* If water amount is equal to the number of cups desired:
+    - Turn off the faucet.
+    - Otherwise, wait for water to fill to correct amount.
+* Lift the lid on the top of the coffee unit:
+    - If lid is open:
+        + pour water into the back of the unit
+    -Leave the lid open.
+* Place the empty pot back onto the base platform from where it was retrieved
+* Removed one coffee filter from packaging.
+* Place the selected coffee filter into the basket that lies beneath the open lid.
+    - Push the filter down so it fits snuggly into the basket and is not folded over
+* Open lid to coffee can
+* Scoop out 2 tablespoons of ground coffee beans per desired cup and pour into the coffee filter described in the previous step.
+* Once number tablespoons is equal to double the amount of desired cups, stop adding coffee.
+* Close the lid of the coffee can. 
+* Place tablespoon into the sink. 
+* Check to see if the hot water dispenser is positioned over the basket, filter, and coffee:
+    - If it is:
+        + Close the lid. 
+    - Otherwise:
+        + Position correctly to ensure water enters properly.
+        + Close the lid.
+* Turn on the coffee pot using the switch located on the base below the pot. 
+    - A green light will appear.
+* Return all items used to original locations. 
+* If coffee is done:
+    - Dripping will end.
+* Otherwise:
+    - coffee is not done.
+* Once coffee is done:
+    - Turn off coffee pot.
+    - Remove a mug from the cabinet above and to the left of the sink.
+    - Set it on the counter. 
+* Remove coffee pot from the base platform - Caution: HOT. 
+* Pour desired amount of coffee into mug.
+* Place coffee pot back onto base platform.
+* Wait for coffee to cool then serve to under-caffienated folks. 
