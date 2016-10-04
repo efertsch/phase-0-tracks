@@ -1,0 +1,23 @@
+
+#Alogorithm for Using an Elevator 
+* Locate the elevator.
+* While elevator door is closed:
+* if desired direction is up, push "up" button.
+* otherwise push the "down" button.
+When door opens:
+* Enter the elevator. 
+* Examine button console in elevator.
+* If number on button is equal to floor number desired:
+    - Push button.
+* If elevator door is open < 10 seconds:
+    - push close button.
+* Otherwise:
+    - Door will close automatically. 
+* Remain in elevator until desired floor is reached:
+    - If floor is reached:
+        + Door will open. 
+    - Otherwise:
+        + Door will remain closed 
+* Once doors have opened:
+    - Exit the elevator. 
+* Carry on, little robot, carry on. 
