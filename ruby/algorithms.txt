@@ -21,3 +21,7 @@ When door opens:
 * Once doors have opened:
     - Exit the elevator. 
 * Carry on, little robot, carry on. 
+
+
+#Algorithm for Making Morning Coffee
+
