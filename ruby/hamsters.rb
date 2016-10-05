@@ -6,19 +6,39 @@ puts "From 1 - 10 (10 being the loudest) What do you consider the volume level o
 hamster_volume = gets.to_i
 	 until hamster_volume >= 1 && hamster_volume <= 10
     puts "Please enter a integer from 1 to 10"
-    hamster_volume = gets.chomp.to_i
+    hamster_volume = gets.to_i
   end
 puts hamster_volume
 	
 	
 puts "What is your hamster's fur color?"
-hamster_color = gets.chomp
+hamster_color = gets.chomp.downcase
+	if hamster_color == "black"
+		puts "#{hamster_name} is black"
+	elsif hamster_color == "brown"
+		puts "#{hamster_name} is brown"
+	elsif hamster_color == "white"
+		puts "#{hamster_name} is white"
+	else
+		puts "#{hamster_name} is a not a standard color"
+	end 
 
 puts "Is your hamster a good candidate for adoption?"
-hamseter_adoption = gets.chomp
+hamster_adoption = gets.chomp.downcase
+	until hamster_adoption == "yes" || hamster_adoption == "no"
+    puts "Please answer yes or no only"
+    hamster_adoption = gets.chomp.downcase
+  end
+	if hamster_adoption == "yes"
+		puts "Great, he'll find a home in no time!"
+	elsif hamster_adoption == "no"
+		puts "Oh, that's too bad!"
+	else
+		puts "Please answer yes or no only"
+	end 
 
 puts "How old is your hamster?"
-hamster_age = gets.chomp
+hamster_age = gets.to_i
   if hamster_age == ""
     hamster_age = nil
   #else 
