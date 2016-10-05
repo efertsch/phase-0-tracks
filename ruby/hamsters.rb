@@ -1,6 +1,6 @@
 puts "What is your hamster's name?"
 hamster_name = gets.chomp 
-puts hamster_name
+# puts hamster_name
 
 puts "From 1 - 10 (10 being the loudest) What do you consider the volume level of your hamster?"
 hamster_volume = gets.to_i
@@ -8,7 +8,7 @@ hamster_volume = gets.to_i
     puts "Please enter a integer from 1 to 10"
     hamster_volume = gets.to_i
   end
-puts hamster_volume
+# puts hamster_volume
 	
 	
 puts "What is your hamster's fur color?"
@@ -38,9 +38,21 @@ hamster_adoption = gets.chomp.downcase
 	end 
 
 puts "How old is your hamster?"
-hamster_age = gets.to_i
+hamster_age = gets.to_f
+until hamster_age >= 0.5 && hamster_age <= 50.0
+    puts "Please enter a valid age in number format"
+    hamster_age = gets.to_f
+  end
   if hamster_age == ""
     hamster_age = nil
-  #else 
-    #puts hamster_age
-  end
+  # else 
+  # 	puts hamster_age
+  end 
+
+  puts #Extra Space 
+
+  puts hamster_name
+  puts hamster_volume
+  puts hamster_color
+  puts hamster_adoption
+  puts hamster_age 
