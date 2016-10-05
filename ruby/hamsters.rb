@@ -1,9 +1,19 @@
 puts "What is your hamster's name?"
 hamster_name = gets.chomp 
+puts hamster_name
+
 puts "From 1 - 10 (10 being the loudest) What do you consider the volume level of your hamster?"
-hamster_volume = gets.chomp
+hamster_volume = gets.to_i
+	 until hamster_volume >= 1 && hamster_volume <= 10
+    puts "Please enter a integer from 1 to 10"
+    hamster_volume = gets.chomp.to_i
+  end
+puts hamster_volume
+	
+	
 puts "What is your hamster's fur color?"
 hamster_color = gets.chomp
+
 puts "Is your hamster a good candidate for adoption?"
 hamseter_adoption = gets.chomp
 
