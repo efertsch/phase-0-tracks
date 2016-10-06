@@ -1,4 +1,108 @@
 /*body {
 	background-color: blue;
 }*/
-/*Test css linkage*/
+/*Test initial css linkage*/
+
+body {
+  background-color:white;
+}
+
+
+header h1{
+  display: block;
+  background-color: blue;
+  border: 1px solid blue;
+  color: white;
+  margin: 0px;
+  padding: 10px;
+}
+
+
+header p {
+  display: block;
+  background-color: grey;
+  font-size:12px;
+  border: 1px solid grey; 
+  margin: 0px;
+  padding: 10px;
+}
+
+
+.column-1 {
+  display: inline-block;
+  vertical-align: text-top;
+  width: 40%;
+  padding: 10px;
+  margin: 10px;
+}
+
+
+.column-1 p {
+  font-size: 12px;
+  font: garamond;
+}
+
+
+.column-2 {
+  display: inline-block;
+  vertical-align: text-top;
+  width: 40%;
+  padding: 10px;
+  margin: 10px;
+}
+
+
+.column-2 {
+  font-size: 12px;
+  font: garamond;
+}
+
+
+.column-2 article {
+  padding-bottom: 25px;
+}
+
+
+article {
+  font-size: 9px;
+}
+
+
+article h2 {
+  font-size: 12px;
+}
+
+
+ul {
+  list-style-type: none;
+  list-style-position: inside;
+  font-size: 9px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+
+summary {
+  font-size:9px;
+  background-color: #8a8b8c;
+  border-bottom:1px solid black;
+  padding: 5px;
+}
+
+
+details p {
+  font-size:9px;
+  background-color:#e8eaed;
+}
+
+
+footer {
+  display: block;
+  margin: 0px;
+  padding: 10px;
+  border: none;
+  background-color: lightcyan;
+}
+
+
