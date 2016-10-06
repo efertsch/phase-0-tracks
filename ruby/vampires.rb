@@ -1,10 +1,8 @@
 puts "Welcome to Our New Employee Vampire Detection Program"
 puts
-number_of_employeees = 0
 puts "How many employees will be processed at this time?"
-employee_number = gets.to_i
-while employee_number > 0
-
+number_of_employees = gets.to_i
+until number_of_employees == 0
 	puts "What is your name?"
 	employee_name = gets.chomp
 		if employee_name == "Drake Cula" || employee_name == "Tu Fang"
@@ -85,9 +83,12 @@ while employee_number > 0
 	else 
 		puts "Result inconclusive."
 	end
-employee_number -= 1
+number_of_employees -= 1
+puts "There are #{number_of_employees} employees left to be processed."
 end 
 puts 
+
+
 
 
 
