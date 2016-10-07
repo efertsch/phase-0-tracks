@@ -86,9 +86,9 @@ until number_of_employees == 0
 	
 #Conditional statements comparing results and returning output based on if employee age is valid
 	if employee_age == true 
-		if employee_garlic_response == true && employee_health == false 
+		if (employee_garlic_response == true  || employee_health == false) && employee_allergies == true 
 			puts "Probably not a vampire."
-		elsif employee_garlic_response == false && employee_health == true  
+		elsif (employee_garlic_response == false || employee_health  == true) && employee_allergies == true
 			puts "Probably not a vampire."
 		elsif employee_name == false 
 			puts "Definitely a vampire." 
@@ -100,11 +100,11 @@ until number_of_employees == 0
 	end 	
 #Conditional statements comparing results and returning output based on if employee age is not valid
 		if employee_age == false 
-			if employee_garlic_response == true && employee_health == false
+			if (employee_garlic_response == true || employee_health == false) && employee_allergies == true 
 			puts "Probably a vampire."
-			elsif employee_garlic_response == false && employee_health == true 
+			elsif (employee_garlic_response == false || employee_health == true) && employee_allergies == true 
 			puts "Probably a vampire."
-			elsif employee_garlic_response == false || employee_health == false
+			elsif (employee_garlic_response == false || employee_health == false) && employee_allergies == true 
 			puts "Almost certainly a vampire." 
 			elsif employee_name == false
 			puts "Definitely a vampire." 
@@ -128,6 +128,11 @@ puts
 #Release 5: Adds final message to program.
 puts "Actually, nevermind! What do these questions have to do with anything? Let's all be friends."
 
+
+#Still to Fix:
+# Issues with names 
+# 'No' repeating itself 
+# Almost certainly a vampire response. 
 
 
 
