@@ -7,14 +7,14 @@ number_of_employees = gets.to_i
 until number_of_employees == 0
 	puts "What is your name?"
 	employee_name = gets.chomp
-		if employee_name == "Drake Cula"
-			employee_name = false
-		elsif employee_name == "Tu Fang"
-			employee_name = false
-		else employee_name = true
-			p employee_name
-		end 
-	
+	if !employee_name == 'Tu Fang' || !employee_name == 'Drake Cula'
+			employee_name = true
+	else 
+		employee_name = false
+			
+	end 
+		
+
 	puts "What is your age?"
 	employee_age = gets.to_i
 	
@@ -25,9 +25,11 @@ until number_of_employees == 0
 		if employee_age == years_old
 			employee_age = true 
 			p employee_age
-			puts "Age and year of birth are consistent."
+			puts
+			puts "Internal Use Only: Age and year of birth are consistent."
 		else 
-			puts "Discrepancy between age and year of birth detected."
+			puts
+			puts "Internal Use Only: Discrepancy between age and year of birth detected."
 			employee_age = false
 			p employee_age
 		end
