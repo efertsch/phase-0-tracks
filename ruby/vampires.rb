@@ -86,7 +86,7 @@ until number_of_employees == 0
 	
 #Conditional statements comparing results and returning output based on if employee age is valid
 	if employee_age == true 
-		if employee_garlic_response == true && employee_health == false   
+		if employee_garlic_response == true && employee_health == false 
 			puts "Probably not a vampire."
 		elsif employee_garlic_response == false && employee_health == true  
 			puts "Probably not a vampire."
