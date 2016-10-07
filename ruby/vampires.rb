@@ -1,5 +1,7 @@
 puts "Welcome to Our New Employee Vampire Detection Program"
+
 puts
+
 puts "How many employees will be processed at this time?"
 number_of_employees = gets.to_i
 until number_of_employees == 0
@@ -69,13 +71,13 @@ until number_of_employees == 0
 	puts "Results of Test:"
 	puts
 	
-	if employee_age == true && (employee_garlic_response || employee_health)
+	if employee_age == true and (employee_garlic_response or employee_health)
 		puts "Probably not a vampire."
 	
-	elsif employee_age == false && (employee_garlic_response || employee_health)
+	elsif employee_age == false and (employee_garlic_response or employee_health)
 		puts "Probably a vampire."
 	
-	elsif employee_age == false && (employee_garlic_response && employee_health)
+	elsif employee_age == false and (employee_garlic_response and employee_health)
 		puts "Almost certainly a vampire."
 	
 	elsif employee_name == false 
@@ -83,11 +85,14 @@ until number_of_employees == 0
 	else 
 		puts "Result inconclusive."
 	end
+
 number_of_employees -= 1
 puts "There are #{number_of_employees} employees left to be processed."
+
 end 
 puts 
 
+puts "Actually, nevermind! What do these questions have to do with anything? Let's all be friends."
 
 
 
