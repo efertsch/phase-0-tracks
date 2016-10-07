@@ -7,9 +7,10 @@ number_of_employees = gets.to_i
 until number_of_employees == 0
 	puts "What is your name?"
 	employee_name = gets.chomp
-		if employee_name == "Drake Cula" || employee_name == "Tu Fang"
+		if employee_name == "Drake Cula"
 			employee_name = false
-			# puts "Definitely a vampire."
+		elsif employee_name == "Tu Fang"
+			employee_name = false
 		else employee_name = true
 			p employee_name
 		end 
@@ -71,40 +72,41 @@ until number_of_employees == 0
 	puts "Results of Test:"
 	puts
 	
-	# if employee_age == true and (employee_garlic_response or employee_health)
-	# 	puts "Probably not a vampire."
-	
-	# elsif employee_age == false and (employee_garlic_response or employee_health)
-	# 	puts "Probably a vampire."
-	
-	# elsif employee_age == false and (employee_garlic_response and employee_health)
-	# 	puts "Almost certainly a vampire."
-	
-	# elsif employee_name == false 
-	# 		puts "Definitely a vampire."
-	# else 
-	# 	puts "Result inconclusive."
-	# end
 
-	case 
-		when employee_age == true && employee_garlic_response || employee_health 
-			puts puts "Probably not a vampire."
-		when employee_age == false && employee_garlic_response || employee_health 
-			puts "Probably a vampire."
-		when employee_age == false && employee_garlic_response  || employee_health 
-			puts "Almost certainly a vampire."
-		when employee_name == false
+	if employee_age == true 
+		if employee_garlic_response == true && employee_health == false
+			puts "Probably not a vampire."
+		elsif employee_garlic_response == false && employee_health == true
+			puts "Probably not a vampire."
+		elsif employee_name == false
 			puts "Definitely a vampire." 
 		else 
 			puts "Result inconclusive."
+		end 
+	end 	
+
+		if employee_age == false 
+			if employee_garlic_response == true && employee_health == false
+			puts "Probably a vampire."
+			elsif employee_garlic_response == false && employee_health == true 
+			puts "Probably a vampire."
+			elsif employee_garlic_response == false || employee_health == false
+			puts "Almost certainly a vampire." 
+			elsif employee_name == false
+			puts "Definitely a vampire." 
+		else 
+			puts "Result inconclusive."
+		end 
 	end
 
-
+puts 
 number_of_employees -= 1
 puts "There are #{number_of_employees} employees left to be processed."
 
+
+
 end 
-puts 
+puts
 
 puts "Actually, nevermind! What do these questions have to do with anything? Let's all be friends."
 
@@ -119,49 +121,5 @@ puts "Actually, nevermind! What do these questions have to do with anything? Let
 
 
 
-
-
-
-
-
-
-# case 
-# 	when employee_age == true && employee_garlic_response == false || employee_health == true 
-# 		puts puts "Probably not a vampire."
-# 	when employee_age == true && employee_garlic_response == true || employee_health == false
-# 		puts "Probably a vampire."
-# 	when employee_age == false && employee_garlic_response == true || employee_health == false
-# 		puts "Almost certainly a vampire."
-# 	when employee_name == false && employee_age == true && employee_garlic_response == true || employee_health == true 
-# 		puts "Definitely a vampire."
-# 	else 
-# 		puts "Result inconclusive."
-# 	end
-
-# puts "Actually, nevermind! What do these questions have to do with anything? Let's all be friends."
-
-
-
-
-
-
-# case employee_age || employee_name
-# 	when employee_age == true && (employee_garlic_response || employee_health)
-# 		puts "Probably not a vampire."
-# 	when employee_age  == false && employee_garlic_response || employee_health
-# 		puts "Probably a vampire."
-# 	when employee_age == false && employee_garlic_response && employee_health 
-# 		puts "Almost certainly a vampire."
-# 	when employee_name == false && (employee_garlic_response && employee_health)
-# 		puts "Definitely a vampire."
-# 	else 
-# 	puts "Result inconclusive."
-# end 
-
-# if employee_name == false
-# 		puts "Definitely a vampire."
-# else 
-# 	puts "Result inconclusive."
-# end 
 
 
