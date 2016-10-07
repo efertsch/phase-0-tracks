@@ -1,13 +1,13 @@
 puts "Welcome to Our New Employee Vampire Detection Program"
 
 puts
-
+#Form for number of employees to be processed
 puts "How many employees will be processed at this time?"
 number_of_employees = gets.to_i
 until number_of_employees == 0
 	puts "What is your name?"
 	employee_name = gets.chomp
-
+#Employee name input, employee name flagged if 'Drake Cula' or 'Tu Fang'
 	if employee_name == 'Drake Cula' || employee_name == 'Tu Fang' #Cannot get this to work
 		employee_name = false  
 		p employee_name
@@ -16,10 +16,10 @@ until number_of_employees == 0
 		p employee_name
 	end 
 		
-
+#Employee age input
 	puts "What is your age?"
 	employee_age = gets.to_i
-	
+#Employee year of birth input, checks to see if age and year of birth match	
 	puts "What is your year of birth?"
 	employee_yob = gets.to_i
 		present_year = 2016
@@ -36,7 +36,7 @@ until number_of_employees == 0
 			p employee_age
 		end
 	
-	
+	#Employee garlic bread input
 	puts "Would you like us to order you some garlic bread from our cafeteria?"
 	employee_garlic_response = gets.chomp
 	until employee_garlic_response == "yes" || employee_garlic_response == "no"
@@ -51,7 +51,7 @@ until number_of_employees == 0
 			p employee_garlic_response
 		end
 	
-	
+	#Employee health insurance input 
 	puts "Would you like to enroll in the company health insurance program?"
 	employee_health = gets.chomp
 	until employee_health == "yes" || employee_health == "no"
@@ -66,6 +66,7 @@ until number_of_employees == 0
 			p employee_health
 		end
 
+	#Employee allergy input, checks for and flags sunshine 	
 	puts "Please list any and all allergies you may have, type 'done' when you have finished."
 	employee_allergies = gets.chomp
 	until employee_allergies == "done" || employee_allergies == "sunshine"
@@ -74,26 +75,20 @@ until number_of_employees == 0
 	end 
 		if employee_allergies == "sunshine"
 			employee_allergies = false
-		else 
-			employee_allergies = true 
+		else
+			employee_allergies = true
 		end 
-
+	p employee_allergies
 	
 	puts
-	
-	# puts employee_name
-	# puts employee_age
-	# puts employee_garlic_response
-	# puts employee_health
-	
 	puts "Results of Test:"
 	puts
 	
-
+#Conditional statements comparing results and returning output based on if employee age is valid
 	if employee_age == true 
-		if employee_garlic_response == true && employee_health == false
+		if employee_garlic_response == true && employee_health == false   
 			puts "Probably not a vampire."
-		elsif employee_garlic_response == false && employee_health == true
+		elsif employee_garlic_response == false && employee_health == true  
 			puts "Probably not a vampire."
 		elsif employee_name == false 
 			puts "Definitely a vampire." 
@@ -103,7 +98,7 @@ until number_of_employees == 0
 			puts "Result inconclusive."
 		end 
 	end 	
-
+#Conditional statements comparing results and returning output based on if employee age is not valid
 		if employee_age == false 
 			if employee_garlic_response == true && employee_health == false
 			puts "Probably a vampire."
@@ -121,14 +116,16 @@ until number_of_employees == 0
 	end
 
 puts 
+#Increments number of employee for until loop
 number_of_employees -= 1
+
 puts "There are #{number_of_employees} employees left to be processed."
 
 
 
 end 
 puts
-
+#Release 5: Adds final message to program.
 puts "Actually, nevermind! What do these questions have to do with anything? Let's all be friends."
 
 
