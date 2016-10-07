@@ -7,11 +7,13 @@ number_of_employees = gets.to_i
 until number_of_employees == 0
 	puts "What is your name?"
 	employee_name = gets.chomp
-	if !employee_name == 'Tu Fang' || !employee_name == 'Drake Cula'
-			employee_name = true
-	else 
-		employee_name = false
-			
+
+	if employee_name == 'Drake Cula' || employee_name == 'Tu Fang' #Cannot get this to work
+		employee_name = false  
+		p employee_name
+	else
+		employee_name = true 
+		p employee_name
 	end 
 		
 
@@ -63,6 +65,19 @@ until number_of_employees == 0
 			employee_health = false
 			p employee_health
 		end
+
+	puts "Please list any and all allergies you may have, type 'done' when you have finished."
+	employee_allergies = gets.chomp
+	until employee_allergies == "done" || employee_allergies == "sunshine"
+		puts "please enter another allergy."	
+		employee_allergies = gets.chomp 
+	end 
+		if employee_allergies == "sunshine"
+			employee_allergies = false
+		else 
+			employee_allergies = true 
+		end 
+
 	
 	puts
 	
@@ -80,8 +95,10 @@ until number_of_employees == 0
 			puts "Probably not a vampire."
 		elsif employee_garlic_response == false && employee_health == true
 			puts "Probably not a vampire."
-		elsif employee_name == false
+		elsif employee_name == false 
 			puts "Definitely a vampire." 
+		elsif employee_allergies == false 
+			puts "Definitely a vampire"
 		else 
 			puts "Result inconclusive."
 		end 
@@ -96,6 +113,8 @@ until number_of_employees == 0
 			puts "Almost certainly a vampire." 
 			elsif employee_name == false
 			puts "Definitely a vampire." 
+			elsif employee_allergies == false 
+			puts "Definitely a vampire"
 		else 
 			puts "Result inconclusive."
 		end 
