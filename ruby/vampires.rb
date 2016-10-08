@@ -15,7 +15,9 @@ until number_of_employees == 0
 puts "What is your name?"
 employee_name = gets.chomp
 
-if employee_name == "DrakeCula" || employee_name == "TuFang" #Cannot get this to work
+if employee_name == "DrakeCula"  #Cannot get this to work
+	employee_name = false 
+elsif employee_name == "TuFang"
 	employee_name = false 
 else
 	employee_name = true 
@@ -95,15 +97,15 @@ puts "Results of Test:"
 puts
 
 
-if (employee_age && employee_garlic_response) || (employee_age && employee_health)  
+if (employee_name && employee_age && employee_garlic_response) || (employee_name && employee_age && employee_health)  
 	puts "Probably not a vampire"
-elsif ( !employee_age && employee_garlic_response)
+elsif employee_name && ( !employee_age && employee_garlic_response)
 	puts "Probably a vampire"
-elsif ( !employee_age && employee_health)
+elsif employee_name && ( !employee_age && employee_health)
 	puts "Probably a vampire"
-elsif !employee_age && !employee_garlic_response && !employee_health
+elsif employee_name && ( !employee_age && !employee_garlic_response && !employee_health)
 	puts "Almost certainly a vampire"
-elsif employee_name == false 
+elsif !employee_name
 	puts "Definitely a vampire"
 else 
 	puts "Result inconclusive"
