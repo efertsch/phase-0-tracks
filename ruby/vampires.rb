@@ -20,7 +20,7 @@ elsif employee_name == "TuFang"
 else
 	employee_name = true 
 end 
-p employee_name 
+# p employee_name 
 	
 	
 		
@@ -35,14 +35,14 @@ employee_yob = gets.to_i
 	years_old = present_year - employee_yob
 	if employee_age == years_old
 		employee_age = true 
-		p employee_age
+		# p employee_age
 		puts
 		puts "Internal Use Only: Age and year of birth are consistent."
 	else 
 		puts
 		puts "Internal Use Only: Discrepancy between age and year of birth detected."
 		employee_age = false
-		p employee_age
+		# p employee_age
 	end
 	puts
 
@@ -55,10 +55,10 @@ until employee_garlic_response == "yes" || employee_garlic_response == "no"
 end
 	if employee_garlic_response == "yes"
 		employee_garlic_response = true
-		p employee_garlic_response
+		# p employee_garlic_response
 	else
 		employee_garlic_response = false
-		p employee_garlic_response
+		# p employee_garlic_response
 	end
 
 #Employee health insurance input 
@@ -70,10 +70,10 @@ until employee_health == "yes" || employee_health == "no"
 end 
 	if employee_health == "yes"
 		employee_health = true
-		p employee_health
+		# p employee_health
 	else
 		employee_health = false
-		p employee_health
+		# p employee_health
 	end
 
 #Employee allergy input, checks for and flags sunshine 	
@@ -88,7 +88,7 @@ end
 	else
 		employee_allergies = true
 	end 
-p employee_allergies
+# p employee_allergies
 
 puts
 puts "Results of Test:"
@@ -109,21 +109,6 @@ else
 	puts "Result inconclusive"
 end 
 
-# if (employee_name && employee_age && employee_garlic_response) || (employee_name && employee_age && employee_health)  
-# 	puts "Probably not a vampire"
-# elsif employee_name && ( !employee_age && employee_garlic_response)
-# 	puts "Probably a vampire"
-# elsif employee_name && ( !employee_age && employee_health)
-# 	puts "Probably a vampire"
-# elsif employee_name && ( !employee_age && !employee_garlic_response && !employee_health)
-# 	puts "Almost certainly a vampire"
-# elsif !employee_name || !employee_allergies
-# 	puts "Definitely a vampire"
-# else 
-# 	puts "Result inconclusive"
-# end 
-
-	
 puts 
 
 #Increments number of employee for use in until loop
@@ -144,8 +129,7 @@ puts "Actually, nevermind! What do these questions have to do with anything? Let
 
 
 
-#Still to Fix:
-#Allergies 
+
 
 
 
