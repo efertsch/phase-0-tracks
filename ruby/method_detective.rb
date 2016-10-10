@@ -4,36 +4,44 @@
 # When there's more than one suspect who could have
 # committed the crime, add additional calls to prove it.
 
-# "iNvEsTiGaTiOn".<???>
+p "iNvEsTiGaTiOn".swapcase
 # => “InVeStIgAtIoN”
 
-# "zom".<???>
+p "zom".insert(2, "o")
 # => “zoom”
 
-# "enhance".<???>
+p "enhance".center(20)
 # => "    enhance    "
 
-# "Stop! You’re under arrest!".<???>
+p "Stop! You’re under arrest!".upcase
 # => "STOP! YOU’RE UNDER ARREST!"
 
-# "the usual".<???>
+p "the usual".concat(" suspects")
+#OR
+p "the usual" << " suspects"
 #=> "the usual suspects"
 
-# " suspects".<???>
+p " suspects".prepend("the usual")
 # => "the usual suspects"
 
-# "The case of the disappearing last letter".<???>
+p "The case of the disappearing last letter".chop
+#OR
+p "The case of the disappearing last letter".slice(0..38)
 # => "The case of the disappearing last lette"
 
-# "The mystery of the missing first letter".<???>
+p "The mystery of the missing first letter".delete("T")
+#OR
+p "The mystery of the missing first letter".slice(1..38)
 # => "he mystery of the missing first letter"
 
-# "Elementary,    my   dear        Watson!".<???>
+p "Elementary,    my   dear        Watson!".squeeze
 # => "Elementary, my dear Watson!"
 
-# "z".<???>
+p "z".ord
 # => 122 
 # (What is the significance of the number 122 in relation to the character z?)
+# Refers to American Standard Code for Information Interchage (ASCII) and is a character encoding standard in which each character is assigned a number from 0 - 127.
+# Spaces between characters also have number values and can be determined using escape sequence: ?/
 
-# "How many times does the letter 'a' appear in this string?".<???>
+p "How many times does the letter 'a' appear in this string?".count("a")
 # => 4
