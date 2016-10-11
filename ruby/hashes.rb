@@ -1,10 +1,10 @@
-# Create Client_Info Empty Hash and add keys set to empty values (strings)
+# Create Client_Info Empty Hash 
 
 Client_Info = {}
 
-
-
 # Add UI to collect client infomation
+# Add user input as key value pairs 
+# Convert user input to appropriate data type
 puts "Hello, and welcome to client services!"
 puts "We look forward to working with you and your space."
 
@@ -16,7 +16,7 @@ Client_Info[:client_name] = client_name
 # p client_name 
 
 puts "Please enter your age:"
-client_age = gets.chomp
+client_age = gets.to_i
 Client_Info[:client_age] = client_age
 # p client_age 
 
@@ -40,10 +40,18 @@ pets = gets.chomp
 Client_Info[:pets] = pets 
 # p pets 
 
+
+# Print hash when client has answered all questions 
+p Client_Info 
+
 puts "Thank you for your entry, now let's design your dream home!"
 
+puts "Is there any information you would like to update?"
+update_info = gets.chomp
 
-#Test for hash functionality with empty strings, boolean, and integer
+
+
+#Test whether successful, functional hash can be written 
 # Client_Info = {
 # 	client_name: "", 
 # 	client_age: 40,
@@ -53,11 +61,10 @@ puts "Thank you for your entry, now let's design your dream home!"
 # 	pets: true
 # }
 
-p Client_Info 
 
 
-# Convert user input to appropriate data type
-# Print hash when client has answered all questions 
+
+
 # Give the user the opportunity to update a key - if "none" skip 
 # If user wishes to make change, ask for new value and update the key
 # Print latest version of the hash 
