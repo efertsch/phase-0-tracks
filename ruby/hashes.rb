@@ -46,15 +46,30 @@ Client_Info[:has_pets] = has_pets
 # p pets 
 
 
+
 # Print hash when client has answered all questions 
 p Client_Info 
+
 
 # Give the user the opportunity to update a key - if "none" skip 
 # If user wishes to make change, ask for new value and update the key
 puts "Is there any information you would like to update?"
-update_info = gets.chomp
+updated_info = gets.chomp
+if updated_info == "none"
+	puts "Thank you for your entry, now let's design your dream home!"
+elsif updated_info == "yes"
+	puts "What piece of information would you like to update?"
+else
+	puts "Please type 'yes' or 'none'"
+end 
 
-puts "Thank you for your entry, now let's design your dream home!"
+
+
+
+
+# puts "Thank you for your entry, now let's design your dream home!"
+
+
 
 #Test whether successful, functional hash can be written 
 # Client_Info = {
