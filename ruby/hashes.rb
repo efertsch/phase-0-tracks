@@ -36,20 +36,25 @@ Client_Info[:unit_type] = unit_type
 # p unit_type 
 
 puts "Do you have any pets? Please answer 'yes' or 'no'"
-pets = gets.chomp
-Client_Info[:pets] = pets 
+has_pets = gets.chomp
+if has_pets == "yes"
+	has_pets = true 
+else 
+	has_pets = false
+end 
+Client_Info[:has_pets] = has_pets 
 # p pets 
 
 
 # Print hash when client has answered all questions 
 p Client_Info 
 
-puts "Thank you for your entry, now let's design your dream home!"
-
+# Give the user the opportunity to update a key - if "none" skip 
+# If user wishes to make change, ask for new value and update the key
 puts "Is there any information you would like to update?"
 update_info = gets.chomp
 
-
+puts "Thank you for your entry, now let's design your dream home!"
 
 #Test whether successful, functional hash can be written 
 # Client_Info = {
@@ -65,8 +70,7 @@ update_info = gets.chomp
 
 
 
-# Give the user the opportunity to update a key - if "none" skip 
-# If user wishes to make change, ask for new value and update the key
+
 # Print latest version of the hash 
 # Exit the program
 
