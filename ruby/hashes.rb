@@ -54,20 +54,67 @@ p Client_Info
 # Give the user the opportunity to update a key - if "none" skip 
 # If user wishes to make change, ask for new value and update the key
 puts "Is there any information you would like to update?"
-updated_info = gets.chomp
-if updated_info == "none"
+user_input = gets.chomp
+if user_input == "none"
 	puts "Thank you for your entry, now let's design your dream home!"
-elsif updated_info == "yes"
+elsif user_input == "yes"
+	puts
 	puts "What piece of information would you like to update?"
+	puts
+	puts "Here are your options:"
+	puts "Your name (type 'name')"
+	puts "Your age (type 'age')"
+	puts "The number of children you have (type 'n_kids')"
+	puts "Your desired deocration theme (type 'theme')"
+	puts "The type of unit you live in (type 'unit')"
+	puts "Whether or not you have pets (type 'pets')"
+	info_to_update = gets.chomp 
 else
 	puts "Please type 'yes' or 'none'"
 end 
 
+	if info_to_update == "name"
+		puts "Please enter your updated name infomation:"
+		updated_info = gets.chomp
+		Client_Info[:client_name] = updated_info 
+	elsif info_to_update == "age"
+		puts "Please enter your updated age infomation:"
+		updated_info = gets.to_i
+		Client_Info[:client_age] = updated_info
+	elsif info_to_update == "n_kids"
+		puts "Please enter your updated children infomation:"
+		updated_info = gets.to_i
+		Client_Info[:number_of_children] = updated_info
+	elsif info_to_update == "theme"
+		puts "Please enter your updated decoration theme infomation:"
+		updated_info = gets.chomp
+		Client_Info[:decor_theme] = updated_info
+	elsif info_to_update == "unit"
+		puts "Please enter your updated unit type infomation:"
+		updated_info = gets.chomp
+		Client_Info[:unit_type] = updated_info
+	elsif info_to_update == "pets"
+		puts "Please enter your updated pet infomation:"
+		updated_info = gets.chomp
+		if updated_info == "yes"
+			updated_info = true 
+		else 
+			updated_info = false
+		end 
+		Client_Info[:has_pets] = updated_info
+	else
+		puts "Thank you for your entry, now let's design your dream home!"
+	end 
+
+# Print latest version of the hash 
 
 
+p Client_Info
 
+# Exit the program
+puts 
+puts "Thank you for your entry, now let's design your dream home!"
 
-# puts "Thank you for your entry, now let's design your dream home!"
 
 
 
@@ -80,12 +127,4 @@ end
 # 	unit_type: "", 
 # 	pets: true
 # }
-
-
-
-
-
-
-# Print latest version of the hash 
-# Exit the program
 
