@@ -2,11 +2,21 @@ def sf_giants
 	puts "Let's go Giants!"
 	yield("Even Year!","Giants never say die!")
 end
+# sf_giants { |chant_1, chant_2| puts "#{chant_1}\n #{chant_2}" }
 
-sf_giants { |chant_1, chant_2| puts "#{chant_1}\n #{chant_2}" }
+
+
 #Make an array
 grocery_list = ["bananas", "chicken", "milk", "cereal"]
 p grocery_list
+
+#Iterate over array with .each 
+
+
+
+#Iterate over array with .map!
+
+
 
 #Make a hash
 car_hash = {
@@ -16,3 +26,5 @@ car_hash = {
 	toyota: "prius"
 }
 p car_hash
+
+#Iterate over hash with .each 
