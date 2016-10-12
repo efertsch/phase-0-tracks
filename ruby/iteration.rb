@@ -8,14 +8,25 @@ end
 
 #Make an array
 grocery_list = ["bananas", "chicken", "milk", "cereal"]
+new_list = []
+
 p grocery_list
+p new_list 
 
 #Iterate over array with .each 
+grocery_list.each do |food_item|
+new_list << food_item.upcase  
+end 
 
-
+p grocery_list
+p new_list
 
 #Iterate over array with .map!
+grocery_list.map! do |food_item|
+food_item.capitalize    
+end 
 
+p grocery_list
 
 
 #Make a hash
