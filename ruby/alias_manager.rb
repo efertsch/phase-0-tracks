@@ -7,3 +7,7 @@
 # Identify consonants and create variable to store consonants in ( split -> array?)
 # Iterate through array and change all consonants to next consonants(using .next on consonants)
 
+def alias_creator(name) 
+	#something
+
+end 
