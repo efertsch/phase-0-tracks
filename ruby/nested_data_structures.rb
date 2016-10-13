@@ -41,6 +41,7 @@ barnyard = {
 	],
 	
 	coop: {
+
 		chickens: {
 			betty: "Lays many eggs",
 			barbara: "Lays some eggs",
@@ -71,22 +72,23 @@ barnyard = {
 
 }
 
-# p barnyard 
 
-# p barnyard[:barn][:stalls][:stall_1][:animal_type]
+#Test Code 
+p barnyard 
 
-# p barnyard[:barn][:stalls][:stall_2][:favorite_foods][1]
+p barnyard[:barn][:stalls][:stall_1][:animal_type]
 
-# p barnyard[:paddock]
-# p barnyard[:paddock].push("manuer pile")
+p barnyard[:barn][:stalls][:stall_2][:favorite_foods][1]
 
-# p barnyard[:coop][:chickens][:betty]
+p barnyard[:paddock]
+p barnyard[:paddock].push("manuer pile")
 
-# p barnyard[:silo]
-# p barnyard[:silo][:storage_space][1] = "farming tools"
-# p barnyard[:silo]
+p barnyard[:coop][:chickens][:betty]
 
-# p barnyard
+p barnyard[:silo]
+p barnyard[:silo][:storage_space][1] = "farming tools"
+p barnyard[:silo]
+
 p barnyard[:coop][:layboxes]
-p barnyard[:coop][:layboxes]
+p barnyard[:coop][:layboxes].keep_if{|lay_box,name_box| lay_box != :blaire_box}
 p barnyard[:coop][:layboxes]
