@@ -48,9 +48,9 @@ barnyard = {
 		},
 
 		layboxes: {
-			betty_box: 1, 
-			barbara_box: 2, 
-			blaire_box: 3, 
+			betty_box: "#1", 
+			barbara_box: "#2", 
+			blaire_box: "#3"
 		},
 
 	},
@@ -71,18 +71,22 @@ barnyard = {
 
 }
 
-p barnyard 
+# p barnyard 
 
-p barnyard[:barn][:stalls][:stall_1][:animal_type]
+# p barnyard[:barn][:stalls][:stall_1][:animal_type]
 
-p barnyard[:barn][:stalls][:stall_2][:favorite_foods][1]
+# p barnyard[:barn][:stalls][:stall_2][:favorite_foods][1]
 
-p barnyard[:paddock]
-p barnyard[:paddock].push("manuer pile")
+# p barnyard[:paddock]
+# p barnyard[:paddock].push("manuer pile")
 
-p barnyard[:coop][:chickens][:betty]
+# p barnyard[:coop][:chickens][:betty]
 
-p barnyard[:silo]
-p barnyard[:silo][:storage_space][1] = "farming tools"
-p barnyard[:silo]
+# p barnyard[:silo]
+# p barnyard[:silo][:storage_space][1] = "farming tools"
+# p barnyard[:silo]
 
+# p barnyard
+p barnyard[:coop][:layboxes]
+p barnyard[:coop][:layboxes]
+p barnyard[:coop][:layboxes]
