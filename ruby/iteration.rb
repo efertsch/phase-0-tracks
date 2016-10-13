@@ -55,11 +55,15 @@ grocery_list = ["bananas", "chicken", "milk", "cereal"]
 # p grocery_list
 
 #Iterate over array and delete items until condition evaulates to false
-p grocery_list
-
-grocery_list.drop_while {|food_item| food_item != "cereal"}
+# p grocery_list
 
 p grocery_list
+
+filtered_list = grocery_list.drop_while { |food_item| food_item != "cereal" }
+
+p filtered_list
+p grocery_list
+
 
 
 
@@ -107,7 +111,7 @@ end
 #Iterate over array and delete items until condition evaulates to false
 p car_hash 
 
-car_hash.drop_while {|car,model| :toyota["prius"]}
+car_hash.reject { |car,model| car < :honda }
 
 p car_hash
 
