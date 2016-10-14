@@ -15,4 +15,16 @@ def alias_creator(name)
 end 
 p alias_creator('Ethan Fertsch')
 
+def next_vowel(letter)
+	vowel = "aeiou"
+	next_vowel = vowel.[index] + 1
+end 
 
+
+#Look at vowel and find current location of vowel
+#Add 1 to current location of vowel to get next location
+# Go to next location to get next vowel_letter
+
+
+p next_vowel('a')
+p next 
