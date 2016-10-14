@@ -11,7 +11,8 @@
 def alias_creator(name) 
 	name_as_array = name.split(' ')
 	reversed_name = name_as_array.sort { | x,y | y <=> x }
-	reversed_name.join(' ')
+	# reversed_name.join(' ')
+	reversed_name.split('')
 end 
 p alias_creator('Ethan Fertsch')
 
