@@ -9,32 +9,10 @@
 
 
 def alias_creator(name) 
-	name_as_array = name.split(" ")
-	reversed_name = name_as_array.sort {|a,b| b <=> a }
-	reversed_name.join(" ")
-	# index = 0
-	# while index < reversed_name.length
-	# 	p reversed_name[index]
-	# 	index+=1
-	# 	reversed_name.each do |letter|
-
-	# 	end 
-	# end 
+	name_as_array = name.split(' ')
+	reversed_name = name_as_array.sort { | x,y | y <=> x }
+	reversed_name.join(' ')
 end 
-
-p alias_creator("Felicia Torres")
-
+p alias_creator('Ethan Fertsch')
 
 
-# def vowel_finder(name)
-# 	vowels = ["a","e","i","o","u"]
-# 	index = 0
-# 	while index < name.length 
-# 		name[index] == vowels[index]
-# 		name[index] << vowels[index]
-# 		index +=1
-# 	end 
-
-# end 
-
-# p vowel_finder("Felicia Torres")
