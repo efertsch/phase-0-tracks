@@ -39,8 +39,8 @@ def fib_calc(term)
 		elsif n == 1
 			base_fib << 1
 		else
-			new_value1 = n - 1 
-			new_value2 = n - 2
+			new_value1 = n / 1
+			new_value2 = 
 			new_fib_val = new_value1 + new_value2
 	  	p new_fib_val
 			base_fib << new_fib_val
@@ -53,3 +53,8 @@ def fib_calc(term)
 end 
 
  p fib_calc(6)
+
+ #Release2
+ 
+
+
