@@ -11,14 +11,12 @@
 def alias_creator(name) 
 	name_as_array = name.split(' ')
 	reversed_name = name_as_array.sort { | x,y | y <=> x }
-	reversed_name.join(' ')
+	swapped_name = reversed_name.map! { |name| name.swapcase.reverse }
+	joined_name = swapped_name.join(' ')
 end 
+
 p alias_creator('Ethan Fertsch')
 
-def next_vowel(letter)
-	vowel = "aeiou"
-	next_vowel = vowel.[index] + 1
-end 
 
 
 #Look at vowel and find current location of vowel
@@ -26,5 +24,5 @@ end
 # Go to next location to get next vowel_letter
 
 
-p next_vowel('a')
-p next 
+# p vowel_finder('a')
+# p vowel_finder('e')
