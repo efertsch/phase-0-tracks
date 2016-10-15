@@ -20,16 +20,16 @@ while real_name != "quit"
 		end 
 	alias_creator(real_name)	
 	fake_name = alias_creator(real_name)
-	puts "Your fake name is #{alias_creator(real_name)}!"
+	p "Your fake name is #{alias_creator(real_name)}!"
 	users_hash[real_name] = fake_name
 	puts "Please enter another name:"
 	real_name = gets.chomp
 end 
 
 p users_hash
-
-
-
+users_hash.each do |real, fake|
+	puts "#{real} is also known as #{fake}, can you believe it?"
+end 
 
 
 #Look at vowel and find current location of vowel
