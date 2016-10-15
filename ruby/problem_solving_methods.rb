@@ -31,21 +31,19 @@ p search_array(our_array, 50)
 # Release 1
 # Write a method that takes a fib term and creates and array 
 def fib_calc(term)
-	#Figure out length of term (in fib terms array)
 	base_fib = [0,1]
-    term.times do |n|
-    	if n < 2
-    	 n 
-    	else 
-     		new_fib_val = base_fib(n-1) + base_fib(n-2)
-     		base_fib << new_fib_val
-     	end 
+	term.times do | n |
+        if n < 2
+            n 
+        else 
+        	n = (n - 1)  + (n - 2)
+        	base_fib << n
+       end 
     end 
-
-	base_fib
+    base_fib
 end 
 
- p fib_calc(6)
+p fib_calc(6)
 
  #Release2
  
