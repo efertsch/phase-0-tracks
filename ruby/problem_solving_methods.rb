@@ -3,7 +3,6 @@ our_array = [11, 15, 100, 50]
 
 def search_array(arr, int)
 	counter = 0
-	result = 0
 	array_length = arr.length
 	while counter < array_length
 		#Iterate through our array 
@@ -18,9 +17,6 @@ def search_array(arr, int)
 			counter += 1	
 		end 		
 	end 
-
-	# counter
-	result
 		#Identify whether integer is within array
 		#Be able to return index value of integer
 end 
@@ -36,16 +32,20 @@ def fib_calc(term)
         if n < 2
             n 
         else 
-        	n = (n - 1)  + (n - 2)
+        	n = base_fib[- 1] + base_fib[- 2]
         	base_fib << n
        end 
     end 
-    base_fib
+    base_fib.last 
 end 
 
-p fib_calc(6)
+p fib_calc(100) == base_fib.last
+
+
 
  #Release2
+
+
  
 
 
