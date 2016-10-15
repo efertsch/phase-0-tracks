@@ -6,22 +6,28 @@
 # Iterate through array and change all vowels to next vowel (using .next on vowel)
 # Identify consonants and create variable to store consonants in ( split -> array?)
 # Iterate through array and change all consonants to next consonants(using .next on consonants)
+users_hash = {}
 
 puts "Please enter your name:"
-user_name = gets.chomp
-while user_name != "quit" 
+real_name = gets.chomp
+real_name.to_sym
+while real_name != "quit" 
 		def alias_creator(name) 
 			name_as_array = name.split(' ')
 			reversed_name = name_as_array.sort { | x,y | y <=> x }
 			swapped_name = reversed_name.map! { |name| name.swapcase.reverse }
 			joined_name = swapped_name.join(' ')
 		end 
-	p user_name 
-	alias_creator(user_name)	
-	puts "Your fake name is #{alias_creator(user_name)}!"
-	puts "Please enter your name:"
-	user_name = gets.chomp
+	alias_creator(real_name)	
+	fake_name = alias_creator(real_name)
+	puts "Your fake name is #{alias_creator(real_name)}!"
+	users_hash[real_name] = fake_name
+	puts "Please enter another name:"
+	real_name = gets.chomp
 end 
+
+p users_hash
+
 
 
 
