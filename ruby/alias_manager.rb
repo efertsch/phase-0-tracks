@@ -7,15 +7,22 @@
 # Identify consonants and create variable to store consonants in ( split -> array?)
 # Iterate through array and change all consonants to next consonants(using .next on consonants)
 
-
-def alias_creator(name) 
-	name_as_array = name.split(' ')
-	reversed_name = name_as_array.sort { | x,y | y <=> x }
-	swapped_name = reversed_name.map! { |name| name.swapcase.reverse }
-	joined_name = swapped_name.join(' ')
+puts "Please enter your name:"
+user_name = gets.chomp
+while user_name != "quit" 
+		def alias_creator(name) 
+			name_as_array = name.split(' ')
+			reversed_name = name_as_array.sort { | x,y | y <=> x }
+			swapped_name = reversed_name.map! { |name| name.swapcase.reverse }
+			joined_name = swapped_name.join(' ')
+		end 
+	p user_name 
+	alias_creator(user_name)	
+	puts "Your fake name is #{alias_creator(user_name)}!"
+	puts "Please enter your name:"
+	user_name = gets.chomp
 end 
 
-p alias_creator('Ethan Fertsch')
 
 
 
