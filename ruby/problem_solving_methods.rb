@@ -39,15 +39,11 @@ def fib_calc(term)
     base_fib.last 
 end 
 
-p fib_calc(100)  
+p fib_calc(100)
+p fib_calc(100) == 218922995834555169026
 
-if fib_calc(100) == 218922995834555169026
-	puts true 
-else 
-	puts false 
-end 
 
- #Release2
+#Release2
 
 
  
