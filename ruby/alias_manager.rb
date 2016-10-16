@@ -7,30 +7,30 @@
 # Identify consonants and create variable to store consonants in ( split -> array?)
 # Iterate through array and change all consonants to next consonants(using .next on consonants)
 
-users_hash = {}
+# users_hash = {}
 
-puts "Please enter your name:"
-real_name = gets.chomp
-real_name.to_sym
-while real_name != "quit" 
-		def alias_creator(name) 
-			name_as_array = name.split(' ')
-			reversed_name = name_as_array.sort { | x,y | y <=> x }
-			swapped_name = reversed_name.map! { |name| name.swapcase.reverse }
-			joined_name = swapped_name.join(' ')
-		end 
-	alias_creator(real_name)	
-	fake_name = alias_creator(real_name)
-	p "Your fake name is #{alias_creator(real_name)}!"
-	users_hash[real_name] = fake_name
-	puts "Please enter another name:"
-	real_name = gets.chomp
-end 
+# puts "Please enter your name:"
+# real_name = gets.chomp
+# real_name.to_sym
+# while real_name != "quit" 
+# 		def alias_creator(name) 
+# 			name_as_array = name.split(' ')
+# 			reversed_name = name_as_array.sort { | x,y | y <=> x }
+# 			swapped_name = reversed_name.map! { |name| name.swapcase.reverse }
+# 			joined_name = swapped_name.join(' ')
+# 		end 
+# 	alias_creator(real_name)	
+# 	fake_name = alias_creator(real_name)
+# 	p "Your fake name is #{alias_creator(real_name)}!"
+# 	users_hash[real_name] = fake_name
+# 	puts "Please enter another name:"
+# 	real_name = gets.chomp
+# end 
 
-p users_hash
-users_hash.each do |real, fake|
-	puts "#{real} is also known as #{fake}, can you believe it?"
-end 
+# p users_hash
+# users_hash.each do |real, fake|
+# 	puts "#{real} is also known as #{fake}, can you believe it?"
+# end 
 
 
 #Look at vowel and find current location of vowel
@@ -38,6 +38,71 @@ end
 # Go to next location to get next vowel_letter
 
 
-# p vowel_finder('a')
-# p vowel_finder('e')
+# Finds index of vowel in vowels string 
+def next_vowel(v_letter)
+	vowels = 'aeiou'
+	index_of_letter = vowels.index(v_letter.downcase)
+	succ_vowel = index_of_letter + 1
+	vowels[succ_vowel]
+end 
+
+# p next_vowel('o')
+# p next_vowel('e')
+
+
+def next_consonant(c_letter)
+	consonants = 'bcdfghjklmnpqrstvwxyz'
+	index_of_c_letter = consonants.index(c_letter.downcase)
+	succ_consonant = index_of_c_letter + 1
+	consonants[succ_consonant]
+end 
+
+# p next_consonant('m')
+# p next_consonant('g')
+
+
+def alias_creator(name) 
+	name_as_array = name.split(' ')
+	reversed_name = name_as_array.sort { | x,y | y <=> x }
+	joined_name = reversed_name.join(' ')
+ 	individual_chars = joined_name.split('')
+	if 'aeiou'.include?(individual_chars)
+		joined_name.map! do |char|
+		next_vowel(char)
+		end 
+	elsif joined_name.include?('bcdfghjklmnpqrstvwxyz')
+		joined_name.map! do |char|
+		next_consonant(char)
+		end 
+	else 
+		nil 
+	end 
+	joined_name
+end  
+
+p alias_creator("Ethan Fertsch") 
+
+# def split_name(real_name)
+# 	split_name = alias_creator.split("")
+# 	if split_name.include?('aeiou')
+# 		reversed_name.map! do |char|
+# 		next_vowel(char)
+# 		end 
+# 	elsif reversed_name.include?('bcdfghjklmnpqrstvwxyz')
+# 		reversed_name.map! do |char|
+# 		next_consonant(char)
+# 		end 
+# 	else 
+# 		nil 
+# 	end 
+# 	reversed_name
+# 	joined_name = reversed_name.join(' ')
+# end 
+
+# p split_name("Ethan Fertsch")	
+
+
+
+
+
 
