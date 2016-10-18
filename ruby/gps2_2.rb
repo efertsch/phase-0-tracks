@@ -38,81 +38,58 @@
 
 
 
-def print_list(hash)
+def display_list(groceries)
 	puts "Here is your grocery list:"
-	hash.each {|item,quantity| puts "#{item} = #{quantity}."}
-	#hash.inspect
+	groceries.each {|item,quantity| puts "#{item} = #{quantity}"}
 end 
 
-
-def list_creator(string)
+def generate_list(groceries)
 	grocery_list = {}
-	string_as_array = string.split(' ')
-	string_as_array.each do |item|
+	groceries_array = groceries.split(' ')
+	groceries_array.each do |item|
 		grocery_list[item] = 1
-		grocery_list
 	end
-print_list(grocery_list)
-grocery_list
+	grocery_list
 end 
 
-grocery_list = {}
-# list_creator('carrots apples cereal pizza')
-
-
-
-def add_item_to_list(item,quantity,list)
+def add_item_to_list(item, quantity, list)
 	list[item] = quantity
 	list 
 end 
 
-
-# puts add_item_to_list("ham", 2, grocery_list)
-# grocery_list
-# add_item_to_list("tuna", 1, grocery_list)
-# puts grocery_list
-
-def delete_item(item,list)
-	list.delete_if{|item, quantity| item == item}
+def delete_item(removed_item, list)
+	list.delete_if{|item, quantity| item == removed_item}
 	list
 end 
 
-
-# puts delete_item("ham", grocery_list)
-
-
 def change_quantity(item,new_quantity,list)
-	list[item] = quantity
+	list[item] = new_quantity
 	list 
 end 
 	
-
-# puts change_quantity("tuna", 4, grocery_list)
-# puts grocery_list
-
-# print_list(grocery_list)
-
-
 #Driver Code 
 
-list_creator('carrots apples cereal pizza')
-
-
+grocery_list = generate_list('carrots apples cereal pizza')
+display_list(grocery_list)
 
 add_item_to_list('Lemonade', 2, grocery_list) 
 add_item_to_list('Tomatoes', 3, grocery_list) 
-add_item_to_list('Onions', 1, grocery_list) 
-add_item_to_list('Ice Cream', 4, grocery_list) 
-
-
+add_item_to_list('Onions', 1, grocery_list)
+add_item_to_list('Ice Cream', 4, grocery_list)
 
 delete_item('Lemonade', grocery_list)
 
+change_quantity('Ice Cream', 1, grocery_list)
+
+display_list(grocery_list)
 
 
 
-
-
-
-
+# What did you learn about pseudocode from working on this challenge?
+	#
+# What are the tradeoffs of using arrays and hashes for this challenge?
+# What does a method return?
+# What kind of things can you pass into methods as arguments?
+# How can you pass information between methods?
+# What concepts were solidified in this challenge, and what concepts are still confusing?
 
