@@ -1,7 +1,7 @@
 #Puppy Class Design
 
 #Species 
-	#Cuticus Pupicus 
+	#Puppy Dog 
 
 #Characteristics 
 	# Lifespan: variable
