@@ -64,7 +64,7 @@ def delete_item(item,list)
 	list.delete_if{|item, quantity| item == item}
 end 
 
-# puts delete_item("ham", grocery_list)
+puts delete_item("ham", grocery_list)
 
 
 def change_quantity(item,new_quantity,list)
@@ -74,8 +74,12 @@ end
 puts change_quantity("tuna", 4, grocery_list)
 puts grocery_list
 
+def print_list(hash)
+	puts "Here is your grocery list:"
+	hash.each {|item,quantity| puts "#{item} = #{quantity}."}
+end 
 
-
+print_list(grocery_list)
 
 
 
