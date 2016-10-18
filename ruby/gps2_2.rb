@@ -36,7 +36,12 @@
 # output:
  # Printed user-friendly key value pairs
 
+grocery_list = {}
 
+def print_list(hash)
+	puts "Here is your grocery list:"
+	hash.each {|item,quantity| puts "#{item} = #{quantity}."}
+end 
 
 
 def list_creator(string)
@@ -46,40 +51,43 @@ def list_creator(string)
 		grocery_list[item] = 1
 	end
 grocery_list 
+print_list(grocery_list)
 end 
 
-# puts list_creator('carrots apples cereal pizza')
+# list_creator('carrots apples cereal pizza')
 
-grocery_list = {}
 
 def add_item_to_list(item,quantity,list)
 	list[item] = quantity
+	print_list(grocery_list)
 end 
 
-puts add_item_to_list("ham", 2, grocery_list)
-puts add_item_to_list("tuna", 1, grocery_list)
-puts grocery_list
+# puts add_item_to_list("ham", 2, grocery_list)
+# puts add_item_to_list("tuna", 1, grocery_list)
+# puts grocery_list
 
 def delete_item(item,list)
 	list.delete_if{|item, quantity| item == item}
+	print_list(grocery_list)
 end 
 
-puts delete_item("ham", grocery_list)
+# puts delete_item("ham", grocery_list)
 
 
 def change_quantity(item,new_quantity,list)
 	list[item] = new_quantity
+	print_list(grocery_list)
 end 
 
-puts change_quantity("tuna", 4, grocery_list)
-puts grocery_list
+# puts change_quantity("tuna", 4, grocery_list)
+# puts grocery_list
 
 def print_list(hash)
 	puts "Here is your grocery list:"
 	hash.each {|item,quantity| puts "#{item} = #{quantity}."}
 end 
 
-print_list(grocery_list)
+# print_list(grocery_list)
 
 
 
