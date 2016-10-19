@@ -16,15 +16,19 @@ class Santa
 	def eat_milk_and_cookies(cookie_type)
 		puts "That was a good #{cookie_type} cookie!"
 		cookie_type
-	end 		
+	end 	
 
 end 
 
 
 #TEST CODE
- 
-santa =  Santa.new
-santa.speak("Ho, ho, ho! Haaaaapy holidays!")
-santa.eat_milk_and_cookies("chocolate chip")
+santas = []
 
+potential_genders = ["transgender", "cisgender", "agender", "gender queer", "prefer not to say"]
+potential_ethnicities = ["white", "black", "hispanic", "asain", "prefer not to say"]
+  
+potential_genders.each do |i|
+	santas << Santa.new(potential_genders, potential_ethnicities)
+end 
 
+puts santas
