@@ -22,6 +22,11 @@ end
 
 
 #TEST CODE
+
+# santa =  Santa.new 
+# santa.speak("Ho, ho, ho! Haaaaapy holidays!")
+# santa.eat_milk_and_cookies("chocolate chip")
+
 santas = []
 
 potential_genders = ["transgender", "cisgender", "agender", "gender queer", "prefer not to say"]
@@ -30,5 +35,6 @@ potential_ethnicities = ["white", "black", "hispanic", "asain", "prefer not to s
 potential_genders.each do |i|
 	santas << Santa.new(potential_genders, potential_ethnicities)
 end 
+
 
 puts santas
