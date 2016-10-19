@@ -77,7 +77,7 @@ end
 
 p rock_array
 
-rock_hash.each do |rock|
+rock_array.each do |rock|
     rock.form
     rock.climb
     rock.crumble
