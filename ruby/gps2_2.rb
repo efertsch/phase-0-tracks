@@ -67,7 +67,6 @@ def change_quantity(item,new_quantity,list)
 	list 
 end 
 	
-#Driver Code 
 
 grocery_list = generate_list('carrots apples cereal pizza')
 display_list(grocery_list)
@@ -86,10 +85,25 @@ display_list(grocery_list)
 
 
 # What did you learn about pseudocode from working on this challenge?
-	#
-# What are the tradeoffs of using arrays and hashes for this challenge?
-# What does a method return?
-# What kind of things can you pass into methods as arguments?
-# How can you pass information between methods?
-# What concepts were solidified in this challenge, and what concepts are still confusing?
+	# This challenge actually provided me with a lot of insight with regards to writing specific and effective pseudocode.
+	# I was able to think through the process much faster using this format and was able to more easily visualize input and output. 
 
+# What are the tradeoffs of using arrays and hashes for this challenge?
+	# Hashes seem to be a bit more flexible in which an array is just a pre-cursor for a more detailed data structure (aka a hash).
+	# Some of the array methods would have been a bit more cut and dry and in my opinion had that been the structure we used.
+
+# What does a method return?
+	#A method returns the value of the last line of code in the method, if you want the most recent or updated version of a parameter or value
+	#You must return the parameter after the method has performed its task. 
+
+# What kind of things can you pass into methods as arguments?
+	#You can pass in different data types (strings, variables, integers) data structures(arrays, hashes), blocks, and even other methods! 
+
+# How can you pass information between methods?
+	# You can pass information between methods by passing in methods to other methods as parameters 
+	#And by storing outputs of methods in variables and passing those to other methods.
+
+# What concepts were solidified in this challenge, and what concepts are still confusing?
+	# I definitely feel more comfortable writing methods and enforcing the separation of concerns whereas before I was a bit hazy. 
+	# I still need some more practice with passing methods to methods in applied challenges (I got hung up for a bit)
+	# I also need to work on not over thinking things so much, I keep getting lost for hours over simple details and it cuts into my time in other challenges. 
