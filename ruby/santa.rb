@@ -36,4 +36,5 @@ potential_genders.each do |i|
 	santas << Santa.new(potential_genders, potential_ethnicities)
 end 
 
+
 puts santas
