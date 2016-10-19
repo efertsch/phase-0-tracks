@@ -23,9 +23,9 @@ end
 
 #TEST CODE
 
-santa =  Santa.new 
-santa.speak("Ho, ho, ho! Haaaaapy holidays!")
-santa.eat_milk_and_cookies("chocolate chip")
+# santa =  Santa.new 
+# santa.speak("Ho, ho, ho! Haaaaapy holidays!")
+# santa.eat_milk_and_cookies("chocolate chip")
 
 santas = []
 
