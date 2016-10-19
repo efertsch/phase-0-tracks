@@ -1,42 +1,3 @@
-# Method to create a list
-# input: string of items separated by spaces (example: "carrots apples cereal pizza")
-# steps:  
-  # Break string up into an array using SPLIT
-  # interate over the array and use EACH
-  # Store split string in variable
-  # Create empty hash 
-  # Access array items and add them to the hash as keys 
-  # set default quantity of keys to 1
-  # print the list to the console [can you use one of your other methods here?]
-# output: [what data type goes here, array or hash?]
-
-# Method to add an item to a list
-# input: item name and optional quantity
-# steps: 
- # Add an item to the hash hash[key] = value
-# output:
- # an updated hash
- # Print list to console
-# Method to remove an item from the list
-# input: Most recent version of hash
-# steps:
- # Remove an item from the list using a built in method
-# output:
- # List with item deleted
-# Method to update the quantity of an item
-# input: Most updated version of our hash
-# steps:
- # Access hash item by key and change value/quantity
-# output:
- 	# Print hash to console making sure its updated with the quantity 
-# Method to print a list and make it look pretty
-# input: Most updated hash
-# steps:
- # at the end write driver code to print the hash to console
-# output:
- # Printed user-friendly key value pairs
-
-
 
 def display_list(groceries)
 	puts "Here is your grocery list:"
@@ -107,3 +68,45 @@ display_list(grocery_list)
 	# I definitely feel more comfortable writing methods and enforcing the separation of concerns whereas before I was a bit hazy. 
 	# I still need some more practice with passing methods to methods in applied challenges (I got hung up for a bit)
 	# I also need to work on not over thinking things so much, I keep getting lost for hours over simple details and it cuts into my time in other challenges. 
+
+
+
+
+# Method to create a list
+# input: string of items separated by spaces (example: "carrots apples cereal pizza")
+# steps:  
+  # Break string up into an array using SPLIT
+  # interate over the array and use EACH
+  # Store split string in variable
+  # Create empty hash 
+  # Access array items and add them to the hash as keys 
+  # set default quantity of keys to 1
+  # print the list to the console [can you use one of your other methods here?]
+# output: [what data type goes here, array or hash?]
+
+# Method to add an item to a list
+# input: item name and optional quantity
+# steps: 
+ # Add an item to the hash hash[key] = value
+# output:
+ # an updated hash
+ # Print list to console
+# Method to remove an item from the list
+# input: Most recent version of hash
+# steps:
+ # Remove an item from the list using a built in method
+# output:
+ # List with item deleted
+# Method to update the quantity of an item
+# input: Most updated version of our hash
+# steps:
+ # Access hash item by key and change value/quantity
+# output:
+ 	# Print hash to console making sure its updated with the quantity 
+# Method to print a list and make it look pretty
+# input: Most updated hash
+# steps:
+ # at the end write driver code to print the hash to console
+# output:
+ # Printed user-friendly key value pairs
+
