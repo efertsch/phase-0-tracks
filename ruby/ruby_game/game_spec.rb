@@ -8,6 +8,6 @@ require_relative 'game'
 describe Word_Game do 
 let(:game) { Word_Game.new }	
 it "initialize a new instance" do
-	expect(game.input_word).to eq game = Word_Game.new(input_word)
+	expect(game.).to eq game = Word_Game.new(input_word)
 end 
 end

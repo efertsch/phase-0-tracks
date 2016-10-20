@@ -1,28 +1,37 @@
 class Word_Game 
 
-	puts "Welcome to my word guessing game!"
-
-	def initialize(input_word)
+	def initialize(input_word1, input_word2)
 		puts "Initializing a new game..."
-		@word = input_word
+		@word1 = input_word1
+		@word2 = input_word2
+		@guess_count = 0
+		@game_over = false
 	end 
 
-	attr_accessor :word
+	attr_accessor :word1, :word2, :guess_count, :game_over
 
 
-	def number_of_guesses()
+	def calc_allowed_guesses()
+		allowed_guesses = @word1.length 
+		if guess_count > allowed_guesses
+			@game_over = true 
+		else 
+			false 
+		end 
+		@guess_count +=1
 	end 
 
 
 end 
  
-#game = Word_Game.new("Unicorn")
 
 
 
+#DRIVER CODE 
 
+puts "Welcome to my word guessing game!"
 
-
+game = Word_Game.new("Unicorn")
 
 
 
