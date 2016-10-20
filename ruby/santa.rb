@@ -37,8 +37,20 @@ class Santa
 
 end 
 
+potential_genders = ["transgender", "cisgender", "agender", "gender queer", "prefer not to say"]
+potential_ethnicities = ["white", "black", "hispanic", "asain", "prefer not to say"]
+  
 
+#make into outside method?
+santa_array = []
+100.times do |each| 
+    santa_array << Santa.new(potential_genders.sample, potential_ethnicities.sample)
+end
 
+santa_array.celebrate = rand(1..140)
+p santa.age
+
+p santa_array
 
 # santa =  Santa.new 
 # santa.speak("Ho, ho, ho! Haaaaapy holidays!")
@@ -56,18 +68,27 @@ end
 # p santas
 
 
-santas = Santa.new("cisgender", "black")
-p santas
+# santas = Santa.new("cisgender", "black")
+# p santas
 
-santas.celebrate_birthday
+# santas.celebrate_birthday
 
-santas.get_mad_at("Rudolph")
+# santas.get_mad_at("Rudolph")
 
-santas.gender = "agender"
+# santas.gender = "agender"
 
-p santas
+# p santas
 
-p santas.age
-p santas.ethnicity
+# p santas.age
+# p santas.ethnicity
 
+# santas = []
 
+# potential_genders = ["transgender", "cisgender", "agender", "gender queer", "prefer not to say"]
+# potential_ethnicities = ["white", "black", "hispanic", "asain", "prefer not to say"]
+  
+# potential_genders.length.times do |i|
+# 	santas << Santa.new(potential_genders[i], potential_ethnicities[i])
+# end 
+
+# p santas
