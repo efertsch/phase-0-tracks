@@ -1,26 +1,14 @@
 class Word_Game 
 
-	def initialize(input_word1, input_word2)
+	def initialize(input_word, input_letter)
 		puts "Initializing a new game..."
-		@word1 = input_word1
-		@word2 = input_word2
+		@word = input_word1
+		@letter = input_word2
 		@guess_count = 0
 		@game_over = false
 	end 
 
-	attr_accessor :word1, :word2, :guess_count, :game_over
-
-
-	def calc_allowed_guesses()
-		allowed_guesses = @word1.length 
-		if guess_count > allowed_guesses
-			@game_over = true 
-		else 
-			false 
-		end 
-		@guess_count +=1
-	end 
-
+	attr_accessor :word, :letter, :guess_count, :game_over
 
 end 
  
@@ -31,7 +19,8 @@ end
 
 puts "Welcome to my word guessing game!"
 
-game = Word_Game.new("Unicorn")
+game = Word_Game.new("Unicorn", "Pickles")
+game.calc_allowed_guesses
 
 
 
@@ -43,13 +32,36 @@ game = Word_Game.new("Unicorn")
 
 #PSEUDOCODE
 # Create a word game class
-# Define class and initialize method within the class that take input as parameters
+# Initialize method within the class that takes input as parameters
 # Assign input to attributes within class
-# Print input/attributes as debugging step
-# Write a method to limit the number of guesses based on the length of the input word 
-# Store guesses in some way
-# Exclude guesses that have been stored and print a repeat message
-# Write a method to provide feedback to the user
+# Work on writing rspec test code and running until condition passes 
+
+# Write a method that prints "_ _ _ _ _" that is equal to the length of the word
+# And can be updated to a letter based on user guess 
+# Work on writing rspec test code and running until condition passes 
+
+# Write a method to check if the letter guessed is in the word, if it is display the letter in the correct position in the hangman 
+# The player moves to next turn  
+# If it is not the player moves to next turn
+# If the guess has already occurred, the player does not lose a turn
+# Work on writing rspec test code and running until condition is met
+
+# Write driver code to loop through the game 
+# While the game is not over, prompt the user for a letter and store the input
+# Compare the stored input to the word they are guessing 
+# If letter is in the word print an encouraging message and ask for another letter, move to next turn
+# If the letter is not in the word print a discouraging message and move to next turn
+# If letter has already been guessed print out a message saying so nothing happens 
+# Do this until the user runs out of turns or guesses the word
+# If the user runs out of turns, harass them
+# If the user gets the word congratulate them.
+
+
+
+
+
+
+
 # The method should match the length of the word and to a string of underscores (hangman style)
 # If the guess input is equal to a character in the input word, replace the underscore at that position with the guessed character
 # print out the underscore string to the user 
