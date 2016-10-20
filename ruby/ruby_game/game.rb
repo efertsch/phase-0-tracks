@@ -1,14 +1,19 @@
-class Word_Game 
+class WordGame 
+	attr_accessor :word, :letter, :guess_count, :game_over
 
-	def initialize(input_word, input_letter)
-		puts "Initializing a new game..."
-		@word = input_word1
-		@letter = input_word2
-		@guess_count = 0
+	def initialize(input_word)
+		@word = input_word
+		@guess_count = @word.length
 		@game_over = false
+		puts "Initializing a new game..."
 	end 
 
-	attr_accessor :word, :letter, :guess_count, :game_over
+	def print_blanks
+		length_of_word =  @word.length
+		length_of_word.times do |x|
+			print "_ "
+		end 
+	end 
 
 end 
  
@@ -19,9 +24,9 @@ end
 
 puts "Welcome to my word guessing game!"
 
-game = Word_Game.new("Unicorn", "Pickles")
-game.calc_allowed_guesses
+game = WordGame.new("Pickles")
 
+game.print_blanks
 
 
 
