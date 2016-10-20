@@ -37,6 +37,9 @@ class Santa
 
 end 
 
+
+
+
 potential_genders = ["transgender", "cisgender", "agender", "gender queer", "prefer not to say"]
 potential_ethnicities = ["white", "black", "hispanic", "asain", "prefer not to say"]
  
@@ -44,53 +47,14 @@ santas = []
 
 100.times do |santa| 
     santas << Santa.new(potential_genders.sample, potential_ethnicities.sample)
-    santas.each do |santa|
-    	santa.age = rand(1..140)
-    end 
+    santas[santa].age = rand(0..140)
 end
 
 p santas
 
 
-# p santa_array
-
-# santa =  Santa.new 
-# santa.speak("Ho, ho, ho! Haaaaapy holidays!")
-# santa.eat_milk_and_cookies("chocolate chip")
-
-# santas = []
-
-# potential_genders = ["transgender", "cisgender", "agender", "gender queer", "prefer not to say"]
-# potential_ethnicities = ["white", "black", "hispanic", "asain", "prefer not to say"]
-  
-# potential_genders.length.times do |i|
-# 	santas << Santa.new(potential_genders[i], potential_ethnicities[i])
-# end 
-
-# p santas
 
 
-# santas = Santa.new("cisgender", "black")
-# p santas
 
-# santas.celebrate_birthday
 
-# santas.get_mad_at("Rudolph")
 
-# santas.gender = "agender"
-
-# p santas
-
-# p santas.age
-# p santas.ethnicity
-
-# santas = []
-
-# potential_genders = ["transgender", "cisgender", "agender", "gender queer", "prefer not to say"]
-# potential_ethnicities = ["white", "black", "hispanic", "asain", "prefer not to say"]
-  
-# potential_genders.length.times do |i|
-# 	santas << Santa.new(potential_genders[i], potential_ethnicities[i])
-# end 
-
-# p santas
