@@ -8,6 +8,9 @@ class Santa
 		@age = 0
 	end 
 
+	attr_reader :ethnicity
+	attr_accessor :age, :gender, :reindeer
+
 	def speak(santa_greeting)
 		puts santa_greeting
 		santa_greeting
@@ -18,23 +21,40 @@ class Santa
 		cookie_type
 	end 	
 
+
+	def celebrate_birthday
+		@age = age + 1
+	end
+
+	def get_mad_at(reindeer_name)
+		n = @reindeer.find_index(reindeer_name)
+		@reindeer.insert(8, @reindeer.delete_at(n))
+	end
+
+	def gender=(new_gender)
+		@gender = new_gender
+	end 
+
 end 
 
 
-#TEST CODE
 
-# santa =  Santa.new 
-# santa.speak("Ho, ho, ho! Haaaaapy holidays!")
-# santa.eat_milk_and_cookies("chocolate chip")
-
-santas = []
 
 potential_genders = ["transgender", "cisgender", "agender", "gender queer", "prefer not to say"]
 potential_ethnicities = ["white", "black", "hispanic", "asain", "prefer not to say"]
-  
-potential_genders.each do |i|
-	santas << Santa.new(potential_genders, potential_ethnicities)
-end 
+ 
+santas = []
+
+100.times do |santa| 
+    santas << Santa.new(potential_genders.sample, potential_ethnicities.sample)
+    santas[santa].age = rand(0..140)
+end
+
+p santas
 
 
-puts santas
+
+
+
+
+
