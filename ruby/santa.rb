@@ -8,6 +8,9 @@ class Santa
 		@age = 0
 	end 
 
+	attr_reader :ethnicity
+	attr_accessor :age, :gender, :reindeer
+
 	def speak(santa_greeting)
 		puts santa_greeting
 		santa_greeting
@@ -32,48 +35,39 @@ class Santa
 		@gender = new_gender
 	end 
 
-	def age
-		@age
-	end 
-
-	def ethnicity
-		@ethnicity
-	end 
-
-
 end 
 
 
 
 
-santa =  Santa.new 
-santa.speak("Ho, ho, ho! Haaaaapy holidays!")
-santa.eat_milk_and_cookies("chocolate chip")
+# santa =  Santa.new 
+# santa.speak("Ho, ho, ho! Haaaaapy holidays!")
+# santa.eat_milk_and_cookies("chocolate chip")
 
-santas = []
+# santas = []
 
-potential_genders = ["transgender", "cisgender", "agender", "gender queer", "prefer not to say"]
-potential_ethnicities = ["white", "black", "hispanic", "asain", "prefer not to say"]
+# potential_genders = ["transgender", "cisgender", "agender", "gender queer", "prefer not to say"]
+# potential_ethnicities = ["white", "black", "hispanic", "asain", "prefer not to say"]
   
-potential_genders.length.times do |i|
-	santas << Santa.new(potential_genders[i], potential_ethnicities[i])
-end 
+# potential_genders.length.times do |i|
+# 	santas << Santa.new(potential_genders[i], potential_ethnicities[i])
+# end 
 
+# p santas
 
-p santas
 
 santas = Santa.new("cisgender", "black")
 p santas
 
-p santas.celebrate_birthday
-p santas 
+santas.celebrate_birthday
 
 santas.get_mad_at("Rudolph")
-p santas
 
 santas.gender = "agender"
+
 p santas
 
 p santas.age
 p santas.ethnicity
+
 
