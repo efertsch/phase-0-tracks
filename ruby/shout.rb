@@ -7,5 +7,7 @@ module Shout
     end
 end
 
+
+
 puts Shout.yell_angrily("I am frustrated")
 puts Shout.yell_happily("I am ecstatic")
