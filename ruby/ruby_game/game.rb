@@ -1,17 +1,22 @@
+class Word_Game 
+
+	puts "Welcome to my word guessing game!"
+
+	def initialize(input_word)
+		puts "Initializing a new game..."
+		@word = input_word
+	end 
+
+	attr_accessor :word
 
 
+	def number_of_guesses()
+	end 
 
 
-
-
-
-
-
-
-
-
-
-
+end 
+ 
+#game = Word_Game.new("Unicorn")
 
 
 
