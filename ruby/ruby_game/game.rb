@@ -1,35 +1,53 @@
 class WordGame 
-	attr_accessor :word, :letter, :guess_count, :game_over
+	attr_accessor :word, :guess_count, :game_over
 
 	def initialize(input_word)
 		@word = input_word
-		@guess_count = @word.length
+		@guess_count = 0
 		@game_over = false
 		puts "Initializing a new game..."
 	end 
 
+	def guess_counter
+		@guess_count += 1
+	end  
+	
 	def print_blanks
-		length_of_word =  @word.length
-		length_of_word.times do |x|
-			print "_ "
-		end 
+		length_of_word = @word.length
+		dash = "_ " 
+		dashes = dash * length_of_word
+			print dashes
 	end 
 
 	def check_letter(char)
-		guess_count +=1
+		guess_counter
 		if @word.include? char 
-			puts "#{char} is in the word you're guessing!" 
-			location_of_char = @word.index(char)
-			@print_blank.insert(location_of_char) 
-
+			puts "The letter '#{char}' is in the word you're guessing!" 
+			print_blanks
+			check_letter = true
+		else 
+			puts "The letter '#{char}' is not in the word you are guessing!"
+			print_blanks
+			check_letter = false 
 		end 
 	end 
-
-
+	
+	def insert_letter(char)	
+		if check_letter == true 
+			insert_location = @word[check_letter]
+			print_blanks.insert(char[insert_location])
+		else
+			print_blanks
+		end 
+	end 
+	
+	
+	
 end 
+
+
+
  
-
-
 
 #DRIVER CODE 
 
@@ -37,9 +55,7 @@ puts "Welcome to my word guessing game!"
 
 game = WordGame.new("Pickles")
 
-game.print_blanks
-
-game.check_letter 
+game.check_letter("o") 
 
 
 
