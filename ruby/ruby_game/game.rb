@@ -1,9 +1,10 @@
 class WordGame 
-	attr_accessor :word, :guess_count, :game_over, :letter_guesses
+	attr_accessor :word, :guess_count, :game_over, :letter_guesses, :dashes
 
-	def initialize(input_word)
-		@word = input_word
+	def initialize(word)
+		@word = word
 		@letter_guesses = []
+		@dashes = "_ " * @word.length
 		@guess_count = 0
 		@game_over = false
 
@@ -21,11 +22,9 @@ class WordGame
 	# 	end 
 	# end  
 	
-	def print_blanks
-		length_of_word = @word.length
-		dash = "_ " 
-		dashes = dash * length_of_word
-			print dashes
+	def print_blanks(letter)
+		@dashes.sub!('_', letter)
+		@dashes
 	end 
 
 	def check_letter(letter_guess)
@@ -36,22 +35,22 @@ class WordGame
 		end  
 	end 
 	
-	def insert_letter
+	def insert_letter(letter)
 		if check_letter == true 
-			insert_location = @word.rindex(char)
-			p insert_location
-			print_blanks.insert(insert_location, print_blanks.delete_at(insert_location))
-		else
-			print_blanks
-		end
-		print_blanks
-	end
+			letter_location = @word[letter] # => returns int
+			print_blanks[letter] << letter
+		end 
+	end 
+
+
+
 
 	def game_over
+		@guess_count += 1
 		if @guess_count > @word.length
 			@game_over == true 
-		# elsif 
-		# 	@game_over == true
+		elsif @letter_guesses.join('') == word
+			@game_over == true 
 		else 
 			@game_over
 		end 
@@ -70,26 +69,25 @@ word = gets.chomp.downcase
 
 puts "Player 1 has chosen their word."
 
-puts "The word chosen by Player 1 is #{word.length} letters long. "
+puts "The word chosen by Player 1 is #{word.length} letters long.\n"
 
 game = WordGame.new(word)
 
-while !game.game_over
-	puts "Please enter a letter"
+
+until game.game_over
+	puts "\nPlease enter a letter:"
 	letter_guess = gets.chomp.downcase
-	@letter_guesses.push(letter_guess)
+	game.letter_guesses << letter_guess
 	if game.check_letter(letter_guess) == true 
-		puts "The letter '#{letter_guess}'is in the word!"
-		p @letter_guess
-		# print_blanks
-		guess_count += 1
-	# elsif letter_guess == guesses_stored
-	# 	puts "You already guessed the letter '#{letter_guess}'!"
-	# 	print_blanks
+		puts "The letter'#{letter_guess}'is in the word!\n"
+		p game.letter_guesses
+		p game.print_blanks(letter_guess)
+	elsif game.letter_guesses.include? letter_guess
+		puts "You already guessed the letter '#{letter_guess}'!\n"
+		p game.letter_guesses
 	else
-		puts "Sorry,'#{letter_guess}' isn't in the word!"
-		# print_blanks
-		guess_count += 1
+		puts "Sorry,'#{letter_guess}' isn't in the word!\n"
+		p game.letter_guesses
 	end 
 end 
 
