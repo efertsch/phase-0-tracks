@@ -10,6 +10,13 @@ class WordGame
 
 	def guess_counter
 		@guess_count += 1
+		if guess_counter > @word.length
+			@game_over = true 
+		elsif # How do we find out if the words are equal
+			@game_over = true
+		else 
+			@game_over
+		end 
 	end  
 	
 	def print_blanks
@@ -21,41 +28,49 @@ class WordGame
 
 	def check_letter(char)
 		guess_counter
-		if @word.include? char 
-			puts "The letter '#{char}' is in the word you're guessing!" 
-			print_blanks
+		if @word.include? char  
 			check_letter = true
 		else 
-			puts "The letter '#{char}' is not in the word you are guessing!"
-			print_blanks
 			check_letter = false 
-		end 
+		end  
 	end 
 	
-	def insert_letter(char)	
+	def insert_letter
 		if check_letter == true 
-			insert_location = @word[check_letter]
-			print_blanks.insert(char[insert_location])
+			insert_location = @word.rindex(char)
+			p insert_location
+			print_blanks.insert(insert_location, print_blanks.delete_at(insert_location))
 		else
 			print_blanks
+		end
+		print_blanks
+	end
+
+	def is_game_over
+		if guess_counter > @word.length
+			@game_over = true 
+		elsif 
+			@game_over = true
+		else 
+			@game_over
 		end 
 	end 
-	
-	
-	
+		
 end 
 
 
 
- 
-
-#DRIVER CODE 
-
 puts "Welcome to my word guessing game!"
 
-game = WordGame.new("Pickles")
+game = WordGame.new("dog")
 
-game.check_letter("o") 
+# game.guess_counter
+
+game.print_blanks 
+
+game.check_letter("d")
+
+
 
 
 
