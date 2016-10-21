@@ -15,6 +15,17 @@ class WordGame
 		end 
 	end 
 
+	def check_letter(char)
+		guess_count +=1
+		if @word.include? char 
+			puts "#{char} is in the word you're guessing!" 
+			location_of_char = @word.index(char)
+			@print_blank.insert(location_of_char) 
+
+		end 
+	end 
+
+
 end 
  
 
@@ -28,6 +39,7 @@ game = WordGame.new("Pickles")
 
 game.print_blanks
 
+game.check_letter 
 
 
 
