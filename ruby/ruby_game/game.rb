@@ -1,23 +1,25 @@
 class WordGame 
-	attr_accessor :word, :guess_count, :game_over
+	attr_accessor :word, :guess_count, :game_over, :letter_guesses
 
 	def initialize(input_word)
 		@word = input_word
+		@letter_guesses = []
 		@guess_count = 0
 		@game_over = false
+
 		puts "Initializing a new game..."
 	end 
 
-	def guess_counter
-		@guess_count += 1
-		if guess_counter > @word.length
-			@game_over = true 
-		elsif # How do we find out if the words are equal
-			@game_over = true
-		else 
-			@game_over
-		end 
-	end  
+	# def guess_counter
+	# 	@guess_count += 1
+	# 	if guess_counter > @word.length
+	# 		@game_over == true 
+	# 	# elsif # How do we find out if the words are equal
+	# 	# 	@game_over == true
+	# 	else 
+	# 		@game_over
+	# 	end 
+	# end  
 	
 	def print_blanks
 		length_of_word = @word.length
@@ -26,9 +28,8 @@ class WordGame
 			print dashes
 	end 
 
-	def check_letter(char)
-		guess_counter
-		if @word.include? char  
+	def check_letter(letter_guess)
+		if @word.include? letter_guess  
 			check_letter = true
 		else 
 			check_letter = false 
@@ -46,11 +47,11 @@ class WordGame
 		print_blanks
 	end
 
-	def is_game_over
-		if guess_counter > @word.length
-			@game_over = true 
-		elsif 
-			@game_over = true
+	def game_over
+		if @guess_count > @word.length
+			@game_over == true 
+		# elsif 
+		# 	@game_over == true
 		else 
 			@game_over
 		end 
@@ -60,19 +61,37 @@ end
 
 
 
+#USER INTERFACE 
+
 puts "Welcome to my word guessing game!"
 
-game = WordGame.new("dog")
+puts "Please enter a word for Player 2 to guess"
+word = gets.chomp.downcase
 
-# game.guess_counter
+puts "Player 1 has chosen their word."
 
-game.print_blanks 
+puts "The word chosen by Player 1 is #{word.length} letters long. "
 
-game.check_letter("d")
+game = WordGame.new(word)
 
-
-
-
+while !game.game_over
+	puts "Please enter a letter"
+	letter_guess = gets.chomp.downcase
+	@letter_guesses.push(letter_guess)
+	if game.check_letter(letter_guess) == true 
+		puts "The letter '#{letter_guess}'is in the word!"
+		p @letter_guess
+		# print_blanks
+		guess_count += 1
+	# elsif letter_guess == guesses_stored
+	# 	puts "You already guessed the letter '#{letter_guess}'!"
+	# 	print_blanks
+	else
+		puts "Sorry,'#{letter_guess}' isn't in the word!"
+		# print_blanks
+		guess_count += 1
+	end 
+end 
 
 
 
