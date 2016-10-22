@@ -9,20 +9,10 @@ class WordGame
 		@game_over = false
 
 		puts "Initializing a new game..."
-	end 
-
-	# def guess_counter
-	# 	@guess_count += 1
-	# 	if guess_counter > @word.length
-	# 		@game_over == true 
-	# 	# elsif # How do we find out if the words are equal
-	# 	# 	@game_over == true
-	# 	else 
-	# 		@game_over
-	# 	end 
-	# end  
+	end  
 	
 	def print_blanks(letter)
+		@word[letter] 
 		@dashes.sub!('_', letter)
 		@dashes
 	end 
@@ -42,9 +32,6 @@ class WordGame
 		end 
 	end 
 
-
-
-
 	def game_over
 		@guess_count += 1
 		if @guess_count > @word.length
@@ -55,7 +42,7 @@ class WordGame
 			@game_over
 		end 
 	end 
-		
+
 end 
 
 
@@ -77,20 +64,22 @@ game = WordGame.new(word)
 until game.game_over
 	puts "\nPlease enter a letter:"
 	letter_guess = gets.chomp.downcase
-	game.letter_guesses << letter_guess
-	if game.check_letter(letter_guess) == true 
+
+	if game.check_letter(letter_guess) 
+		game.letter_guesses << letter_guess
 		puts "The letter'#{letter_guess}'is in the word!\n"
 		p game.letter_guesses
 		p game.print_blanks(letter_guess)
-	elsif game.letter_guesses.include? letter_guess
-		puts "You already guessed the letter '#{letter_guess}'!\n"
-		p game.letter_guesses
-	else
+	elsif !game.check_letter(letter_guess) 
+		game.letter_guesses << letter_guess
 		puts "Sorry,'#{letter_guess}' isn't in the word!\n"
 		p game.letter_guesses
+	else
+		puts "You already guessed the letter '#{letter_guess}'!\n"
+		p game.letter_guesses
 	end 
-end 
 
+end 
 
 
 
