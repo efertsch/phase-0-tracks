@@ -5,7 +5,6 @@ class WordGame
 	def initialize(word)
 		@word = word
 		@letter_guesses = []
-		@final_word_guess = ""
 		@dashes = "_ " 
 		@guess_count = 0
 		@game_over = false 
