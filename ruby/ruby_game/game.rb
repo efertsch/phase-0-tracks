@@ -1,13 +1,13 @@
 class WordGame 
-	attr_accessor :word, :guess_count, :letter_guesses, :dashes, :final_word_guess
+	attr_accessor :word, :guess_count, :letter_guesses, :dashes
 	attr_reader :game_over
 
 	def initialize(word)
 		@word = word
-		@letter_guesses = []
-		@dashes = "_ " 
+		@letter_guesses = [] 
+		@dashes = "_" 
 		@guess_count = 0
-		@game_over = false 
+		@game_over
 		puts "Initializing a new game..."
 	end  
 	
@@ -21,25 +21,19 @@ class WordGame
 	end 
 
 	def create_dashes(word)
-		@dashes.each do |dash|
-			dash * word.length
-		end 
+		@dashes = dashes * word.length
 	end 
 
 	def insert_letter(word, letter)
-	 index_of_letter = @word.index(letter)
-	 index_of_dash = index_of_letter 
-	 @dashes[index_of_dash] = letter
-	 @dashes
+		index_of_letter = @word.index(letter)
+	  index_of_dash = index_of_letter 
+	  @dashes[index_of_dash] = letter
+	  @dashes
 	end
-
-	def guess_counter
-		@guess_count += 1
-	end 
 
 
 	def is_game_over
-		@game_over 
+		@game_over = true 
 	end 
 
 end 
@@ -55,10 +49,11 @@ word = gets.chomp.downcase
 
 game = WordGame.new(word)
 
+
 puts "Player 1 has chosen their word."
 
-puts "The word chosen by Player 1 is #{word.length} letters long.\n"
-
+puts "The word chosen by Player 1 is #{game.word.length} letters long.\n"
+print game.create_dashes(game.word)
 
 until game.game_over
 	puts "\nPlease enter a letter:"
@@ -67,26 +62,27 @@ until game.game_over
 	if game.check_letter(letter_guess) 
 		game.letter_guesses << letter_guess
 		puts "The letter'#{letter_guess}'is in the word!\n"
-		p game.letter_guesses
-		p game.insert_letter(game.word,letter_guess) 
+		puts "The letters you have guessed are: #{game.letter_guesses}"
+		puts game.insert_letter(game.word,letter_guess) 
 	elsif !game.check_letter(letter_guess) 
 		game.letter_guesses << letter_guess
 		puts "Sorry,'#{letter_guess}' isn't in the word!\n"
-		p game.letter_guesses 
+		puts "The letters you have guessed are: #{game.letter_guesses}"  
 	else
 		puts "You already guessed the letter '#{letter_guess}'!\n"
-		p game.letter_guesses
+		puts "The letters you have guessed are: #{game.letter_guesses}" 
 	end
-		game.guess_counter 
-		if game.insert_letter(game.word,letter_guess) == game.word
-			puts "WINNER WINNER CHICKEN DINNER!"
-			break
-		elsif game.guess_counter > game.word.length + 1
-			puts "You lose!"
-			break
-		end 
+	game.guess_count +=1 
+	if game.dashes == game.word
+		game.game_over
+		puts "WINNER WINNER CHICKEN DINNER!"
+		break
+	elsif game.guess_count >= game.word.length 
+		game.game_over
+		puts "You lose!"
+		break
+	end 
 end 
-
 
 
 
