@@ -59,29 +59,36 @@ until game.game_over
 	puts "\nPlease enter a letter:"
 	letter_guess = gets.chomp.downcase
 
-	if game.check_letter(letter_guess) 
+	if (game.check_letter(letter_guess)) && (game.letter_guesses.include?(letter_guess))
+		puts "You already guessed the letter '#{letter_guess}'!\n"
+		puts "The letters you have guessed are: #{game.letter_guesses}"
+
+	elsif game.check_letter(letter_guess) 
 		game.letter_guesses << letter_guess
 		puts "The letter'#{letter_guess}'is in the word!\n"
 		puts "The letters you have guessed are: #{game.letter_guesses}"
 		puts game.insert_letter(game.word,letter_guess) 
+		game.guess_count +=1
 	elsif !game.check_letter(letter_guess) 
 		game.letter_guesses << letter_guess
 		puts "Sorry,'#{letter_guess}' isn't in the word!\n"
-		puts "The letters you have guessed are: #{game.letter_guesses}"  
-	else
-		puts "You already guessed the letter '#{letter_guess}'!\n"
 		puts "The letters you have guessed are: #{game.letter_guesses}" 
+		game.guess_count +=1
 	end
-	game.guess_count +=1 
+
+
+
+	# game.guess_count +=1 
 	if game.dashes == game.word
 		game.game_over
 		puts "WINNER WINNER CHICKEN DINNER!"
 		break
 	elsif game.guess_count >= game.word.length 
 		game.game_over
-		puts "You lose!"
+		puts "You lose! Better luck next time, sucker!"
 		break
 	end 
+
 end 
 
 
