@@ -16,4 +16,11 @@ var StringReverser = function(string) {
 	 return ReversedString;
 }
 
-console.log(StringReverser("hello"));
+StringToReverse = StringReverser("bacon");
+// console.log(StringToReverse);
+
+var IsHungry = true 
+
+if (IsHungry) {
+	console.log(StringToReverse);
+}
