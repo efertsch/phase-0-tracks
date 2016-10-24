@@ -11,7 +11,6 @@ class WordGame
 		puts "Initializing a new game..."
 	end  
 	
-
 	def check_letter(letter_guess)
 		if @word.include? letter_guess  
 			check_letter = true
@@ -38,13 +37,11 @@ class WordGame
 
 end 
 
-
-
 #USER INTERFACE 
 
-puts "Welcome to my word guessing game!"
+puts "Let's play hangman!\n"
 
-puts "Please enter a word for Player 2 to guess"
+puts "Please enter a word for Player 2 to guess\n"
 word = gets.chomp.downcase
 
 game = WordGame.new(word)
@@ -55,14 +52,13 @@ puts "Player 1 has chosen their word."
 puts "The word chosen by Player 1 is #{game.word.length} letters long.\n"
 print game.create_dashes(game.word)
 
-until game.game_over
+loop do
 	puts "\nPlease enter a letter:"
 	letter_guess = gets.chomp.downcase
 
-	if (game.check_letter(letter_guess)) && (game.letter_guesses.include?(letter_guess))
+	if game.letter_guesses.include?(letter_guess)
 		puts "You already guessed the letter '#{letter_guess}'!\n"
 		puts "The letters you have guessed are: #{game.letter_guesses}"
-
 	elsif game.check_letter(letter_guess) 
 		game.letter_guesses << letter_guess
 		puts "The letter'#{letter_guess}'is in the word!\n"
@@ -76,9 +72,6 @@ until game.game_over
 		game.guess_count +=1
 	end
 
-
-
-	# game.guess_count +=1 
 	if game.dashes == game.word
 		game.game_over
 		puts "WINNER WINNER CHICKEN DINNER!"
@@ -93,12 +86,6 @@ end
 
 
 
-
-
-
-
-
-
 #PSEUDOCODE
 # Create a word game class
 # Initialize method within the class that takes input as parameters
@@ -110,8 +97,8 @@ end
 # Work on writing rspec test code and running until condition passes 
 
 # Write a method to check if the letter guessed is in the word, if it is display the letter in the correct position in the hangman 
-# The player moves to next turn  
-# If it is not the player moves to next turn
+# The player moves to next turn / loses a turn 
+# If it is not the player moves to next turn / loses a turn
 # If the guess has already occurred, the player does not lose a turn
 # Work on writing rspec test code and running until condition is met
 
