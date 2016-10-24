@@ -1,13 +1,11 @@
 class WordGame 
 	attr_accessor :word, :guess_count, :letter_guesses, :dashes
-	attr_reader :game_over
 
 	def initialize(word)
 		@word = word
 		@letter_guesses = [] 
 		@dashes = "_" 
 		@guess_count = 0
-		@game_over
 		puts "Initializing a new game..."
 	end  
 	
@@ -30,11 +28,6 @@ class WordGame
 	  @dashes
 	end
 
-
-	def is_game_over
-		@game_over = true 
-	end 
-
 end 
 
 #USER INTERFACE 
@@ -47,6 +40,7 @@ word = gets.chomp.downcase
 game = WordGame.new(word)
 
 
+
 puts "Player 1 has chosen their word."
 
 puts "The word chosen by Player 1 is #{game.word.length} letters long.\n"
@@ -55,6 +49,11 @@ print game.create_dashes(game.word)
 loop do
 	puts "\nPlease enter a letter:"
 	letter_guess = gets.chomp.downcase
+		# if letter_guess.length > 1
+		# 	puts "Please enter one letter at a time"
+		# elsif letter_guess.is_a? Integer == true 
+		# 	puts "This game accepts letter values"
+		# end 
 
 	if game.letter_guesses.include?(letter_guess)
 		puts "You already guessed the letter '#{letter_guess}'!\n"
@@ -73,11 +72,9 @@ loop do
 	end
 
 	if game.dashes == game.word
-		game.game_over
 		puts "WINNER WINNER CHICKEN DINNER!"
 		break
 	elsif game.guess_count >= game.word.length 
-		game.game_over
 		puts "You lose! Better luck next time, sucker!"
 		break
 	end 
@@ -96,10 +93,8 @@ end
 # And can be updated to a letter based on user guess 
 # Work on writing rspec test code and running until condition passes 
 
-# Write a method to check if the letter guessed is in the word, if it is display the letter in the correct position in the hangman 
-# The player moves to next turn / loses a turn 
-# If it is not the player moves to next turn / loses a turn
-# If the guess has already occurred, the player does not lose a turn
+# Write a method to check if the letter guessed is in the word
+# If it is display the letter in the correct position in the hangman 
 # Work on writing rspec test code and running until condition is met
 
 # Write driver code to loop through the game 
@@ -112,13 +107,7 @@ end
 # If the user runs out of turns, harass them
 # If the user gets the word congratulate them.
 
-
-
-
-
-
-
-# The method should match the length of the word and to a string of underscores (hangman style)
-# If the guess input is equal to a character in the input word, replace the underscore at that position with the guessed character
-# print out the underscore string to the user 
-# If the user wins print “Winner Winner Chicken Dinner! Play again” otherwise, print “Better luck next time sucker!”
+#OTHER CONSIDERATIONS:
+# Account for numbers as input
+# Account for mulitple letters as input i.e "yy" (letter.length conditional?)
+# Account for nothing ("") as input 
