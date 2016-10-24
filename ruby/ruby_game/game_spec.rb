@@ -1,13 +1,22 @@
-#Rspec Template 
-# “describe block for each group of tests’
-	#’it’ block for each individual test
-		#expect (<YOUR CODE>).to eq <RESULT>
+
 
 require_relative 'game'
 
-describe Word_Game do
- 	let(:game) { Word_Game.new	
-	it "initialize a new instance" do
-	expect(game.).to eq game = Word_Game.new(input_word)
+describe WordGame do
+let (:game) {WordGame.new("pickle")}
+
+	it "checks if letter is in a word" do
+		expect(game.check_letter("i")).to eq true 
 	end 
-end
+
+	it "creates dashes based on word length" do
+		expect(game.create_dashes("pickle")).to eq "______"
+	end
+
+	it "replaces hangman underscore with letter" do
+		game.create_dashes("pickle")
+		expect(game.insert_letter("pickle", "k")).to eq "___k__"
+	end 
+end 
+
+

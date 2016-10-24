@@ -1,16 +1,13 @@
 class WordGame 
 	attr_accessor :word, :guess_count, :letter_guesses, :dashes
-	attr_reader :game_over
 
 	def initialize(word)
 		@word = word
 		@letter_guesses = [] 
 		@dashes = "_" 
 		@guess_count = 0
-		@game_over
 		puts "Initializing a new game..."
 	end  
-	
 
 	def check_letter(letter_guess)
 		if @word.include? letter_guess  
@@ -25,68 +22,60 @@ class WordGame
 	end 
 
 	def insert_letter(word, letter)
-		index_of_letter = @word.index(letter)
-	  index_of_dash = index_of_letter 
-	  @dashes[index_of_dash] = letter
-	  @dashes
+			@word.count(letter) == 1
+			index_of_letter = @word.index(letter)
+	  	index_of_dash = index_of_letter 
+	  	@dashes[index_of_dash] = letter
+	  	@dashes
 	end
-
-
-	def is_game_over
-		@game_over = true 
-	end 
-
 end 
-
-
 
 #USER INTERFACE 
 
-puts "Welcome to my word guessing game!"
+puts "Let's play hangman!\n"
 
-puts "Please enter a word for Player 2 to guess"
+puts "Player 1, please enter a word for Player 2 to guess:\n"
 word = gets.chomp.downcase
 
 game = WordGame.new(word)
 
-
 puts "Player 1 has chosen their word."
 
-puts "The word chosen by Player 1 is #{game.word.length} letters long.\n"
+puts "Hint: The word chosen by Player 1 is #{game.word.length} letters long.\n"
 print game.create_dashes(game.word)
 
-until game.game_over
+loop do
 	puts "\nPlease enter a letter:"
 	letter_guess = gets.chomp.downcase
 
-	if game.check_letter(letter_guess) 
+	if game.letter_guesses.include?(letter_guess) 
+		puts "You already guessed the letter '#{letter_guess}'."
+		puts "The letters you have guessed are: #{game.letter_guesses}"
+		puts game.insert_letter(game.word,letter_guess)
+	elsif game.check_letter(letter_guess) 
 		game.letter_guesses << letter_guess
 		puts "The letter'#{letter_guess}'is in the word!\n"
 		puts "The letters you have guessed are: #{game.letter_guesses}"
-		puts game.insert_letter(game.word,letter_guess) 
+		puts game.insert_letter(game.word,letter_guess)
+		game.guess_count +=1
+
 	elsif !game.check_letter(letter_guess) 
 		game.letter_guesses << letter_guess
 		puts "Sorry,'#{letter_guess}' isn't in the word!\n"
-		puts "The letters you have guessed are: #{game.letter_guesses}"  
-	else
-		puts "You already guessed the letter '#{letter_guess}'!\n"
 		puts "The letters you have guessed are: #{game.letter_guesses}" 
+		game.guess_count +=1
 	end
-	game.guess_count +=1 
+
 	if game.dashes == game.word
-		game.game_over
 		puts "WINNER WINNER CHICKEN DINNER!"
 		break
+
 	elsif game.guess_count >= game.word.length 
-		game.game_over
-		puts "You lose!"
+		puts "You lose! Better luck next time, sucker!"
 		break
 	end 
+
 end 
-
-
-
-
 
 
 
@@ -102,10 +91,8 @@ end
 # And can be updated to a letter based on user guess 
 # Work on writing rspec test code and running until condition passes 
 
-# Write a method to check if the letter guessed is in the word, if it is display the letter in the correct position in the hangman 
-# The player moves to next turn  
-# If it is not the player moves to next turn
-# If the guess has already occurred, the player does not lose a turn
+# Write a method to check if the letter guessed is in the word
+# If it is display the letter in the correct position in the hangman 
 # Work on writing rspec test code and running until condition is met
 
 # Write driver code to loop through the game 
@@ -118,13 +105,8 @@ end
 # If the user runs out of turns, harass them
 # If the user gets the word congratulate them.
 
-
-
-
-
-
-
-# The method should match the length of the word and to a string of underscores (hangman style)
-# If the guess input is equal to a character in the input word, replace the underscore at that position with the guessed character
-# print out the underscore string to the user 
-# If the user wins print “Winner Winner Chicken Dinner! Play again” otherwise, print “Better luck next time sucker!”
+#OTHER CONSIDERATIONS:
+# Accout for words with duplicate letters 
+# Account for numbers as input
+# Account for mulitple letters as input i.e "yy" (letter.length conditional?)
+# Account for nothing ("") as input 
