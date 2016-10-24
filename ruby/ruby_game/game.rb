@@ -22,21 +22,12 @@ class WordGame
 	end 
 
 	def insert_letter(word, letter)
-		if @word.count(letter) == 1
+			@word.count(letter) == 1
 			index_of_letter = @word.index(letter)
 	  	index_of_dash = index_of_letter 
 	  	@dashes[index_of_dash] = letter
 	  	@dashes
-	  elsif @word.count(letter) > 1
-	  	index_of_letter = @word.index(letter)
-	  	index_of_dash = index_of_letter 
-	  	@dashes.remove(@dashes[index_of_dash])
-	  	@dashes
-			@dashes.insert(index_of_dash,letter) 
-			# @dashes.tr!(@dashes[index_of_letter],letter) 
-	  end 
 	end
-
 end 
 
 #USER INTERFACE 
@@ -115,6 +106,7 @@ end
 # If the user gets the word congratulate them.
 
 #OTHER CONSIDERATIONS:
+# Accout for words with duplicate letters 
 # Account for numbers as input
 # Account for mulitple letters as input i.e "yy" (letter.length conditional?)
 # Account for nothing ("") as input 
