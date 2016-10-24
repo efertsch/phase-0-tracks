@@ -8,7 +8,7 @@ class WordGame
 		@guess_count = 0
 		puts "Initializing a new game..."
 	end  
-	
+
 	def check_letter(letter_guess)
 		if @word.include? letter_guess  
 			check_letter = true
@@ -22,10 +22,19 @@ class WordGame
 	end 
 
 	def insert_letter(word, letter)
-		index_of_letter = @word.index(letter)
-	  index_of_dash = index_of_letter 
-	  @dashes[index_of_dash] = letter
-	  @dashes
+		if @word.count(letter) == 1
+			index_of_letter = @word.index(letter)
+	  	index_of_dash = index_of_letter 
+	  	@dashes[index_of_dash] = letter
+	  	@dashes
+	  elsif @word.count(letter) > 1
+	  	index_of_letter = @word.index(letter)
+	  	index_of_dash = index_of_letter 
+	  	@dashes.remove(@dashes[index_of_dash])
+	  	@dashes
+			@dashes.insert(index_of_dash,letter) 
+			# @dashes.tr!(@dashes[index_of_letter],letter) 
+	  end 
 	end
 
 end 
@@ -34,36 +43,31 @@ end
 
 puts "Let's play hangman!\n"
 
-puts "Please enter a word for Player 2 to guess\n"
+puts "Player 1, please enter a word for Player 2 to guess:\n"
 word = gets.chomp.downcase
 
 game = WordGame.new(word)
 
-
-
 puts "Player 1 has chosen their word."
 
-puts "The word chosen by Player 1 is #{game.word.length} letters long.\n"
+puts "Hint: The word chosen by Player 1 is #{game.word.length} letters long.\n"
 print game.create_dashes(game.word)
 
 loop do
 	puts "\nPlease enter a letter:"
 	letter_guess = gets.chomp.downcase
-		# if letter_guess.length > 1
-		# 	puts "Please enter one letter at a time"
-		# elsif letter_guess.is_a? Integer == true 
-		# 	puts "This game accepts letter values"
-		# end 
 
-	if game.letter_guesses.include?(letter_guess)
-		puts "You already guessed the letter '#{letter_guess}'!\n"
+	if game.letter_guesses.include?(letter_guess) 
+		puts "You already guessed the letter '#{letter_guess}'."
 		puts "The letters you have guessed are: #{game.letter_guesses}"
+		puts game.insert_letter(game.word,letter_guess)
 	elsif game.check_letter(letter_guess) 
 		game.letter_guesses << letter_guess
 		puts "The letter'#{letter_guess}'is in the word!\n"
 		puts "The letters you have guessed are: #{game.letter_guesses}"
-		puts game.insert_letter(game.word,letter_guess) 
+		puts game.insert_letter(game.word,letter_guess)
 		game.guess_count +=1
+
 	elsif !game.check_letter(letter_guess) 
 		game.letter_guesses << letter_guess
 		puts "Sorry,'#{letter_guess}' isn't in the word!\n"
@@ -74,12 +78,15 @@ loop do
 	if game.dashes == game.word
 		puts "WINNER WINNER CHICKEN DINNER!"
 		break
+
 	elsif game.guess_count >= game.word.length 
 		puts "You lose! Better luck next time, sucker!"
 		break
 	end 
 
 end 
+
+
 
 
 
