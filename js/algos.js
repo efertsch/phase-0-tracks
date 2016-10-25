@@ -15,3 +15,23 @@
 // Call the method using multiple arrays to test 
 
 
+
+// var LengthFinder = function(array) {
+// 	var longestWord = array[0];
+// 	for (var i = 0; i <= array.length; i++) {
+// 		stringLength = array[i].length;
+// 		if (stringLength > longestWord.length) {
+// 			var longestWord = array[i];
+// 			console.log(longestWord);
+// 		}
+		
+// 	}
+// };
+
+// var testArray = ["long phrase","longest phrase","longer phrase"];
+// LengthFinder(testArray);
+
+
+
+
+
