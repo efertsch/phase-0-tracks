@@ -1,6 +1,6 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: Ethan].
+# I worked on this challenge [by myself, with: Christian].
 # We spent [2] hours on this challenge.
 
 # EXPLANATION OF require_relative
@@ -19,6 +19,7 @@ class VirusPredictor
 
   # Method for accessing private methods and information within
   # Returns nil
+
   # def virus_effects
   #   predicted_deaths
   #   speed_of_spread
@@ -111,3 +112,16 @@ end
 #=======================================================================
 # Reflection Section
 
+# The differences between the hashes in the state data file are that the state data variable is constant
+# parent hash that uses strings in the form of state names as keys and a hash rocket to signify values (the second hash type). 
+# The second hash type uses symbol notation
+
+# Require relative allows access and linkages to files in the same directory by file name
+# Whereas require allows access and linkages to any file using the full path
+
+# Hashes can be iterated through using .each, or .each_pair methods. 
+
+# The variables contained redundant use of instance variables as parameters, which could be eliminated to make code more DRY.
+
+# The language was solidified for me more during this challenge. 
+# I got a much better sense of connection between terms and concepts involving classes because my pair was super knowledgeable!
