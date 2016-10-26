@@ -17,19 +17,24 @@
 
  
 var LengthFinder = function(array) {
-	var longestWord = array[0];
-	for (var i = 0; i <= array.length; i++) {
-		stringLength = array[i].length;
-		if (stringLength > longestWord.length) {
-			var longestWord = array[i];
-			console.log(longestWord);
+	var longestWordLength = 0;
+	var longestWord = "";
+	for (var i = 0; i < array.length; i++) {
+		if (array[i].length > longestWordLength) {
+			longestWordLength = array[i].length;
+			longestWord = array[i];
 		}
-		
 	}
+	console.log(longestWord);
 };
 
 var testArray = ["long phrase","longest phrase","longer phrase"];
+var testArray2 = ["toad", "volcano", "everglade", "bibliography"];
 LengthFinder(testArray);
+LengthFinder(testArray2);
+
+
+
 
 // Release 1: PSEUDOCODE
 // Write a function that accepts two objects as a parameter
