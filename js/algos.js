@@ -1,37 +1,36 @@
-var LengthFinder = function(array) {
-	var longestWordLength = 0;
-	var longestWord = "";
-	for (var i = 0; i < array.length; i++) {
-		if (array[i].length > longestWordLength) {
-			longestWordLength = array[i].length;
-			longestWord = array[i];
-		}
-	}
-	console.log(longestWord);
-};
+// var LengthFinder = function(array) {
+// 	var longestWordLength = 0;
+// 	var longestWord = "";
+// 	for (var i = 0; i < array.length; i++) {
+// 		if (array[i].length > longestWordLength) {
+// 			longestWordLength = array[i].length;
+// 			longestWord = array[i];
+// 		}
+// 	}
+// 	console.log(longestWord);
+// };
 
 
 var matchKeyValuePairs = function(object1, object2) {
 	for (var key in object1) {
-		var object1Keys = object1[key];
-		var object2Keys = object2[key];
-		// console.log(object1Keys);
-		// console.log(object2Keys);
-		do
-			return true;
-		while (object1Keys === object2Keys);
-}
+		if (object1.hasOwnProperty(key) !== object2.hasOwnProperty(key)) {
+			return false;
+		}
+		else {
+			return false;
+		}
+		
+	}
 }
 
-var generateRandString = function(number) {
-		number.times; 
-		var letters = "abcdefghijklmnopqrstuvwxyz";
-		var lettersLength = letters.length
-		var result = "";
-		var stringArray = [];
+var letters = "abcdefghijklmnopqrstuvwxyz";
+var lettersLength = letters.length;
+var result = "";
+var stringArray = [];
+var generateRandString = function() { 
 		for (var i = 0; i < lettersLength; i++) {
 			var randString = Math.random() * letters.length;
-			result += letters.substr(randString, 10);
+			result += letters.substr(randString);
 			stringArray.push(result);
 		}
 
@@ -40,17 +39,17 @@ var generateRandString = function(number) {
 
 
 
-var testArray = ["long phrase","longest phrase","longer phrase"];
-var testArray2 = ["toad", "volcano", "everglade", "bibliography"];
-LengthFinder(testArray);
-LengthFinder(testArray2);
+// var testArray = ["long phrase","longest phrase","longer phrase"];
+// var testArray2 = ["toad", "volcano", "everglade", "bibliography"];
+// LengthFinder(testArray);
+// LengthFinder(testArray2);
 
-var Man1 = {name: "Steven", age: 54};
-var Man2 = {name: "Tamir", age: 54};
+// var Man1 = {name: "Steven", age: 54};
+// var Man2 = {name: "Tamir", age: 54};
 
-matchKeyValuePairs(Man1, Man2);
+// matchKeyValuePairs(Man1, Man2);
 
-generateRandString(3);
+generateRandString();
 
 
 
