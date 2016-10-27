@@ -14,28 +14,36 @@
 var matchKeyValuePairs = function(object1, object2) {
 	for (var key in object1) {
 		if (object1.hasOwnProperty(key) !== object2.hasOwnProperty(key)) {
-			return false;
+			console.log(false);
 		}
 		else {
-			return false;
+			console.log(true);
 		}
-		
 	}
-}
-
-var letters = "abcdefghijklmnopqrstuvwxyz";
-var lettersLength = letters.length;
-var result = "";
-var stringArray = [];
-var generateRandString = function() { 
-		for (var i = 0; i < lettersLength; i++) {
-			var randString = Math.random() * letters.length;
-			result += letters.substr(randString);
-			stringArray.push(result);
+	for (var key in object2) {
+		if (object2.hasOwnProperty(key) !== object1.hasOwnProperty(key)) {
+			console.log(false);
 		}
-
-	return stringArray;
+		else {
+			console.log(true);
+		}
+	}	
+	
 }
+
+// var letters = "abcdefghijklmnopqrstuvwxyz";
+// var lettersLength = letters.length;
+// var result = "";
+// var stringArray = [];
+// var generateRandString = function() { 
+// 		for (var i = 0; i < lettersLength; i++) {
+// 			var randString = Math.random() * letters.length;
+// 			result += letters.substr(randString);
+// 			stringArray.push(result);
+// 		}
+
+// 	return stringArray;
+// }
 
 
 
@@ -44,12 +52,12 @@ var generateRandString = function() {
 // LengthFinder(testArray);
 // LengthFinder(testArray2);
 
-// var Man1 = {name: "Steven", age: 54};
-// var Man2 = {name: "Tamir", age: 54};
+var Man1 = {name: "Steven", age: 53};
+var Man2 = {name: "Tamir", age: 54};
 
-// matchKeyValuePairs(Man1, Man2);
+matchKeyValuePairs(Man1, Man2);
 
-generateRandString();
+// generateRandString();
 
 
 
