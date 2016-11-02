@@ -40,15 +40,18 @@ Your desired decorative theme is: #{client_theme}.\n"
 
 p client_information
 
-puts "Would you like to update any information?"
+puts "Do you have any information you would like to update?"
 user_answer = gets.chomp
-if user_answer == 'yes'
-	puts "What field would you like to update?"
-	field_update = gets.to_sym
-	puts "Please enter the new value for that field:"
-	value_update = gets.chomp
-	client_information[field_update] = value_update
-elsif user_anser == 'none'
+if user_answer == 'none'
+	puts "Okay, let's build your dream home!"
+elsif user_answer == 'yes'
+	puts "Please choose a field to update:"
+	field_to_update = gets.chomp
+	:field_to_update
+	if client_information.key? == :field_to_update
+
+	p client_information.keys
+
 end 
 
 p client_information
