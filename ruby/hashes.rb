@@ -40,6 +40,19 @@ Your desired decorative theme is: #{client_theme}.\n"
 
 p client_information
 
+puts "Would you like to update any information?"
+user_answer = gets.chomp
+if user_answer == 'yes'
+	puts "What field would you like to update?"
+	field_update = gets.to_sym
+	puts "Please enter the new value for that field:"
+	value_update = gets.chomp
+	client_information[field_update] = value_update
+elsif user_anser == 'none'
+end 
+
+p client_information
+
 
 
 
