@@ -1,132 +1,95 @@
-# Create Client_Info Empty Hash 
+client_information = {}
 
-Client_Info = {}
+puts "Please provide your first name:"
+client_first_name = gets.chomp.capitalize
+client_information[:first_name] = client_first_name 
 
-# Add UI to collect client infomation
-# Add user input as key value pairs 
-# Convert user input to appropriate data type
-puts "Hello, and welcome to client services!"
-puts "We look forward to working with you and your space."
+puts "Please provide your last name:"
+client_last_name = gets.chomp.capitalize
+client_information[:last_name] = client_last_name 
 
-puts 
-
-puts "Please provide your full name:"
-client_name = gets.chomp.downcase 
-Client_Info[:client_name] = client_name
-# p client_name 
-
-puts "Please enter your age:"
+puts "Please provide your age:"
 client_age = gets.to_i
-Client_Info[:client_age] = client_age
-# p client_age 
+client_information[:age] = client_age 
 
 puts "How many children do you have?"
-number_of_children = gets.to_i
-Client_Info[:number_of_children] = number_of_children
-# p number_of_children
+client_children = gets.to_i
+client_information[:children] = client_children 
 
-puts "What is your desired Decor Theme?"
-decor_theme = gets.chomp.downcase
-Client_Info[:decor_theme] = decor_theme
-# p decor_theme
-
-puts "What type of unit do you currently reside in?"
-unit_type = gets.chomp.downcase
-Client_Info[:unit_type] = unit_type
-# p unit_type 
-
-puts "Do you have any pets? Please answer 'yes' or 'no'"
-has_pets = gets.chomp.downcase
-if has_pets == "yes"
-	has_pets = true 
+puts "Do you have pets?:"
+client_pets = gets.chomp.downcase
+if client_pets == 'yes'
+	client_pets = true 
 else 
-	has_pets = false
+	client_pets = false 
 end 
-Client_Info[:has_pets] = has_pets 
-# p pets 
+client_information[:has_pets] = client_pets 
+
+puts "Please choose a theme:"
+client_theme = gets.chomp.downcase
+client_information[:theme] = client_theme
 
 
+puts "\nLet's review your information:\n
+Your name is: #{client_first_name} #{client_last_name}. 
+You are: #{client_age} years old. 
+You have: #{client_children} children.
+You have pets: #{client_pets}.
+Your desired decorative theme is: #{client_theme}.\n"
 
-# Print hash when client has answered all questions 
-p Client_Info 
 
+p client_information
 
-# Give the user the opportunity to update a key - if "none" skip 
-# If user wishes to make change, ask for new value and update the key
-puts "Is there any information you would like to update?"
-user_input = gets.chomp.downcase
-if user_input == "none"
-	puts "Thank you for your entry, now let's design your dream home!"
-elsif user_input == "yes"
-	puts
-	puts "What piece of information would you like to update?"
-	puts
-	puts "Here are your options:"
-	puts "Your name (type 'name')"
-	puts "Your age (type 'age')"
-	puts "The number of children you have (type 'n_kids')"
-	puts "Your desired deocration theme (type 'theme')"
-	puts "The type of unit you live in (type 'unit')"
-	puts "Whether or not you have pets (type 'pets')"
-	info_to_update = gets.chomp.downcase 
-else
-	puts "Please type 'yes' or 'none'"
+puts "Do you have any information you would like to update?"
+user_answer = gets.chomp
+if user_answer == 'none'
+	puts "Okay, let's build your dream home!"
+elsif user_answer == 'yes'
+	puts "Please choose a field to update:"
+	field_to_update = gets.chomp
+	:field_to_update
+	if client_information.key? == :field_to_update
+
+	p client_information.keys
+
 end 
 
-	if info_to_update == "name"
-		puts "Please enter your updated name infomation:"
-		updated_info = gets.chomp.downcase
-		Client_Info[:client_name] = updated_info 
-	elsif info_to_update == "age"
-		puts "Please enter your updated age infomation:"
-		updated_info = gets.to_i
-		Client_Info[:client_age] = updated_info
-	elsif info_to_update == "n_kids"
-		puts "Please enter your updated children infomation:"
-		updated_info = gets.to_i
-		Client_Info[:number_of_children] = updated_info
-	elsif info_to_update == "theme"
-		puts "Please enter your updated decoration theme infomation:"
-		updated_info = gets.chomp.downcase
-		Client_Info[:decor_theme] = updated_info
-	elsif info_to_update == "unit"
-		puts "Please enter your updated unit type infomation:"
-		updated_info = gets.chomp.downcase
-		Client_Info[:unit_type] = updated_info
-	elsif info_to_update == "pets"
-		puts "Please enter your updated pet infomation:"
-		updated_info = gets.chomp.downcase
-		if updated_info == "yes"
-			updated_info = true 
-		else 
-			updated_info = false
-		end 
-		Client_Info[:has_pets] = updated_info
-	else
-		puts "Thank you for your entry, now let's design your dream home!"
-	end 
-
-# Print latest version of the hash 
-
-puts "Here is your updated information:"
-puts 
-p Client_Info
-
-# Exit the program
-puts 
-puts "Thank you for your entry, now let's design your dream home!"
+p client_information
 
 
 
 
-#Test whether successful, functional hash can be written 
-# Client_Info = {
-# 	client_name: "", 
-# 	client_age: 40,
-# 	number_of_children: "",
-# 	decor_theme: "",
-# 	unit_type: "", 
-# 	pets: true
-# }
-# p Client_Info
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# PSEUDOCODE
+# Create an empty hash 
+# Add UI to prompt for details about a given client
+# Store the input in a variable
+# Assign the variable to a key in the hash
+# Add the client information to the hash 
+# Print the hash to the screen once the user has answered all questions
+# Provide the user the opporunity to update a key 
+# IF the user answer is "none", skip that section
+# ELSE update the key to the new value 
+# Print the new hash and exit the program 
