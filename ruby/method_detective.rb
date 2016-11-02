@@ -7,41 +7,41 @@
 p "iNvEsTiGaTiOn".swapcase
 # => “InVeStIgAtIoN”
 
-p "zom".insert(2, "o")
+p "zom".insert(0,3)
 # => “zoom”
 
-p "enhance".center(20)
+p "enhance".center
 # => "    enhance    "
 
 p "Stop! You’re under arrest!".upcase
 # => "STOP! YOU’RE UNDER ARREST!"
 
-p "the usual".concat(" suspects")
+p "the usual".append(" suspects")
 #OR
-p "the usual" << " suspects"
+p "the usual" << ("suspects")
 #=> "the usual suspects"
 
-p " suspects".prepend("the usual")
+p " suspects"
 # => "the usual suspects"
 
-p "The case of the disappearing last letter".chop
+p "The case of the disappearing last letter"
 #OR
-p "The case of the disappearing last letter".slice(0..38)
+p "The case of the disappearing last letter"
 # => "The case of the disappearing last lette"
 
-p "The mystery of the missing first letter".delete("T")
+p "The mystery of the missing first letter"
 #OR
-p "The mystery of the missing first letter".slice(1..38)
+p "The mystery of the missing first letter"
 # => "he mystery of the missing first letter"
 
-p "Elementary,    my   dear        Watson!".squeeze
+p "Elementary,    my   dear        Watson!"
 # => "Elementary, my dear Watson!"
 
-p "z".ord
+p "z"
 # => 122 
 # (What is the significance of the number 122 in relation to the character z?)
 # Refers to American Standard Code for Information Interchage (ASCII) and is a character encoding standard in which each character is assigned a number from 0 - 127.
 # Spaces between characters also have number values and can be determined using escape sequence: ?/
 
-p "How many times does the letter 'a' appear in this string?".count("a")
+p "How many times does the letter 'a' appear in this string?"
 # => 4
