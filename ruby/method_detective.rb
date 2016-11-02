@@ -7,7 +7,7 @@
 p "iNvEsTiGaTiOn".swapcase
 # => “InVeStIgAtIoN”
 
-p "zom".insert(2, "o")
+p "zom".insert(2,"o")
 # => “zoom”
 
 p "enhance".center(20)
@@ -18,7 +18,7 @@ p "Stop! You’re under arrest!".upcase
 
 p "the usual".concat(" suspects")
 #OR
-p "the usual" << " suspects"
+p "the usual" << "suspects"
 #=> "the usual suspects"
 
 p " suspects".prepend("the usual")
@@ -34,10 +34,10 @@ p "The mystery of the missing first letter".delete("T")
 p "The mystery of the missing first letter".slice(1..38)
 # => "he mystery of the missing first letter"
 
-p "Elementary,    my   dear        Watson!".squeeze
+p "Elementary,    my   dear        Watson!".squeeze 
 # => "Elementary, my dear Watson!"
 
-p "z".ord
+p "z".ord 
 # => 122 
 # (What is the significance of the number 122 in relation to the character z?)
 # Refers to American Standard Code for Information Interchage (ASCII) and is a character encoding standard in which each character is assigned a number from 0 - 127.
