@@ -1,8 +1,12 @@
 client_information = {}
 
-puts "Please provide your full name:"
-client_name = gets.chomp
-client_information[:name] = client_name 
+puts "Please provide your first name:"
+client_first_name = gets.chomp.capitalize
+client_information[:first_name] = client_first_name 
+
+puts "Please provide your last name:"
+client_last_name = gets.chomp.capitalize
+client_information[:last_name] = client_last_name 
 
 puts "Please provide your age:"
 client_age = gets.to_i
@@ -13,21 +17,28 @@ client_children = gets.to_i
 client_information[:children] = client_children 
 
 puts "Do you have pets?:"
-client_pets = gets.chomp
-if client.pets == 'yes'
-	true 
+client_pets = gets.chomp.downcase
+if client_pets == 'yes'
+	client_pets = true 
 else 
-	false 
+	client_pets = false 
 end 
-client_information[:has_pets] = client.pets 
+client_information[:has_pets] = client_pets 
 
 puts "Please choose a theme:"
-client_theme = gets.chomp
+client_theme = gets.chomp.downcase
 client_information[:theme] = client_theme
 
 
+puts "\nLet's review your information:\n
+Your name is: #{client_first_name} #{client_last_name}. 
+You are: #{client_age} years old. 
+You have: #{client_children} children.
+You have pets: #{client_pets}.
+Your desired decorative theme is: #{client_theme}.\n"
 
 
+p client_information
 
 
 
