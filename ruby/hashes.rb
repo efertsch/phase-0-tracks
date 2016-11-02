@@ -4,6 +4,27 @@ puts "Please provide your full name:"
 client_name = gets.chomp
 client_information[:name] = client_name 
 
+puts "Please provide your age:"
+client_age = gets.to_i
+client_information[:age] = client_age 
+
+puts "How many children do you have?"
+client_children = gets.to_i
+client_information[:children] = client_children 
+
+puts "Do you have pets?:"
+client_pets = gets.chomp
+if client.pets == 'yes'
+	true 
+else 
+	false 
+end 
+client_information[:has_pets] = client.pets 
+
+puts "Please choose a theme:"
+client_theme = gets.chomp
+client_information[:theme] = client_theme
+
 
 
 
