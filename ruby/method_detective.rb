@@ -7,18 +7,18 @@
 p "iNvEsTiGaTiOn".swapcase
 # => “InVeStIgAtIoN”
 
-p "zom".insert(0,3)
+p "zom".insert(2,"o")
 # => “zoom”
 
-p "enhance".center
+p "enhance".center(20)
 # => "    enhance    "
 
 p "Stop! You’re under arrest!".upcase
 # => "STOP! YOU’RE UNDER ARREST!"
 
-p "the usual".append(" suspects")
+p "the usual".concat(" suspects")
 #OR
-p "the usual" << ("suspects")
+p "the usual" << "suspects"
 #=> "the usual suspects"
 
 p " suspects"
