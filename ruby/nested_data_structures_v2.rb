@@ -55,8 +55,6 @@ classic_rock = {
 
 }
 
-
-
 p classic_rock[:the_doors][:albums][2]
 p classic_rock[:rolling_stones][:albums].push("Let it Bleed")
 p classic_rock[:the_doors][:members].delete("Jim Morrison")
