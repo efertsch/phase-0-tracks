@@ -49,41 +49,30 @@ elsif user_answer == 'yes'
 	field_to_update = gets.chomp
 	case field_to_update
 		when "first_name" 
-			first_name_sym = "first_name".to_sym
-			client_information[:first_name] == client_information[first_name_sym]
 			puts "Please enter a new value:"
 			updated_value = gets.chomp
-			client_information[first_name_sym] = updated_value
+			client_information[:first_name] = updated_value
 		when "last_name" 
-			last_name_sym = "last_name".to_sym
-			client_information[:last_name] == client_information[last_name_sym]
 			puts "Please enter a new value:"
 			updated_value = gets.chomp
-			client_information[last_name_sym] = updated_value
+			client_information[:last_name] = updated_value
 		when "age" 
-			age_sym = "age".to_sym
-			client_information[:age] == client_information[age_sym]
 			puts "Please enter a new value:"
 			updated_value = gets.to_i
-			client_information[age_sym] = updated_value
+			client_information[:age] = updated_value
 		when "children" 
-			children_sym = "children".to_sym
-			client_information[:children] == client_information[children_sym]
 			puts "Please enter a new value:"
 			updated_value = gets.to_i
-			client_information[children_sym] = updated_value
+			client_information[:children] = updated_value
 		when "has_pets" 
-			pets_sym = "has_pets".to_sym
-			client_information[:has_pets] == client_information[pets_sym]
 			puts "Please enter a new value:"
 			updated_value = gets.chomp
-			client_information[pets_sym] = updated_value
+			has_pets = updated_value == "yes"
+			client_information[:has_pets] = updated_value
 		when "theme" 
-			theme_sym = "theme".to_sym
-			client_information[:theme] == client_information[theme_sym]
 			puts "Please enter a new value:"
 			updated_value = gets.chomp
-			client_information[theme_sym] = updated_value
+			client_information[:theme] = updated_value
 		end
 
 end 
