@@ -19,23 +19,25 @@ classic_rock = {
 			"Mick Taylor" <= "Guitar",
 			"Bill Wyman" <= "Bass",
 			"Charlie Watts" <= "Drums"
+			},
 		albums: ["Sticky Fingers", "Exile on Main St.", "Some Girls"],
 		tour: {
 			September_1970: ["Stockholm", "Paris", "Berlin", "Rome"],
 			October_1970: [ "Milan", "Amsterdam", "Lyon", "Frankfurt"],
 	},
 
-	rolling_stones = {
+	the_doors = {
 		members = {
-			"Kieth Richards" <= "Vocals/Piano",
-			"Mick Jagger" <= "Guitar",
-			"Mick Taylor" <= "Guitar",
-			"Bill Wyman" <= "Bass",
-			"Charlie Watts" <= "Drums"
-		albums: ["Sticky Fingers", "Exile on Main St.", "Some Girls"],
+			"Jim Morrison" <= "Vocals",
+			"Ray Manzarek" <= "Keyboard",
+			"John Densmore" <= "Drums",
+			"Robby Krieger" <= "Guitar"
+		},
+		albums: ["Waiting for the Sun", "Strange Days", "Morrison Hotel"],
 		tour: {
-			September_1970: ["Stockholm", "Paris", "Berlin", "Rome"],
-			October_1970: [ "Milan", "Amsterdam", "Lyon", "Frankfurt"],
+			February_1970: ["San Francisco", "Long Beach", "Cleveland", "Chicago"],
+			March_1970: [ "Chicago", "Phenoix", "Vancouver"],
+		}
 
 
 }
