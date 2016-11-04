@@ -47,34 +47,37 @@ if user_answer == 'none'
 elsif user_answer == 'yes'
 	puts "Please choose a field to update:"
 	field_to_update = gets.chomp
-	:field_to_update
-	if client_information.key? == :field_to_update
-
-	p client_information.keys
+	case field_to_update
+		when "first_name" 
+			puts "Please enter a new value:"
+			updated_value = gets.chomp
+			client_information[:first_name] = updated_value
+		when "last_name" 
+			puts "Please enter a new value:"
+			updated_value = gets.chomp
+			client_information[:last_name] = updated_value
+		when "age" 
+			puts "Please enter a new value:"
+			updated_value = gets.to_i
+			client_information[:age] = updated_value
+		when "children" 
+			puts "Please enter a new value:"
+			updated_value = gets.to_i
+			client_information[:children] = updated_value
+		when "has_pets" 
+			puts "Please enter a new value:"
+			updated_value = gets.chomp
+			has_pets = updated_value == "yes"
+			client_information[:has_pets] = updated_value
+		when "theme" 
+			puts "Please enter a new value:"
+			updated_value = gets.chomp
+			client_information[:theme] = updated_value
+		end
 
 end 
 
 p client_information
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
