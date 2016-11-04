@@ -67,8 +67,8 @@ elsif user_answer == 'yes'
 		when "has_pets" 
 			puts "Please enter a new value:"
 			updated_value = gets.chomp
-			has_pets = updated_value == "yes"
 			client_information[:has_pets] = updated_value
+			end 
 		when "theme" 
 			puts "Please enter a new value:"
 			updated_value = gets.chomp
