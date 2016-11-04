@@ -35,7 +35,7 @@ Your name is: #{client_first_name} #{client_last_name}.
 You are: #{client_age} years old. 
 You have: #{client_children} children.
 You have pets: #{client_pets}.
-Your desired decorative theme is: #{client_theme}.\n"
+Your desired decorative theme is: #{client_theme}.\n\n"
 
 
 p client_information
@@ -47,34 +47,15 @@ if user_answer == 'none'
 elsif user_answer == 'yes'
 	puts "Please choose a field to update:"
 	field_to_update = gets.chomp
-	case field_to_update
-		when "first_name" 
-			puts "Please enter a new value:"
-			updated_value = gets.chomp
-			client_information[:first_name] = updated_value
-		when "last_name" 
-			puts "Please enter a new value:"
-			updated_value = gets.chomp
-			client_information[:last_name] = updated_value
-		when "age" 
-			puts "Please enter a new value:"
-			updated_value = gets.to_i
-			client_information[:age] = updated_value
-		when "children" 
-			puts "Please enter a new value:"
-			updated_value = gets.to_i
-			client_information[:children] = updated_value
-		when "has_pets" 
-			puts "Please enter a new value:"
-			updated_value = gets.chomp
-			client_information[:has_pets] = updated_value
-			end 
-		when "theme" 
-			puts "Please enter a new value:"
-			updated_value = gets.chomp
-			client_information[:theme] = updated_value
-		end
-
+	update_field_sym = field_to_update.to_sym 
+	puts "Please enter a new value:"
+	updated_value = gets.chomp
+	if (field_to_update == "has_pets") && (updated_value == "yes")
+			updated_value = true 
+	else 
+		updated_value = false
+	end
+	client_information[update_field_sym] = updated_value
 end 
 
 p client_information
