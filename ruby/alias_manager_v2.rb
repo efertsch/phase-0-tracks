@@ -17,10 +17,9 @@ def find_next_vowel(letter)
 			letter_index = vowels_array.index(vowel)
 			next_vowel_index = letter_index + 1
 			next_vowel = vowels_array[next_vowel_index]
-		end 
-		next_vowel
+		end
+		return next_vowel 
 	end
-	next_vowel
 end 
 
 p find_next_vowel('o')
