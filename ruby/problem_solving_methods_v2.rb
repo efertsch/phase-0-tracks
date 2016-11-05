@@ -10,7 +10,7 @@ def search_array (arr, integer)
   end #do
 end #search_array
 
-# p search_array(int_arr, 45)
+p search_array(int_arr, 45)
 
 
 def fib(fib_term)
@@ -26,3 +26,4 @@ end
 p fib(100) 
 array = fib(100)
 p array[99] == 218922995834555169026
+
