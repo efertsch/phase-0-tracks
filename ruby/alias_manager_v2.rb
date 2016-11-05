@@ -17,12 +17,28 @@ def find_next_vowel(letter)
 			letter_index = vowels_array.index(vowel)
 			next_vowel_index = letter_index + 1
 			next_vowel = vowels_array[next_vowel_index]
-		end
-		return next_vowel 
+			return next_vowel
+		end 
 	end
 end 
 
 p find_next_vowel('o')
+
+
+def find_next_consonant(letter)
+	consonants = 'bcdfghjklmnpqrstvwxyz'
+	consonants_array = consonants.split('')
+	consonants_array.each do |consonant|
+		if letter == consonant
+			letter_index = consonants_array.index(consonant)
+			next_consonant_index = letter_index + 1
+			next_consonant = consonants_array[next_consonant_index]
+			return next_consonant
+		end 
+	end
+end 
+
+p find_next_consonant('v')
 
 
 
