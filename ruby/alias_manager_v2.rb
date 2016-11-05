@@ -13,14 +13,17 @@ def find_next_vowel(letter)
 	vowels = 'aeiou'
 	vowels_array = vowels.split('')
 	vowels_array.each do |vowel|
-		if vowel == letter
-			next_vowel = vowel[letter].next
-		end
-		next_vowel 
+		if letter == vowel
+			letter_index = vowels_array.index(vowel)
+			next_vowel_index = letter_index + 1
+			next_vowel = vowels_array[next_vowel_index]
+		end 
+		next_vowel
 	end
+	next_vowel
 end 
 
-p find_next_vowel('a')
+p find_next_vowel('o')
 
 
 
