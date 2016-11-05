@@ -1,7 +1,12 @@
+def name_swap(name)
+	split_name = name.split(' ')
+	reversed_name = [split_name[1], split_name[0]]
+	reversed_name_string = reversed_name.join(' ') 
+	reversed_name_string
+end
 
 
-
-
+p name_swap('Ethan Fertsch')
 
 
 
