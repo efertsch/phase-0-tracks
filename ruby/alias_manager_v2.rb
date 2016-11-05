@@ -5,12 +5,22 @@ def name_swap(name)
 	reversed_name_string
 end
 
-
 p name_swap('Ethan Fertsch')
 
 
 
+def find_next_vowel(letter)
+	vowels = 'aeiou'
+	vowels_array = vowels.split('')
+	vowels_array.each do |vowel|
+		if vowel == letter
+			next_vowel = vowel[letter].next
+		end
+		next_vowel 
+	end
+end 
 
+p find_next_vowel('a')
 
 
 
