@@ -5,7 +5,6 @@ def alias_creator(name)
 	reversed_name_string
 end
 
-# p name_swap('Ethan Fertsch')
 
 
 def find_next_vowel(letter)
@@ -22,7 +21,6 @@ def find_next_vowel(letter)
 	end
 end 
 
-# p find_next_vowel('a')
 
 
 def find_next_consonant(letter)
@@ -39,33 +37,52 @@ def find_next_consonant(letter)
 	end
 end 
 
-# p find_next_consonant('c')
 
 
 
+puts "Welcome to The Alias Creator Program:\n"
 
-swapped_name = alias_creator('Felicia Torres')
-swapped_name_array = swapped_name.split('')
-vowels = 'aeiou'.split('')
-consonants = 'bcdfghjklmnpqrstvwxyz'.split('')
-corrected_name = []
-for letter in swapped_name_array
-	if letter == " "
-		corrected_name << letter = " "
-	elsif vowels.include? letter
-		corrected_name << find_next_vowel(letter)
-	elsif consonants.include? letter
-		corrected_name << find_next_consonant(letter)
+users_names = {}
+
+puts "Please enter your name:"
+real_name = gets.chomp
+real_name.to_sym
+
+while real_name != 'quit'
+
+	swapped_name = alias_creator(real_name)
+	swapped_name_array = swapped_name.split('')
+	vowels = 'aeiou'.split('')
+	consonants = 'bcdfghjklmnpqrstvwxyz'.split('')
+	fake_name_array = []
+
+	for letter in swapped_name_array
+		if letter == " "
+			fake_name_array << letter = " "
+		elsif vowels.include? letter
+			fake_name_array << find_next_vowel(letter)
+		elsif consonants.include? letter
+			fake_name_array << find_next_consonant(letter)
+		end
+			fake_name = fake_name_array.join('')
 	end
-	corrected_name_string = corrected_name.join('')
+
+	fake_name_array = fake_name.split(' ')
+	corrected_fake_name_array = [fake_name_array[0].capitalize, fake_name_array[1].capitalize]
+	capitalized_fake_name = corrected_fake_name_array.join(' ')
+	capitalized_fake_name
+
+	users_names[real_name] = capitalized_fake_name
+	puts "Please enter another name:"
+	real_name = gets.chomp
 end 
 
-	
-capitalized_alias_array = corrected_name_string.split(' ')
-corrected_capitalized_alias_array = [capitalized_alias_array[0].capitalize, capitalized_alias_array[1].capitalize]
-corrected_capitalized_alias = corrected_capitalized_alias_array.join(' ')
+users_names.each do |real, fake|
+	puts "#{real} is also known as #{fake}"
+end
 
-p corrected_capitalized_alias
+puts "Thanks for using my program!" 
+
 
 
 #PSEUDOCODE
