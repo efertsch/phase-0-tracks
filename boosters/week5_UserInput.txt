@@ -3,6 +3,7 @@ Kitchen
 Bathroom
 Foyer
 Bedroom 1 
+done 
 0 
 couch
 1
@@ -14,3 +15,5 @@ coat hanger
 4
 bed 
 done 
+
+Can pipe into house builder file: week5_UserInput.txt cat | ruby week5_house_builder.rb |

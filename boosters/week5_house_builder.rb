@@ -41,7 +41,6 @@ def print_house(house)
 end 
 
 
-
 can_add_rooms = true
 
 while can_add_rooms	  
@@ -49,6 +48,9 @@ while can_add_rooms
 	room_to_add = gets.chomp
 	break if room_to_add == "done"
 	can_add_rooms = add_room_to_house(house, room_to_add)
+	if !can_add_rooms
+		puts "Sorry, that's too many rooms!"
+	end 
 	print_house(house)
 end 
 
@@ -75,16 +77,6 @@ end
 # end 
 
 # print_house(house) 
-
-
-
-
-
-
-
-
-
-
 
 
 
