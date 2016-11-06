@@ -1,4 +1,4 @@
-def name_swap(name)
+def alias_creator(name)
 	split_name = name.downcase.split(' ')
 	reversed_name = [split_name[1], split_name[0]]
 	reversed_name_string = reversed_name.join(' ') 
@@ -6,7 +6,6 @@ def name_swap(name)
 end
 
 # p name_swap('Ethan Fertsch')
-
 
 
 def find_next_vowel(letter)
@@ -19,13 +18,11 @@ def find_next_vowel(letter)
 			return next_vowel
 		elsif letter == 'u'
 			return 'a'
-		# else
-		# 	return letter
 		end 
 	end
 end 
 
-p find_next_vowel('a')
+# p find_next_vowel('a')
 
 
 def find_next_consonant(letter)
@@ -38,38 +35,37 @@ def find_next_consonant(letter)
 			return next_consonant
 		elsif letter == 'z'
 			return 'b'
-		# else 
-		# 	return letter
 		end 
 	end
 end 
 
-p find_next_consonant('c')
+# p find_next_consonant('c')
 
 
 
 
-
-
-
-swapped_name = name_swap('Felicia Torres')
+swapped_name = alias_creator('Felicia Torres')
 swapped_name_array = swapped_name.split('')
 vowels = 'aeiou'.split('')
 consonants = 'bcdfghjklmnpqrstvwxyz'.split('')
 corrected_name = []
 for letter in swapped_name_array
-	if vowels.include? letter
+	if letter == " "
+		corrected_name << letter = " "
+	elsif vowels.include? letter
 		corrected_name << find_next_vowel(letter)
 	elsif consonants.include? letter
 		corrected_name << find_next_consonant(letter)
-	end 
+	end
+	corrected_name_string = corrected_name.join('')
 end 
 
 	
-p corrected_name.join('')
+capitalized_alias_array = corrected_name_string.split(' ')
+corrected_capitalized_alias_array = [capitalized_alias_array[0].capitalize, capitalized_alias_array[1].capitalize]
+corrected_capitalized_alias = corrected_capitalized_alias_array.join(' ')
 
-
-
+p corrected_capitalized_alias
 
 
 #PSEUDOCODE
