@@ -18,11 +18,13 @@ def find_next_vowel(letter)
 			next_vowel_index = letter_index + 1
 			next_vowel = vowels_array[next_vowel_index]
 			return next_vowel
+		elsif letter == 'u'
+			return 'a'
 		end 
 	end
 end 
 
-p find_next_vowel('o')
+p find_next_vowel('a')
 
 
 def find_next_consonant(letter)
@@ -34,11 +36,30 @@ def find_next_consonant(letter)
 			next_consonant_index = letter_index + 1
 			next_consonant = consonants_array[next_consonant_index]
 			return next_consonant
+		elsif letter == 'z'
+			return 'b'
 		end 
 	end
 end 
 
-p find_next_consonant('v')
+p find_next_consonant('z')
+
+
+
+
+swapped_name = name_swap('Ethan Fertsch')
+swapped_name_array = swapped_name.split('')
+
+
+vowel_corrected_array = []
+swapped_name_array.each do |item|
+	vowel_corrected_array << find_next_vowel(swapped_name_array.index(item))
+end 
+	
+
+
+
+p vowel_corrected_array
 
 
 
