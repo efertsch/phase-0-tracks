@@ -1,11 +1,11 @@
 def name_swap(name)
-	split_name = name.split(' ')
+	split_name = name.downcase.split(' ')
 	reversed_name = [split_name[1], split_name[0]]
 	reversed_name_string = reversed_name.join(' ') 
 	reversed_name_string
 end
 
-p name_swap('Ethan Fertsch')
+# p name_swap('Ethan Fertsch')
 
 
 
@@ -14,12 +14,13 @@ def find_next_vowel(letter)
 	vowels_array = vowels.split('')
 	vowels_array.each do |vowel|
 		if letter == vowel
-			letter_index = vowels_array.index(vowel)
-			next_vowel_index = letter_index + 1
+			next_vowel_index = vowels_array.index(vowel) + 1
 			next_vowel = vowels_array[next_vowel_index]
 			return next_vowel
 		elsif letter == 'u'
 			return 'a'
+		# else
+		# 	return letter
 		end 
 	end
 end 
@@ -32,40 +33,40 @@ def find_next_consonant(letter)
 	consonants_array = consonants.split('')
 	consonants_array.each do |consonant|
 		if letter == consonant
-			letter_index = consonants_array.index(consonant)
-			next_consonant_index = letter_index + 1
+			next_consonant_index = consonants_array.index(consonant) + 1
 			next_consonant = consonants_array[next_consonant_index]
 			return next_consonant
 		elsif letter == 'z'
 			return 'b'
+		# else 
+		# 	return letter
 		end 
 	end
 end 
 
-p find_next_consonant('z')
+p find_next_consonant('c')
 
 
 
 
-swapped_name = name_swap('Ethan Fertsch')
+
+
+
+swapped_name = name_swap('Felicia Torres')
 swapped_name_array = swapped_name.split('')
-
-
-vowel_corrected_array = []
-swapped_name_array.each do |item|
-	vowel_corrected_array << find_next_vowel(swapped_name_array.index(item))
+vowels = 'aeiou'.split('')
+consonants = 'bcdfghjklmnpqrstvwxyz'.split('')
+corrected_name = []
+for letter in swapped_name_array
+	if vowels.include? letter
+		corrected_name << find_next_vowel(letter)
+	elsif consonants.include? letter
+		corrected_name << find_next_consonant(letter)
+	end 
 end 
+
 	
-
-
-
-p vowel_corrected_array
-
-
-
-
-
-
+p corrected_name.join('')
 
 
 
