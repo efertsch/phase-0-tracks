@@ -1,0 +1,16 @@
+Living Room
+Kitchen
+Bathroom
+Foyer
+Bedroom 1 
+0 
+couch
+1
+oven
+2
+toilet
+3
+coat hanger
+4
+bed 
+done 
