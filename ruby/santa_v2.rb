@@ -18,15 +18,24 @@ class Santa
 
 end 
 
+ 
+
 # TEST CODE 
+# Saint_Nick = Santa.new 
 
+# Saint_Nick.speak
+# Saint_Nick.eat_milk_and_cookies("chocolate chip")
 
-Saint_Nick = Santa.new 
+diverse_santas = []
 
-Saint_Nick.speak
-Saint_Nick.eat_milk_and_cookies("chocolate chip")
+genders = ["transgender", "agender", "female", "male", "female", "gender fluid", "N/A"]
+ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
 
+genders.length.times do |item|
+	diverse_santas << Santa.new(genders[item], ethnicities[item])
+end 
 
+p diverse_santas
 
 
 
