@@ -1,5 +1,8 @@
 class Santa 
 
+	attr_reader :ethnicity
+	attr_accessor :gender, :age
+
 	def initialize(gender, ethnicity)
 		puts "Initalizing Santa instance..."
 		@gender = gender
@@ -16,57 +19,73 @@ class Santa
 		puts "That was a good #{cookie_type} cookie!"
 	end
 
-	#SETTERS
 	def celebrate_birthday
-		@age + 1 
+		@age = @age + 1 
 	end
 
 	def get_mad_at(reindeer_name)
-		#Take reindeer_name as argument 
-		#Find position of reindeer name
-		#Move reindeer at position to last position in array 
-		#Delete reindeer from position 
-		reindeer_position = reindeer_ranking[reindeer_name]
-		p reindeer_position
-	end 
-
-	def gender=(new_gender) 
-		@gender = new_gender 
+		@reindeer_ranking.insert(-1, reindeer_name)
+		@reindeer_ranking.delete_at(@reindeer_ranking.index(reindeer_name))
+		@reindeer_ranking
 	end
-
-	#GETTERS
-	def age
-		@age 
-	end
-
-	def ethinicity
-		@ethnicity
-	end   
 
 end 
 
  
 
-# TEST CODE 
-# Saint_Nick = Santa.new 
+# TEST CODE
+# _______________________
 
-# Saint_Nick.speak
-# Saint_Nick.eat_milk_and_cookies("chocolate chip")
+# RELEASE 0
+saint_nick = Santa.new 
 
-# diverse_santas = []
+saint_nick.speak
+saint_nick.eat_milk_and_cookies("chocolate chip")
 
-# genders = ["transgender", "agender", "female", "male", "female", "gender fluid", "N/A"]
-# ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+# RELEASE 1
+diverse_santas = []
 
-# genders.length.times do |item|
-# 	diverse_santas << Santa.new(genders[item], ethnicities[item])
-# end 
+genders = ["transgender", "agender", "female", "male", "female", "gender fluid", "N/A"]
+ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
 
-# p diverse_santas
+genders.length.times do |item|
+	diverse_santas << Santa.new(genders[item], ethnicities[item])
+end 
 
+p diverse_santas
+
+# RELEASE 2 & 3
 santa = Santa.new("transgender", "white")
-
 p santa 
+
+santa.celebrate_birthday
+santa.get_mad_at("Rudolph")
+santa.gender = "gender fluid"
+santa.age
+santa.ethnicity 
+
+p santa
+
+# RELEASE 4
+
+genders = ["transgender", "agender", "female", "male", "female", "gender fluid", "N/A"]
+ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+
+100.times do |santa|
+	santa = Santa.new(genders.sample, ethnicities.sample)
+	santa.age = rand(1..140)
+	p santa 
+end 
+
+ 
+
+
+
+
+
+
+
+
 
 
 
