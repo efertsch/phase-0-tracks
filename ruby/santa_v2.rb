@@ -18,16 +18,13 @@ class Santa
 
 	#SETTERS
 	def celebrate_birthday
-		@age + 1 
+		@age = @age + 1 
 	end
 
 	def get_mad_at(reindeer_name)
-		#Take reindeer_name as argument 
-		#Find position of reindeer name
-		#Move reindeer at position to last position in array 
-		#Delete reindeer from position 
-		reindeer_position = reindeer_ranking[reindeer_name]
-		p reindeer_position
+		@reindeer_ranking.insert(-1, reindeer_name)
+		@reindeer_ranking.delete_at(@reindeer_ranking.index(reindeer_name))
+		@reindeer_ranking
 	end 
 
 	def gender=(new_gender) 
@@ -39,7 +36,7 @@ class Santa
 		@age 
 	end
 
-	def ethinicity
+	def ethnicity
 		@ethnicity
 	end   
 
@@ -47,12 +44,16 @@ end
 
  
 
-# TEST CODE 
+# TEST CODE
+# _______________________
+
+# RELEASE 0
 # Saint_Nick = Santa.new 
 
 # Saint_Nick.speak
 # Saint_Nick.eat_milk_and_cookies("chocolate chip")
 
+# RELEASE 1
 # diverse_santas = []
 
 # genders = ["transgender", "agender", "female", "male", "female", "gender fluid", "N/A"]
@@ -64,9 +65,18 @@ end
 
 # p diverse_santas
 
-santa = Santa.new("transgender", "white")
+# RELEASE 2 
+# santa = Santa.new("transgender", "white")
+# p santa 
 
-p santa 
+# santa.celebrate_birthday
+# santa.get_mad_at("Rudolph")
+# santa.gender = "gender fluid"
+# santa.age
+# santa.ethnicity 
+
+# p santa
+
 
 
 
