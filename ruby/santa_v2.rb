@@ -22,6 +22,10 @@ class Santa
 	end
 
 	def get_mad_at(reindeer_name)
+		#Take reindeer_name as argument 
+		#Find position of reindeer name
+		#Move reindeer at position to last position in array 
+		#Delete reindeer from position 
 		reindeer_position = reindeer_ranking[reindeer_name]
 		p reindeer_position
 	end 
@@ -59,6 +63,11 @@ end
 # end 
 
 # p diverse_santas
+
+santa = Santa.new("transgender", "white")
+
+p santa 
+
 
 
 
