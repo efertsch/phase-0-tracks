@@ -40,49 +40,49 @@ end
 # USER INTERFACE
 
 
-puts "Welcome to The Word Guessing Game:"
+# puts "Welcome to The Word Guessing Game:"
 
-puts "Player 1, please enter a word:"
-@word = gets.chomp.downcase
+# puts "Player 1, please enter a word:"
+# @word = gets.chomp.downcase
 
-new_game = Game.new(@word)
+# new_game = Game.new(@word)
 
-puts "The word that Player 1 chose is #{@word.length} letters long."
-puts new_game.dashes
-
-
-previous_guesses = []
-
-until new_game.is_over == true 
-
-	puts "Please enter a letter to guess:"
-	letter_guess = gets.chomp.downcase
-
-	if previous_guesses.include?(letter_guess)  
-		puts "You already guessed that letter!"
-	elsif new_game.check_if_letter(letter_guess) == true 
-		new_game.find_char(letter_guess)
-		puts "Correct! The letter '#{letter_guess}' is in the word!\n"
-		previous_guesses << letter_guess
-		puts new_game.dashes
-		new_game.number_of_guesses += 1
-	else 
-		puts "Sorry, the letter #{letter_guess} is not in the word.\n"
-		previous_guesses << letter_guess
-		puts new_game.dashes
-		new_game.number_of_guesses += 1
-	end 
-
-	new_game.game_over
-
-	if new_game.is_over && new_game.dashes == new_game.word
-		puts "Congratulations you won the game!"
-	elsif new_game.is_over && new_game.dashes != new_game.word
-		puts "You lose! Better luck next time sucker!"
-	end 
+# puts "The word that Player 1 chose is #{@word.length} letters long."
+# puts new_game.dashes
 
 
-end 
+# previous_guesses = []
+
+# until new_game.is_over == true 
+
+# 	puts "Please enter a letter to guess:"
+# 	letter_guess = gets.chomp.downcase
+
+# 	if previous_guesses.include?(letter_guess)  
+# 		puts "You already guessed that letter!"
+# 	elsif new_game.check_if_letter(letter_guess) == true 
+# 		new_game.find_char(letter_guess)
+# 		puts "Correct! The letter '#{letter_guess}' is in the word!\n"
+# 		previous_guesses << letter_guess
+# 		puts new_game.dashes
+# 		new_game.number_of_guesses += 1
+# 	else 
+# 		puts "Sorry, the letter #{letter_guess} is not in the word.\n"
+# 		previous_guesses << letter_guess
+# 		puts new_game.dashes
+# 		new_game.number_of_guesses += 1
+# 	end 
+
+# 	new_game.game_over
+
+# 	if new_game.is_over && new_game.dashes == new_game.word
+# 		puts "Congratulations you won the game!"
+# 	elsif new_game.is_over && new_game.dashes != new_game.word
+# 		puts "You lose! Better luck next time sucker!"
+# 	end 
+
+
+# end 
 
 
 
