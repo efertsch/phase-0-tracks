@@ -98,23 +98,6 @@ end
 # Dealing with duplicate letters in words
 
 
-# SNIPPETS 
-
-
-	# def find_char(letter) 
-	# 	word_array = @word.split('')
-	# 	word_array.each do |char|
-	# 		if char == letter 
-	# 			letter_index = @word.index(letter)
-	# 			dashes_array = @dashes.split('')
-	# 			dashes_array.delete_at(letter_index)
-	# 			dashes_array.insert(letter_index, letter)
-	# 			@dashes = dashes_array.join('')
-	# 		end 
-	# 	end
-	# 	 @dashes
-	# end 
-
 
 # PSEUDOCODE 
 
