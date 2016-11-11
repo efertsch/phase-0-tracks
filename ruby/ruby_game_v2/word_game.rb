@@ -1,14 +1,13 @@
 class Game
 
 	attr_reader :is_over, :dashes
-	attr_accessor :word, :number_of_guesses, :previous_guesses 
+	attr_accessor :word, :number_of_guesses 
 
 	def initialize(word)
 		@word = word
 		@dashes = "_" * word.length
 		@is_over = false 
 		@number_of_guesses = 0
-		@previous_guesses = []
 	end
 
 	def game_over
@@ -40,7 +39,6 @@ class Game
 		puts @dashes 
 	end 
 
-
 end 
 
 
@@ -57,24 +55,37 @@ new_game = Game.new(@word)
 puts "The word that Player 1 chose is #{@word.length} letters long."
 puts new_game.dashes
 
+
+previous_guesses = []
+
 until new_game.is_over == true 
 
 	puts "Please enter a letter to guess:"
 	letter_guess = gets.chomp.downcase
 
-	if new_game.previous_guesses.include?(letter_guess)
+	if previous_guesses.include?(letter_guess)  
 		puts "You already guessed that letter!"
+		
 	elsif new_game.check_if_letter(letter_guess) == true 
 		new_game.find_char(letter_guess)
-		puts "Correct! The letter '#{letter_guess}' is in the word!"
-		new_game.previous_guesses << letter_guess
-		p previous_guesses
-		new_game.number_of_guesses +=1
+		puts "Correct! The letter '#{letter_guess}' is in the word!\n"
+		previous_guesses << letter_guess
+		new_game.number_of_guesses += 1
+
 	else 
-		puts "Sorry, the letter #{letter_guess} is not in the word."
-		new_game.number_of_guesses +=1
+		puts "Sorry, the letter #{letter_guess} is not in the word.\n"
+		previous_guesses << letter_guess
+		new_game.number_of_guesses += 1
 	end 
+
 	new_game.game_over
+
+	if new_game.is_over && new_game.dashes == new_game.word
+		puts "Congratulations you won the game!"
+	elsif new_game.is_over && new_game.dashes != new_game.word
+		puts "You lose! Better luck next time sucker!"
+	end 
+
 
 end 
 
@@ -84,9 +95,9 @@ end
 
 
 
-
-
-
+#Working on:
+# Removing repetitive portion from find check_if_letter and find_char methods
+# Dealing with duplicate letters in words
 
 
 
