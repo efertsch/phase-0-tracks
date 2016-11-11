@@ -3,12 +3,17 @@ require_relative 'word_game'
 describe Game do
 	let(:game) {Game.new("code")}
 
-	it "checks if the game is over" do
+	it "checks if a game is over" do
+	game.number_of_guesses = 4
 	expect(game.game_over).to eq true 
 	end 
 
+	it "checks if a letter is in a word" do
+	expect(game.check_for_letter("c")).to eq true 
+	end 
+
 	it "checks if a letter can be matched/replaced to an index" do
-	expect(game.find_char("o")).to eq "_o__"   
+	expect(game.insert_letter("o")).to eq "_o__"   
 	end 
 
 end

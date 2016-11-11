@@ -16,19 +16,22 @@ class Game
 		end 
 	end
 
-	def find_char(letter) 
-		word_array = @word.split('')
-		word_array.each do |char|
-			if char == letter 
-				true 
-				letter_index = @word.index(letter)
-				dashes_array = @dashes.split('')
-				dashes_array.delete_at(letter_index)
-				dashes_array.insert(letter_index, letter)
-				@dashes = dashes_array.join('')
-			end 
-		end
-		 @dashes 
+	def check_for_letter(letter)
+ 		word_array = @word.split('')
+ 		word_array.each do |char|
+ 			if char == letter
+ 				return true 
+ 			end
+ 		end  
+  end 
+
+	def insert_letter(letter) 
+		letter_index = @word.index(letter)
+		dashes_array = @dashes.split('')
+		dashes_array.delete_at(letter_index)
+		dashes_array.insert(letter_index, letter)
+		@dashes = dashes_array.join('')
+		@dashes
 	end 
 
 end 
@@ -38,101 +41,63 @@ end
 
 
 puts "Welcome to The Word Guessing Game:"
+puts "Would you like to play?"
+user_input = gets.chomp.downcase
 
-puts "Player 1, please enter a word:"
-@word = gets.chomp.downcase
+if user_input == 'yes'
 
-new_game = Game.new(@word)
-
-puts "The word that Player 1 chose is #{@word.length} letters long."
-puts new_game.dashes
-
-
-previous_guesses = []
-
-until new_game.is_over == true 
-
-	puts "Please enter a letter to guess:"
-	letter_guess = gets.chomp.downcase
-
-	if previous_guesses.include?(letter_guess)  
-		puts "You already guessed that letter!"
-		
-	elsif new_game.find_char(letter_guess) == true 
-		new_game.find_char(letter_guess)
-		puts "Correct! The letter '#{letter_guess}' is in the word!\n"
-		previous_guesses << letter_guess
-		puts new_game.dashes
-		new_game.number_of_guesses += 1
-
-	else 
-		puts "Sorry, the letter #{letter_guess} is not in the word.\n"
-		previous_guesses << letter_guess
-		puts new_game.dashes
-		new_game.number_of_guesses += 1
-	end 
-
-	new_game.game_over
-
-	if new_game.is_over && new_game.dashes == new_game.word
-		puts "Congratulations you won the game!"
-	elsif new_game.is_over && new_game.dashes != new_game.word
-		puts "You lose! Better luck next time sucker!"
-	end 
-
-
-end 
-
-
-
-# Bugs and fixes:
-# Refactor find_char methods: More DRY?
-# Dealing with duplicate letters in words
-# elsif conditional not printing correcct message
-
-
-
-# until new_game.is_over == true  
+	puts "Player 1, please enter a word:"
+	@word = gets.chomp.downcase
 	
-# 	puts "Player 2, please enter a letter guess:"
-# 	letter_guess = gets.chomp
-# 	if new_game.find_char(letter_guess)
-# 		puts "Correct! '#{letter_guess}' is in the word!"
-# 		puts new_game.find_char(letter_guess)
-# 		new_game.number_of_guesses += 1 
-# 		new_game.is_over
-# 	elsif !new_game.find_char(letter_guess)
-# 		puts "Sorry, the letter '#{letter_guess}' is not in the word"
-# 		new_game.number_of_guesses += 1 
-# 	end
-# 	new_game.number_of_guesses
-# end 
- 
+	new_game = Game.new(@word)
+	
+	puts "The word that Player 1 chose is #{@word.length} letters long."
+	puts new_game.dashes
+	
+	
+	previous_guesses = []
+	
+	until new_game.is_over == true 
+	
+		puts "Please enter a letter to guess:"
+		letter_guess = gets.chomp.downcase
+	
+		if previous_guesses.include?(letter_guess)  
+			puts "You already guessed that letter!" 
+		elsif new_game.check_for_letter(letter_guess) == true 
+			new_game.insert_letter(letter_guess)
+			puts "Correct! The letter '#{letter_guess}' is in the word!\n"
+			previous_guesses << letter_guess
+			puts new_game.dashes
+			new_game.number_of_guesses += 1
+		else 
+			puts "Sorry, the letter #{letter_guess} is not in the word.\n"
+			previous_guesses << letter_guess
+			puts new_game.dashes
+			new_game.number_of_guesses += 1
+		end 
+	
+		new_game.game_over
+	
+		if new_game.is_over && new_game.dashes == new_game.word
+			puts "Congratulations you won the game!"
+		elsif new_game.is_over && new_game.dashes != new_game.word
+			puts "You lose! Better luck next time sucker!"
+		end 
+	end
+
+elsif user_input == 'no'
+	puts "Bummer, come back and play soon!"
+else 
+	puts "I didn't understand your answer, please try again!"
+end  
 
 
 
+# BUGS & FIXES:
+# Dealing with duplicate letters in words
 
 
-
-# DRIVER CODE 
-
-
-# puts "Would you like to play? Please type 'yes' or 'no'"
-# user_input = gets.chomp.downcase
-# if user_input == 'yes'
-# 	puts "Great! Let's get started."
-# elsif user_input == 'no'
-# 	puts "Thanks for stopping by, come back soon!"
-# else 
-# 	puts "I didn't understand your answer, please try again!"
-# end
-
-# hangman = Game.new("code")
-# p hangman.dashes
-# p hangman.game_over
-# p hangman.number_of_guesses
-# p hangman.game_over 
-# p hangman.find_char("d")
 
 # PSEUDOCODE 
 
