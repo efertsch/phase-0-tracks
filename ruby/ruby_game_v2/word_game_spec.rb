@@ -7,7 +7,7 @@ describe Game do
 	expect(game.game_over).to eq true 
 	end 
 
-	it "checks if a letter can be matched to an index" do
+	it "checks if a letter can be matched/replaced to an index" do
 	expect(game.find_char("o")).to eq "_o__"   
 	end 
 

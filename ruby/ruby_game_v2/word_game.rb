@@ -1,10 +1,9 @@
 class Game
 
-	attr_reader :game_over, :number_of_guesses, :dashes
-	attr_accessor :word
+	attr_reader :game_over, :dashes
+	attr_accessor :word, :number_of_guesses
 
 	def initialize(word)
-		puts "Initializing a new game..."
 		@word = word
 		@dashes = "_" * word.length
 		@game_over = false 
@@ -16,6 +15,9 @@ class Game
 			@game_over = true 
 		end 
 	end
+
+	def check_if_letter(letter)
+	end 
 
 	def find_char(letter) 
 		word_array = @word.split('')
@@ -35,24 +37,58 @@ class Game
 end 
 
 
+# USER INTERFACE
+
+
+puts "Welcome to The Word Guessing Game:"
+
+puts "Player 1, please enter a word:"
+@word = gets.chomp.downcase
+
+new_game = Game.new(@word)
+
+puts "The word that Player 1 chose is #{@word.length} letters long."
+puts new_game.dashes
+
+until new_game.game_over == true  
+	
+	puts "Player 2, please enter a letter guess:"
+	letter_guess = gets.chomp
+	if new_game.game_over 
+		puts "Correct! '#{letter_guess}' is in the word!"
+		puts new_game.find_char(letter_guess)
+		new_game.number_of_guesses += 1 
+		new_game.game_over
+	elsif new_game.game_over && new_game.find_char(letter_guess) == nil
+		puts "Sorry, the letter '#{letter_guess}' is not in the word"
+	end 
+end 
+ 
+
+
+
+
+
 
 # DRIVER CODE 
 
-hangman = Game.new("code")
+
+# puts "Would you like to play? Please type 'yes' or 'no'"
+# user_input = gets.chomp.downcase
+# if user_input == 'yes'
+# 	puts "Great! Let's get started."
+# elsif user_input == 'no'
+# 	puts "Thanks for stopping by, come back soon!"
+# else 
+# 	puts "I didn't understand your answer, please try again!"
+# end
+
+# hangman = Game.new("code")
 # p hangman.dashes
 # p hangman.game_over
 # p hangman.number_of_guesses
 # p hangman.game_over 
-
-p hangman.find_char("d")
-
-
-
-
-
-
-
-
+# p hangman.find_char("d")
 
 # PSEUDOCODE 
 
