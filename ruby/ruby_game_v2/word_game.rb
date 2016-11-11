@@ -1,22 +1,29 @@
 class Game
 
-	attr_reader :game_over, :dashes
-	attr_accessor :word, :number_of_guesses
+	attr_reader :is_over, :dashes
+	attr_accessor :word, :number_of_guesses, :previous_guesses 
 
 	def initialize(word)
 		@word = word
 		@dashes = "_" * word.length
-		@game_over = false 
+		@is_over = false 
 		@number_of_guesses = 0
+		@previous_guesses = []
 	end
 
 	def game_over
-		if @number_of_guesses > @word.length
-			@game_over = true 
+		if @number_of_guesses == @word.length
+			@is_over = true 
 		end 
 	end
 
 	def check_if_letter(letter)
+		word_array = @word.split('')
+		word_array.each do |char|
+			if char == letter
+				return true 
+			end
+		end  
 	end 
 
 	def find_char(letter) 
@@ -30,7 +37,7 @@ class Game
 				@dashes = dashes_array.join('')
 			end 
 		end
-		@dashes 
+		puts @dashes 
 	end 
 
 
@@ -50,19 +57,54 @@ new_game = Game.new(@word)
 puts "The word that Player 1 chose is #{@word.length} letters long."
 puts new_game.dashes
 
-until new_game.game_over == true  
-	
-	puts "Player 2, please enter a letter guess:"
-	letter_guess = gets.chomp
-	if new_game.game_over 
-		puts "Correct! '#{letter_guess}' is in the word!"
-		puts new_game.find_char(letter_guess)
-		new_game.number_of_guesses += 1 
-		new_game.game_over
-	elsif new_game.game_over && new_game.find_char(letter_guess) == nil
-		puts "Sorry, the letter '#{letter_guess}' is not in the word"
+until new_game.is_over == true 
+
+	puts "Please enter a letter to guess:"
+	letter_guess = gets.chomp.downcase
+
+	if new_game.previous_guesses.include?(letter_guess)
+		puts "You already guessed that letter!"
+	elsif new_game.check_if_letter(letter_guess) == true 
+		new_game.find_char(letter_guess)
+		puts "Correct! The letter '#{letter_guess}' is in the word!"
+		new_game.previous_guesses << letter_guess
+		p previous_guesses
+		new_game.number_of_guesses +=1
+	else 
+		puts "Sorry, the letter #{letter_guess} is not in the word."
+		new_game.number_of_guesses +=1
 	end 
+	new_game.game_over
+
 end 
+
+
+
+
+
+
+
+
+
+
+
+
+
+# until new_game.is_over == true  
+	
+# 	puts "Player 2, please enter a letter guess:"
+# 	letter_guess = gets.chomp
+# 	if new_game.find_char(letter_guess)
+# 		puts "Correct! '#{letter_guess}' is in the word!"
+# 		puts new_game.find_char(letter_guess)
+# 		new_game.number_of_guesses += 1 
+# 		new_game.is_over
+# 	elsif !new_game.find_char(letter_guess)
+# 		puts "Sorry, the letter '#{letter_guess}' is not in the word"
+# 		new_game.number_of_guesses += 1 
+# 	end
+# 	new_game.number_of_guesses
+# end 
  
 
 
