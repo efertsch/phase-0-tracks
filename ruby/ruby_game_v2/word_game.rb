@@ -1,16 +1,34 @@
 class Game
 
 	attr_reader :game_over, :number_of_guesses, :dashes
+	attr_accessor :word
 
 	def initialize(word)
 		puts "Initializing a new game..."
-		@dashes = [] << "_" * word.length
+		@word = word
+		@dashes = "_" * word.length
 		@game_over = false 
-		@number_of_guesses = word.length
+		@number_of_guesses = 0
 	end
 
 	def game_over
-		@game_over = true 
+		if @number_of_guesses > @word.length
+			@game_over = true 
+		end 
+	end
+
+	def find_char(letter) 
+		word_array = @word.split('')
+		word_array.each do |char|
+			if char == letter
+				letter_index = @word.index(letter)
+				dashes_array = @dashes.split('')
+				dashes_array.delete_at(letter_index)
+				dashes_array.insert(letter_index, letter)
+				@dashes = dashes_array.join('')
+			end 
+		end
+		@dashes 
 	end 
 
 
@@ -21,12 +39,12 @@ end
 # DRIVER CODE 
 
 hangman = Game.new("code")
-p hangman.dashes
-p hangman.game_over
-p hangman.number_of_guesses
+# p hangman.dashes
+# p hangman.game_over
+# p hangman.number_of_guesses
+# p hangman.game_over 
 
-
-
+p hangman.find_char("d")
 
 
 
