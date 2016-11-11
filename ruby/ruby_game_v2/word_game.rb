@@ -16,19 +16,22 @@ class Game
 		end 
 	end
 
+	def check_if_letter(letter)
+ 		word_array = @word.split('')
+ 		word_array.each do |char|
+ 			if char == letter
+ 				return true 
+ 			end
+ 		end  
+  end 
+
 	def find_char(letter) 
-		word_array = @word.split('')
-		word_array.each do |char|
-			if char == letter 
-				true 
-				letter_index = @word.index(letter)
-				dashes_array = @dashes.split('')
-				dashes_array.delete_at(letter_index)
-				dashes_array.insert(letter_index, letter)
-				@dashes = dashes_array.join('')
-			end 
-		end
-		 @dashes 
+		letter_index = @word.index(letter)
+		dashes_array = @dashes.split('')
+		dashes_array.delete_at(letter_index)
+		dashes_array.insert(letter_index, letter)
+		@dashes = dashes_array.join('')
+		@dashes
 	end 
 
 end 
@@ -57,14 +60,12 @@ until new_game.is_over == true
 
 	if previous_guesses.include?(letter_guess)  
 		puts "You already guessed that letter!"
-		
-	elsif new_game.find_char(letter_guess) == true 
+	elsif new_game.check_if_letter(letter_guess) == true 
 		new_game.find_char(letter_guess)
 		puts "Correct! The letter '#{letter_guess}' is in the word!\n"
 		previous_guesses << letter_guess
 		puts new_game.dashes
 		new_game.number_of_guesses += 1
-
 	else 
 		puts "Sorry, the letter #{letter_guess} is not in the word.\n"
 		previous_guesses << letter_guess
@@ -85,12 +86,11 @@ end
 
 
 
-# Bugs and fixes:
-# Refactor find_char methods: More DRY?
+# BUGS & FIXES:
 # Dealing with duplicate letters in words
-# elsif conditional not printing correcct message
 
 
+# SNIPPETS 
 
 # until new_game.is_over == true  
 	
@@ -109,7 +109,19 @@ end
 # end 
  
 
-
+	# def find_char(letter) 
+	# 	word_array = @word.split('')
+	# 	word_array.each do |char|
+	# 		if char == letter 
+	# 			letter_index = @word.index(letter)
+	# 			dashes_array = @dashes.split('')
+	# 			dashes_array.delete_at(letter_index)
+	# 			dashes_array.insert(letter_index, letter)
+	# 			@dashes = dashes_array.join('')
+	# 		end 
+	# 	end
+	# 	 @dashes
+	# end 
 
 
 
