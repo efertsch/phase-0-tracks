@@ -1,7 +1,10 @@
 class Game
 
-	def initialize
-
+	def initialize(word)
+		puts "Initializing a new game..."
+		@dashes = [] << " _ " * word.length
+		@game_over = false 
+		@number_of_guesses = word.length
 	end 
 
 end 
