@@ -29,7 +29,7 @@ class Game
 		letter_index = @word.index(letter)
 		dashes_array = @dashes.split('')
 		dashes_array.delete_at(letter_index)
-		dashes_array.insert(letter_index, letter)
+		dashes_array.insert(letter_index, letter) #.push(array[index])
 		@dashes = dashes_array.join('')
 		@dashes
 	end 
