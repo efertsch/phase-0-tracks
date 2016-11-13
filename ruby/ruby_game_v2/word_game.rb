@@ -1,18 +1,28 @@
 class Game
 
 	attr_reader :is_over, :dashes
-	attr_accessor :word, :number_of_guesses 
+	attr_accessor :word, :number_of_guesses, :previous_guesses 
 
 	def initialize(word)
 		@word = word
 		@dashes = "_" * word.length
 		@is_over = false 
 		@number_of_guesses = 0
+		@previous_guesses = []
 	end
+
+	def add_guesses(letter_guess)
+		@previous_guesses << letter_guess
+	end 
 
 	def game_over
 		if @number_of_guesses == @word.length
 			@is_over = true 
+			if @dashes = @word 
+				puts "Congratulations you won the game!"
+			else
+				puts "You lose! Better luck next time sucker!"
+			end 
 		end 
 	end
 
@@ -29,7 +39,7 @@ class Game
 		letter_index = @word.index(letter)
 		dashes_array = @dashes.split('')
 		dashes_array.delete_at(letter_index)
-		dashes_array.insert(letter_index, letter) #.push(array[index])
+		dashes_array.insert(letter_index, letter)
 		@dashes = dashes_array.join('')
 		@dashes
 	end 
@@ -62,28 +72,21 @@ if user_input == 'yes'
 		puts "Please enter a letter to guess:"
 		letter_guess = gets.chomp.downcase
 	
-		if previous_guesses.include?(letter_guess)  
-			puts "You already guessed that letter!" 
-		elsif new_game.check_for_letter(letter_guess) == true 
+		if new_game.check_for_letter(letter_guess) == true 
 			new_game.insert_letter(letter_guess)
 			puts "Correct! The letter '#{letter_guess}' is in the word!\n"
-			previous_guesses << letter_guess
+			new_game.add_guesses(letter_guess)
 			puts new_game.dashes
 			new_game.number_of_guesses += 1
+		elsif new_game.previous_guesses.include?(letter_guess)  
+			puts "You already guessed that letter!" 
 		else 
 			puts "Sorry, the letter #{letter_guess} is not in the word.\n"
-			previous_guesses << letter_guess
+			new_game.add_guesses(letter_guess)
 			puts new_game.dashes
 			new_game.number_of_guesses += 1
 		end 
-	
 		new_game.game_over
-	
-		if new_game.is_over && new_game.dashes == new_game.word
-			puts "Congratulations you won the game!"
-		elsif new_game.is_over && new_game.dashes != new_game.word
-			puts "You lose! Better luck next time sucker!"
-		end 
 	end
 
 elsif user_input == 'no'
