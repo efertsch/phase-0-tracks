@@ -8,8 +8,9 @@ describe Game do
 	expect(game.game_over).to eq true 
 	end 
 
-	it "checks if a letter is in a word" do
-	expect(game.check_for_letter("c")).to eq true 
+	it "adds letter guess to previous guesses array" do
+		game.previous_guesses = ["c"]
+		expect(game.add_guesses("o")).to eq ["c", "o"]
 	end 
 
 	it "checks if a letter can be matched/replaced to an index" do
