@@ -11,8 +11,13 @@ class Game
 		@previous_guesses = []
 	end
 
+
 	def add_guesses(letter_guess)
 		@previous_guesses << letter_guess
+	end 
+
+	def prints_dashes
+		puts @dashes 
 	end 
 
 	def game_over
@@ -31,7 +36,7 @@ class Game
  		word_array = @word.split('')
  		word_array.each do |char|
  			if char == letter
- 				return true 
+ 			return true 
  			end
  		end  
   end 
@@ -66,25 +71,25 @@ if user_input == 'yes'
 	puts new_game.dashes
 	
 	
-	previous_guesses = []
-	
 	until new_game.is_over == true 
 	
-		puts "Please enter a letter to guess:"
+		puts "Player 2 please enter a letter to guess:"
 		letter_guess = gets.chomp.downcase
 	
 		if new_game.check_for_letter(letter_guess) == true 
 			new_game.insert_letter(letter_guess)
 			puts "Correct! The letter '#{letter_guess}' is in the word!\n"
 			new_game.add_guesses(letter_guess)
-			puts new_game.dashes
+			new_game.prints_dashes
 			new_game.number_of_guesses += 1
+
 		elsif new_game.previous_guesses.include?(letter_guess)  
 			puts "You already guessed that letter!" 
+
 		else 
 			puts "Sorry, the letter #{letter_guess} is not in the word.\n"
 			new_game.add_guesses(letter_guess)
-			puts new_game.dashes
+			new_game.prints_dashes
 			new_game.number_of_guesses += 1
 		end 
 		new_game.game_over
