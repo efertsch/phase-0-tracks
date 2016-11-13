@@ -11,13 +11,8 @@ class Game
 		@previous_guesses = []
 	end
 
-
 	def add_guesses(letter_guess)
 		@previous_guesses << letter_guess
-	end 
-
-	def prints_dashes
-		puts @dashes  
 	end 
 
 	def game_over
@@ -32,7 +27,6 @@ class Game
 		@is_over 
 	end
 
-
 	def insert_letter(letter)
 		word_array = @word.split('')
 		if word_array.include?(letter)
@@ -45,12 +39,9 @@ class Game
 		end 
 	end 
 
-
-
 end 
 
 
-# USER INTERFACE
 
 
 puts "Welcome to The Word Guessing Game:"
@@ -65,7 +56,7 @@ if user_input == 'yes'
 	new_game = Game.new(@word)
 	
 	puts "The word that Player 1 chose is #{@word.length} letters long."
-	puts new_game.prints_dashes
+	puts new_game.dashes
 	
 	
 	until new_game.is_over == true 
@@ -73,10 +64,10 @@ if user_input == 'yes'
 		puts "Player 2 please enter a letter to guess:"
 		letter_guess = gets.chomp.downcase
 	
-		if new_game.insert_letter(letter_guess) #new_game.check_for_letter(letter_guess) == true 
+		if new_game.insert_letter(letter_guess) 
 			puts "Correct! The letter '#{letter_guess}' is in the word!\n"
 			new_game.add_guesses(letter_guess)
-			new_game.prints_dashes
+			puts new_game.dashes
 			new_game.number_of_guesses += 1
 
 		elsif new_game.previous_guesses.include?(letter_guess)  
@@ -85,7 +76,7 @@ if user_input == 'yes'
 		else 
 			puts "Sorry, the letter #{letter_guess} is not in the word.\n"
 			new_game.add_guesses(letter_guess)
-			new_game.prints_dashes
+			puts new_game.dashes
 			new_game.number_of_guesses += 1
 		end 
 		new_game.game_over
@@ -99,8 +90,10 @@ end
 
 
 
-# BUGS & FIXES:
-# Dealing with duplicate letters in words
+# QUESTIONS
+# ----------
+	# Handling duplicate letters? Can only get 1 instance of a letter in a word to populate (i.e tree)
+
 
 
 
