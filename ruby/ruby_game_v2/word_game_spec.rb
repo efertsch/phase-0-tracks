@@ -13,10 +13,6 @@ describe Game do
 		expect(game.add_guesses("o")).to eq ["c", "o"]
 	end 
 
-	it "checks if a letter is in a word" do
-	expect(game.check_for_letter("c")).to eq true 
-	end 
-
 	it "checks if a letter can be matched/replaced to an index" do
 	expect(game.insert_letter("o")).to eq "_o__"   
 	end 

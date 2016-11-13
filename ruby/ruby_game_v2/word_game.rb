@@ -17,7 +17,7 @@ class Game
 	end 
 
 	def prints_dashes
-		puts @dashes 
+		puts @dashes  
 	end 
 
 	def game_over
@@ -32,23 +32,20 @@ class Game
 		@is_over 
 	end
 
-	def check_for_letter(letter)
- 		word_array = @word.split('')
- 		word_array.each do |char|
- 			if char == letter
- 			return true 
- 			end
- 		end  
-  end 
 
-	def insert_letter(letter) 
-		letter_index = @word.index(letter)
-		dashes_array = @dashes.split('')
-		dashes_array.delete_at(letter_index)
-		dashes_array.insert(letter_index, letter)
-		@dashes = dashes_array.join('')
-		@dashes
+	def insert_letter(letter)
+		word_array = @word.split('')
+		if word_array.include?(letter)
+			letter_index = @word.index(letter)
+			dashes_array = @dashes.split('')
+			dashes_array.delete_at(letter_index)
+			dashes_array.insert(letter_index, letter)
+			@dashes = dashes_array.join('')
+			@dashes
+		end 
 	end 
+
+
 
 end 
 
@@ -68,7 +65,7 @@ if user_input == 'yes'
 	new_game = Game.new(@word)
 	
 	puts "The word that Player 1 chose is #{@word.length} letters long."
-	puts new_game.dashes
+	puts new_game.prints_dashes
 	
 	
 	until new_game.is_over == true 
@@ -76,8 +73,7 @@ if user_input == 'yes'
 		puts "Player 2 please enter a letter to guess:"
 		letter_guess = gets.chomp.downcase
 	
-		if new_game.check_for_letter(letter_guess) == true 
-			new_game.insert_letter(letter_guess)
+		if new_game.insert_letter(letter_guess) #new_game.check_for_letter(letter_guess) == true 
 			puts "Correct! The letter '#{letter_guess}' is in the word!\n"
 			new_game.add_guesses(letter_guess)
 			new_game.prints_dashes
