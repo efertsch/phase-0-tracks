@@ -16,14 +16,15 @@ class Game
 	end 
 
 	def game_over
-		if @number_of_guesses == @word.length
-			@is_over = true 
-			if @dashes = @word 
+		if @number_of_guesses == @word.length 
+		@is_over = true 
+			if @dashes == @word 
 				puts "Congratulations you won the game!"
 			else
 				puts "You lose! Better luck next time sucker!"
 			end 
-		end 
+		end
+		@is_over 
 	end
 
 	def check_for_letter(letter)
