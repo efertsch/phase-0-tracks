@@ -22,7 +22,7 @@ class Rooms
 	end
 
 	def to_s
-		puts "#{@name} (#{@width} x #{length})"
+		puts "#{@name} (#{@width} x #{@length})"
 	end  
 
 
@@ -32,18 +32,15 @@ end
 
 #DRIVER CODE 
 living_room = Rooms.new("living room", 20, 20)
-
-puts living_room 
-
+puts living_room
 sofa = Items.new("Sofa", "Green", 15000)
-lamp = Items.new("lamp", "beige", 100)
-
+lamp = Items.new("Lamp", "beige", 100)
 living_room.items << sofa
 living_room.items << lamp
-
-puts living_room.items 
-
 puts living_room.total_value 
+
+
+
 
 
 
