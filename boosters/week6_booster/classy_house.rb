@@ -1,3 +1,4 @@
+require_relative 'classy_rooms', 'classy_items'
 class House 
 end 
 
