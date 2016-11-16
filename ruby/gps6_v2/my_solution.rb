@@ -15,7 +15,6 @@ class VirusPredictor
     @state = state_of_origin
     @population = population
     @population_density = population_density
-    @speed 
   end
 
 
@@ -56,7 +55,6 @@ class VirusPredictor
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
-
     if @population_density >= 200
       speed += 0.5
     elsif @population_density >= 150
@@ -68,7 +66,7 @@ class VirusPredictor
     else
       speed += 2.5
     end
-    @speed = speed
+    speed
   end
 
 end
