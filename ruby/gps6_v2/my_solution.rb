@@ -1,7 +1,7 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: Aimee Gonzalez ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge with: Aimee Gonzalez
+# We spent [1] hours on this challenge.
 
 # EXPLANATION OF require_relative
 # require_relative suggests relative file path for file in same directory
@@ -15,6 +15,7 @@ class VirusPredictor
     @state = state_of_origin
     @population = population
     @population_density = population_density
+    @speed 
   end
 
 
@@ -44,7 +45,7 @@ class VirusPredictor
       factor = 0.05
     end
     number_of_deaths = (@population * factor).floor
-    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
+    print "#{@state} will lose #{number_of_deaths} people in this outbreak and will spread across the state in #{@speed} months.\n\n"
 
   end
 
@@ -67,9 +68,7 @@ class VirusPredictor
     else
       speed += 2.5
     end
-
-    puts " and will spread across the state in #{speed} months.\n\n"
-
+    @speed = speed
   end
 
 end
