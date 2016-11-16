@@ -99,3 +99,24 @@ end
 
 #=======================================================================
 # Reflection Section
+# The differences between the hashes in the state data file are that the state data variable is constant
+# parent hash that uses strings in the form of state names as keys and a hash rocket to signify values (the second hash type). 
+# The second hash type uses symbol notation
+
+# Require relative allows access and linkages to files in the same directory by file name
+# Whereas require allows access and linkages to any file using the full path
+
+# Hashes can be iterated through using .each, or .each_pair methods. 
+
+# The variables contained redundant use of instance variables as parameters, which could be eliminated to make code more DRY.
+
+# I was able to spend some much needed time driving during this exercise and learned a lot about when/why/how to make code more DRY 
+# It was also good practice for iterating through nested data structures
+
+
+
+
+
+
+
+
