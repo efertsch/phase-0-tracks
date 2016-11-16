@@ -1,11 +1,13 @@
-var ReverseString = function(string) {
-	reversedString = ""
-	for (var i = string[-1]; i < string.length; i--) {
-		reversedString += i;
+var reverseString = function reverse(string) {
+	reversedString = "";
+	for (var i = string.length - 1; i >= 0; i--) {
+		reversedString += string[i];
 	};
+	return reversedString;
 }
 
-console.log(ReverseString("hello"));
+console.log(reverseString("hello"));
+console.log(reverseString("pirates"));
 
 
 
