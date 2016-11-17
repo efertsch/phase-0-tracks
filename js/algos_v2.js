@@ -21,12 +21,6 @@ var findLongestWord = function longest(wordArray) {
 	return longestWord;
 }
 
-var exampleArray = ["long phrase","longest phrase","longer phrase"];
-var longWords = ["sesquipedalian", "parsimonious", "magnanimous", "excogitate"];
-
-console.log(findLongestWord(exampleArray));
-console.log(findLongestWord(longWords));
-
 
 //PSEUDOCODE: RELEASE 1 
 	// Write a function that accepts two objects as parameters 
@@ -45,7 +39,43 @@ console.log(findLongestWord(longWords));
 		return false; 
 	}
 
-	var client1 = {name: "Steven", age: 54};
-	var client2 = {name: "Tamir", age: 54};
-	console.log(compareObject(client1, client2));
+
+//PSEUDOCODE: RELEASE 2 
+	// Write a function that accepts an integer as a parameter for length
+		// Declare an empty array to store random words in
+		// Based on the integer passed in, generate that many random words
+			// length of words should be generated randomly with a range of 1 - 10 for each word
+		// Store each new, random word in the array 
+		// Return the array 
+	// Add driver code that generates an array 
+		// print the newly generated array 
+		// pass the array to the findLongestWord function and print result 
+
+
+var arrayGenerator = function generate(integer) {
+
+}
+
+
+
+
+
+
+
+
+
+
+var exampleArray = ["long phrase","longest phrase","longer phrase"];
+var longWords = ["sesquipedalian", "parsimonious", "magnanimous", "excogitate"];
+console.log(findLongestWord(exampleArray));
+console.log(findLongestWord(longWords));
+
+
+var client1 = {name: "Steven", age: 54};
+var client2 = {name: "Tamir", age: 54};
+console.log(compareObject(client1, client2));
+
+
+
+
 
