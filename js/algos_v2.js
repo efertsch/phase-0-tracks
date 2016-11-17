@@ -10,9 +10,10 @@
 
 var findLongestWord = function longest(wordArray) {
 	var longestWord = "";
-	var currentLongest = wordArray[0];
+	var longestLength = 0;
 	for (var i = 0; i <= wordArray.length; i++){
-		if (wordArray[i].length > currentLongest.length) {
+		if (wordArray[i].length > longestLength) {
+			longestLength = wordArray[i].length
 			longestWord = wordArray[i];
 		};
 	}
@@ -21,6 +22,6 @@ var findLongestWord = function longest(wordArray) {
 
 var wordArray = ["long phrase","longest phrase","longer phrase"];
 
-console.log(findLongest(wordArray));
+console.log(findLongestWord(wordArray));
 
 
