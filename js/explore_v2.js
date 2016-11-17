@@ -21,3 +21,18 @@ console.log(reverseString("hello"));
 console.log(reverseString("pirates"));
 
 
+var drinkType1 = "Beer";
+var drinkType2 = "Juice";
+var sentence = "I'm not drunk!";
+var isDrunk = true;
+
+if (drinkType1) {
+	isDrunk;
+	console.log(reverseString(sentence));
+}
+else if (drinkType2) {
+	!isDrunk;
+	console.log(sentence);
+}
+
+
