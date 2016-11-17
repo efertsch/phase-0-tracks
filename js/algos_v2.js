@@ -11,17 +11,19 @@
 var findLongestWord = function longest(wordArray) {
 	var longestWord = "";
 	var longestLength = 0;
-	for (var i = 0; i <= wordArray.length; i++){
-		if (wordArray[i].length > longestLength) {
-			longestLength = wordArray[i].length
+	for (var i = 0; i < wordArray.length; i++){
+		var currentWordLength = wordArray[i].length
+		if (currentWordLength > longestLength) {
+			longestLength = currentWordLength;
 			longestWord = wordArray[i];
 		};
 	}
 	return longestWord;
 }
 
-var wordArray = ["long phrase","longest phrase","longer phrase"];
+var exampleArray = ["long phrase","longest phrase","longer phrase"];
+var longWords = ["sesquipedalian", "parsimonious", "magnanimous", "excogitate"];
 
-console.log(findLongestWord(wordArray));
-
+console.log(findLongestWord(exampleArray));
+console.log(findLongestWord(longWords));
 
