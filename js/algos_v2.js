@@ -8,15 +8,15 @@
 			// Otherwise, do not replace the word 
 	// After the entire array has been looped through return the longest word variable
 
-var findLongest = function longest(word_array) {
-	var currentLongest = "";
-	for (var i = 0; i < word_array.length; i++){
-		currentLongest = word_array[i];
-		if (word_array[i].length > currentLongest.length) {
-			currentLongest = word_array[i];
+var findLongestWord = function longest(wordArray) {
+	var longestWord = "";
+	var currentLongest = wordArray[0];
+	for (var i = 0; i <= wordArray.length; i++){
+		if (wordArray[i].length > currentLongest.length) {
+			longestWord = wordArray[i];
 		};
 	}
-	currentLongest;
+	return longestWord;
 }
 
 var wordArray = ["long phrase","longest phrase","longer phrase"];
