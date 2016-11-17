@@ -46,6 +46,6 @@ console.log(findLongestWord(longWords));
 	}
 
 	var client1 = {name: "Steven", age: 54};
-	var client2 = {name: "Tamir", age: 53};
-	compareObject(client1, client2);
+	var client2 = {name: "Tamir", age: 54};
+	console.log(compareObject(client1, client2));
 
