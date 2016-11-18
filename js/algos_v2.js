@@ -40,6 +40,55 @@ var findLongestWord = function longest(wordArray) {
 	}
 
 
+
+// PSEUDOCODE: RELEASE 2
+	// Write a function that generates a random number that accepts a minimum and maximum value
+		// Use a built in js function (math.random) to generate a random number to be passed to random word generator 
+	// Write a function generates a random word 
+		// Define a library of characters to build words from
+		// Declare a variable to store letters in as generated and set it to an empty string
+				// While the number of letters is greater than or equal to zero
+					// Call random number generator and pass it a range equal to the length of the character library 
+					// Add character at the randomly generated index to the empty string (word variable)
+					// Incremement the loop
+				// Return the word variable 
+	// Write a function that generates a word of a random length between 1 and 10 letters long 
+		// Pass in an integer that represents the number of words to be generated 
+		// Declare an empty array to store generated words in 
+		// While the number of words is greater than 0
+			// create a variable to store word length and set it equal to a random number between 1 and 10
+			// Pass the variable to the random word generator function and push the result into the empty array
+			// Decrememnt the loop by 1
+		// return the array
+	// Write Driver code to test functionality and feeds a result to longest word method. 
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //PSEUDOCODE: RELEASE 2 
 	// Write a function that accepts an integer as a parameter for length
 		// Declare an empty array to store random words in
@@ -52,12 +101,11 @@ var findLongestWord = function longest(wordArray) {
 		// pass the array to the findLongestWord function and print result 
 
 
-var arrayGenerator = function generate(integer) {
-	var wordArray = [];
-	wordArray.length = integer; 
+function generateWords(wordLength) { 
 	alphabet = 'abcdefghijklmnopqrstuvwxyz';
-	
+	word = ""
 
+	return word
 }
 
 
