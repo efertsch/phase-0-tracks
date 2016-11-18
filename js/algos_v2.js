@@ -69,14 +69,16 @@ function generateRandNum(min, max) {
 }
 
 
-
-
-
 function generateWords(wordLength) { 
-	alphabet = 'abcdefghijklmnopqrstuvwxyz';
-	word = ""
-
-	return word
+	var alphabet = 'abcdefghijklmnopqrstuvwxyz';
+	var word = "";
+	var numberOfLetters = word.length;
+	while (numberOfLetters >= 0) {
+		var randomIndex = generateRandNum(0, 25);
+		word += alphabet[randomIndex];
+		numberOfLetters --;
+	}
+	return word; 
 }
 
 
