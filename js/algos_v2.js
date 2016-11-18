@@ -84,13 +84,17 @@ function generateWords(wordLength) {
 function wordLengthGenerator(integer) {
 	wordArray = [];
 	while (integer > 0) {
-		randomLength = generateRandNum(1,10);
+		var randomLength = generateRandNum(1,10);
 		var words = generateWords(randomLength);
 		wordArray.push(words);
 		integer --;
 	}
 	return wordArray;
 }
+
+
+
+
 
 
 
@@ -108,5 +112,10 @@ console.log(compareObject(client1, client2));
 
 console.log(generateRandNum(0,25));
 console.log(generateWords(6));
-console.log(wordLengthGenerator(10));
+console.log(wordLengthGenerator(3));
+
+
+var arrayOfWords = wordLengthGenerator(10);
+console.log(arrayOfWords);
+console.log(findLongestWord(arrayOfWords));
 
