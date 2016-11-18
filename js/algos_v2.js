@@ -65,27 +65,31 @@ var findLongestWord = function longest(wordArray) {
 
 
 function generateRandNum(min, max) {
-  return Math.random() * (max - min) + min;
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
 
 function generateWords(wordLength) { 
 	var alphabet = 'abcdefghijklmnopqrstuvwxyz';
 	var word = "";
-	var numberOfLetters = word.length;
-	while (numberOfLetters >= 0) {
-		var randomIndex = generateRandNum(0, 25);
+	while (wordLength >= 0) {
+		var randomIndex = generateRandNum(0, 26);
 		word += alphabet[randomIndex];
-		numberOfLetters --;
+		wordLength --;
 	}
 	return word; 
 }
 
 
-
-
-
-
+function wordLengthGenerator(integer) {
+	wordArray = [];
+	while (integer > 0) {
+		wordLength = Math.random(1,10);
+		wordArray.push(generateWords(wordLength));
+		integer --;
+	}
+	return wordArray;
+}
 
 
 
@@ -101,6 +105,7 @@ var client2 = {name: "Tamir", age: 54};
 console.log(compareObject(client1, client2));
 
 
-console.log(arrayGenerator(3));
-
+console.log(generateRandNum(0,25));
+console.log(generateWords(6));
+console.log(wordLengthGenerator(10));
 
