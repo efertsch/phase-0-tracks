@@ -40,27 +40,57 @@ var findLongestWord = function longest(wordArray) {
 	}
 
 
-//PSEUDOCODE: RELEASE 2 
-	// Write a function that accepts an integer as a parameter for length
-		// Declare an empty array to store random words in
-		// Based on the integer passed in, generate that many random words
-			// length of words should be generated randomly with a range of 1 - 10 for each word
-		// Store each new, random word in the array 
-		// Return the array 
-	// Add driver code that generates an array 
-		// print the newly generated array 
-		// pass the array to the findLongestWord function and print result 
+
+// PSEUDOCODE: RELEASE 2
+	// Write a function that generates a random number that accepts a minimum and maximum value
+		// Use a built in js function (math.random) to generate a random number to be passed to random word generator 
+	// Write a function generates a random word 
+		// Define a library of characters to build words from
+		// Declare a variable to store letters in as generated and set it to an empty string
+				// While the number of letters is greater than or equal to zero
+					// Call random number generator and pass it a range equal to the length of the character library 
+					// Add character at the randomly generated index to the empty string (word variable)
+					// Incremement the loop
+				// Return the word variable 
+	// Write a function that generates a word of a random length between 1 and 10 letters long 
+		// Pass in an integer that represents the number of words to be generated 
+		// Declare an empty array to store generated words in 
+		// While the number of words is greater than 0
+			// create a variable to store word length and set it equal to a random number between 1 and 10
+			// Pass the variable to the random word generator function and push the result into the empty array
+			// Decrememnt the loop by 1
+		// return the array
+	// Write Driver code to test functionality and feeds a result to longest word method. 
 
 
-var arrayGenerator = function generate(integer) {
-	var wordArray = [];
-	wordArray.length = integer; 
-	alphabet = 'abcdefghijklmnopqrstuvwxyz';
-	
 
+function generateRandNum(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
 
+function generateWords(wordLength) { 
+	var charLibrary = 'abcdefghijklmnopqrstuvwxyz';
+	var word = "";
+	while (wordLength >= 0) {
+		var randomIndex = generateRandNum(0, 26);
+		word += charLibrary[randomIndex];
+		wordLength --;
+	}
+	return word; 
+}
+
+
+function wordLengthGenerator(integer) {
+	wordArray = [];
+	while (integer > 0) {
+		var randomLength = generateRandNum(1,10);
+		var words = generateWords(randomLength);
+		wordArray.push(words);
+		integer --;
+	}
+	return wordArray;
+}
 
 
 
@@ -80,6 +110,12 @@ var client2 = {name: "Tamir", age: 54};
 console.log(compareObject(client1, client2));
 
 
-console.log(arrayGenerator(3));
+console.log(generateRandNum(0,25));
+console.log(generateWords(6));
+console.log(wordLengthGenerator(3));
 
+
+var arrayOfWords = wordLengthGenerator(10);
+console.log(arrayOfWords);
+console.log(findLongestWord(arrayOfWords));
 
