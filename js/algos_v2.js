@@ -53,6 +53,10 @@ var findLongestWord = function longest(wordArray) {
 
 
 var arrayGenerator = function generate(integer) {
+	var wordArray = [];
+	wordArray.length = integer; 
+	alphabet = 'abcdefghijklmnopqrstuvwxyz';
+	
 
 }
 
@@ -76,6 +80,6 @@ var client2 = {name: "Tamir", age: 54};
 console.log(compareObject(client1, client2));
 
 
-
+console.log(arrayGenerator(3));
 
 
