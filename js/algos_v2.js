@@ -62,43 +62,14 @@ var findLongestWord = function longest(wordArray) {
 		// return the array
 	// Write Driver code to test functionality and feeds a result to longest word method. 
 
-	
+
+
+function generateRandNum(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//PSEUDOCODE: RELEASE 2 
-	// Write a function that accepts an integer as a parameter for length
-		// Declare an empty array to store random words in
-		// Based on the integer passed in, generate that many random words
-			// length of words should be generated randomly with a range of 1 - 10 for each word
-		// Store each new, random word in the array 
-		// Return the array 
-	// Add driver code that generates an array 
-		// print the newly generated array 
-		// pass the array to the findLongestWord function and print result 
 
 
 function generateWords(wordLength) { 
