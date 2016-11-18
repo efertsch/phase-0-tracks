@@ -70,11 +70,11 @@ function generateRandNum(min, max) {
 
 
 function generateWords(wordLength) { 
-	var alphabet = 'abcdefghijklmnopqrstuvwxyz';
+	var charLibrary = 'abcdefghijklmnopqrstuvwxyz';
 	var word = "";
 	while (wordLength >= 0) {
 		var randomIndex = generateRandNum(0, 26);
-		word += alphabet[randomIndex];
+		word += charLibrary[randomIndex];
 		wordLength --;
 	}
 	return word; 
@@ -84,8 +84,9 @@ function generateWords(wordLength) {
 function wordLengthGenerator(integer) {
 	wordArray = [];
 	while (integer > 0) {
-		wordLength = Math.random(1,10);
-		wordArray.push(generateWords(wordLength));
+		randomLength = generateRandNum(1,10);
+		var words = generateWords(randomLength);
+		wordArray.push(words);
 		integer --;
 	}
 	return wordArray;
