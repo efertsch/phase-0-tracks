@@ -1,7 +1,7 @@
 1. Display the information in one table (either table is fine).
 
 command: 
-sqlite> SELECT * FROM customer_purchases;
+SELECT * FROM customer_purchases;
 
 output:
 1|lava lamp|3|true|in store|2
@@ -21,9 +21,9 @@ output:
 
 command:
 UPDATE customer_purchases SET quantity=0 WHERE item=“Spawn Your Own Tarantula Kit”;
+SELECT * FROM customer_purchases;
 
 output:
-sqlite> SELECT * FROM customer_purchases;
 1|lava lamp|3|true|in store|2
 2|unicycle|1|false|online|2
 3|bluetooth speaker|1|true|online|3
@@ -78,7 +78,7 @@ Missy Vandergard|Spawn Your Own Tarantula Kit
 
 command:
 DELETE FROM customer_information WHERE id=5;
-
+SELECT * FROM customer_information;
 
 output:
 1|Ethan Fertsch|5223410987|589 Beaver Rd Nashville, TN|true
