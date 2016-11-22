@@ -86,3 +86,42 @@ output:
 3|Missy Vandergard|6554318730|33 Moulton Lane Dallas, TX|true
 4|Felicia Chapman|9604721000|4678 Roosevelt Way Hillsdale, CA|true
 
+
+6. Explore different types of joins.
+Three different types of joins:
+
+CROSS JOIN - 
+Description:
+Matches every row of the first table with every row of the second table.
+Can produce very large tables and should be treated with care. 
+
+Syntax:
+SELECT ... FROM table1 CROSS JOIN table2 ...
+
+INNER JOIN -
+Description:
+Creates a new table by combining column values of two tables based on join predicate. 
+Most common type of join (is default). INNER keyword can be used optionally. 
+
+Syntax:
+SELECT ... FROM table1 [INNER] JOIN table2 ON conditional_expression ...
+
+or 
+
+with USING expression to specify list of 1 or more columns 
+SELECT ... FROM table1 JOIN table2 USING ( column1 ,... ) ...
+
+or 
+
+with NATURAL JOIN which is similar to JOIN USING but it automatically tests for equality between the values of every column the exists in both tables
+SELECT ... FROM table1 NATURAL JOIN table2...
+
+
+OUTER JOIN -
+
+Description:
+Extension of INNER JOIN. SQLite only supports LEFT OUTER JOIN. 
+Syntax (ON, USING, NATURAL) is identical to INNER JOIN but after initial join has been performed the OUTER JOIN with take any unjoined rows from one of both tables and add nulls in their place to the resulting table. 
+
+Syntax:
+SELECT ... FROM table1 LEFT OUTER JOIN table2 ON conditional_expression ...
