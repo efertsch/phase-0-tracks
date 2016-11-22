@@ -1,18 +1,88 @@
 1. Display the information in one table (either table is fine).
 
+command: 
+sqlite> SELECT * FROM customer_purchases;
+
+output:
+1|lava lamp|3|true|in store|2
+2|unicycle|1|false|online|2
+3|bluetooth speaker|1|true|online|3
+4|holographic picture of a cat|100|true|in store|1
+5|Beethoven mix-tape|1|false|in store|3
+6|Jackelope Taxidermy|2|true|online|4
+7|Blue Body Suit|1|false|online|1
+8|Sock Monkey|1|true|in store|5
+9|Goldfish Slippers|2|true|online|4
+10|Easy Bake Oven|1|true|online|1
+11|Spawn Your Own Tarantula Kit|1|true|in store|3
 
 
 2. Update an item that meets some condition (you can choose a condition that makes 	sense).
 
+command:
+UPDATE customer_purchases SET quantity=0 WHERE item=“Spawn Your Own Tarantula Kit”;
+
+output:
+sqlite> SELECT * FROM customer_purchases;
+1|lava lamp|3|true|in store|2
+2|unicycle|1|false|online|2
+3|bluetooth speaker|1|true|online|3
+4|holographic picture of a cat|100|true|in store|1
+5|Beethoven mix-tape|1|false|in store|3
+6|Jackelope Taxidermy|2|true|online|4
+7|Blue Body Suit|1|false|online|1
+8|Sock Monkey|1|true|in store|5
+9|Goldfish Slippers|2|true|online|4
+10|Easy Bake Oven|1|true|online|1
+11|Spawn Your Own Tarantula Kit|0|true|in store|3
 
 3. Display the information in both tables using one query.
 
+command:
+SELECT * FROM customer_information, customer_purchases WHERE customer_purchases.customer_id = customer_information.id;
 
+output:
+2|Paul Robinson|6715329456|666 Windlow Terrace Amesbury, MA|false|1|lava lamp|3|true|in store|2
+2|Paul Robinson|6715329456|666 Windlow Terrace Amesbury, MA|false|2|unicycle|1|false|online|2
+3|Missy Vandergard|6554318730|33 Moulton Lane Dallas, TX|true|3|bluetooth speaker|1|true|online|3
+1|Ethan Fertsch|5223410987|589 Beaver Rd Nashville, TN|true|4|holographic picture of a cat|100|true|in store|1
+3|Missy Vandergard|6554318730|33 Moulton Lane Dallas, TX|true|5|Beethoven mix-tape|1|false|in store|3
+4|Felicia Chapman|9604721000|4678 Roosevelt Way Hillsdale, CA|true|6|Jackelope Taxidermy|2|true|online|4
+1|Ethan Fertsch|5223410987|589 Beaver Rd Nashville, TN|true|7|Blue Body Suit|1|false|online|1
+5|Bruce Armstrong|8558710346|590 Bishop Street Denver, CO|false|8|Sock Monkey|1|true|in store|5
+4|Felicia Chapman|9604721000|4678 Roosevelt Way Hillsdale, CA|true|9|Goldfish Slippers|2|true|online|4
+1|Ethan Fertsch|5223410987|589 Beaver Rd Nashville, TN|true|10|Easy Bake Oven|1|true|online|1
+3|Missy Vandergard|6554318730|33 Moulton Lane Dallas, TX|true|11|Spawn Your Own Tarantula Kit|0|true|in store|3
 
 
 4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
 
+command: 
+SELECT customer_information.customer_name, customer_purchases.item FROM customer_purchases JOIN customer_information ON customer_purchases.customer_id = customer_information.id;
+
+Paul Robinson|lava lamp
+Paul Robinson|unicycle
+Missy Vandergard|bluetooth speaker
+Ethan Fertsch|holographic picture of a cat
+Missy Vandergard|Beethoven mix-tape
+Felicia Chapman|Jackelope Taxidermy
+Ethan Fertsch|Blue Body Suit
+Bruce Armstrong|Sock Monkey
+Felicia Chapman|Goldfish Slippers
+Ethan Fertsch|Easy Bake Oven
+Missy Vandergard|Spawn Your Own Tarantula Kit
 
 
 
 5. Delete an item that meets some condition (you can choose a condition that makes sense).
+
+command:
+DELETE FROM customer_information WHERE id=5;
+
+
+output:
+1|Ethan Fertsch|5223410987|589 Beaver Rd Nashville, TN|true
+2|Paul Robinson|6715329456|666 Windlow Terrace Amesbury, MA|false
+3|Missy Vandergard|6554318730|33 Moulton Lane Dallas, TX|true
+4|Felicia Chapman|9604721000|4678 Roosevelt Way Hillsdale, CA|true
+
