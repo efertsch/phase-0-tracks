@@ -73,14 +73,29 @@ def add_wine(db, type, name, desc, pair_id)
 end 
 
 def add_entree(db, main, side, pair_id)
-	db.execute("INSERT INTO entrees (main, side, wine_id) VALUES (?, ?, ?)", [main, side, wine_id])
+	db.execute("INSERT INTO entrees (main, side, wine_id) VALUES (?, ?, ?)", [main, side, pair_id])
 end 
 
-# def print_wines(db, table)
-# 	db.execute("SELECT * FROM wines")
-# end 
+def print_wines(db)
+	wines = db.execute("SELECT * FROM wines")
+	puts "Here is the wine menu:"
+	wines.each do |wine|
+		puts "The #{wine['name']}, is a #{wine['type']} #{wine['description']} wine.}"
+	end 	
+end 
+
+def print_entrees(db)
+	entrees = db.execute("SELECT * FROM entrees")
+	puts "Tonights entree options include:"
+	entrees.each do |entree|
+		puts "#{entree['main']}, served a side of #{entree['side']}."
+	end 	
+end 
 
 
+#DRIVER CODE 
+
+# Adds guests based on number entered
 # puts "How many guests will be attending?"
 # number_of_guests = gets.to_i
 
@@ -88,15 +103,27 @@ end
 # 	add_guest(db, Faker::Name.first_name, Faker::Name.last_name)
 # end 
 
-add_wine(db, "red", "cabernet sauvignon", "big-structured, dark-fruited", 2)
-add_wine(db, "white", "pinot grigio", "crisp, light, steely", 3)
-add_wine(db, "white", "reisling", "crisp, aromatic, nobel", 4 )
-add_wine(db, "red", "merlot", "round, soft, dark-fruited", 1)
-
-add_entree(db, "braised lamb shanks", "garlic broccolini", 4)
-add_entree(db, "roasted root vegetables", "hand-tossed kale salad", 1)
-add_entree(db, "grilled halibut", "sauteed summer squash", 2)
-add_entree(db, "blackened chicken", "sweet potato mash", 3)
+#-----------------------------------------------------------------
 
 
+# Adds Wines 
+# add_wine(db, "red", "cabernet sauvignon", "big-structured, dark-fruited", 2)
+# add_wine(db, "white", "pinot grigio", "crisp, light, steely", 3)
+# add_wine(db, "white", "reisling", "crisp, aromatic, nobel", 4 )
+# add_wine(db, "red", "merlot", "round, soft, dark-fruited", 1)
 
+#------------------------------------------------------------------
+
+# Adds Entrees
+# add_entree(db, "braised lamb shanks", "garlic broccolini", 4)
+# add_entree(db, "roasted root vegetables", "hand-tossed kale salad", 1)
+# add_entree(db, "grilled halibut", "sauteed summer squash", 2)
+# add_entree(db, "blackened chicken", "sweet potato mash", 3)
+
+#--------------------------------------------------------------------
+
+# Print wine menu
+# print_wines(db)
+
+#Print entree menu
+print_entrees(db)
