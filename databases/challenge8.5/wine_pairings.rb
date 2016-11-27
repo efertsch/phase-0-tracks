@@ -14,12 +14,13 @@
 	# Method to generate pariing based upon wine entry (id)
 
 require 'sqlite3'
+require 'faker'
 
 db = SQLite3::Database.new("party_pairings.db")
 db.results_as_hash = true 
 
 
-create_table_cmd = <<-SQL
+create_guests_cmd = <<-SQL
 	CREATE TABLE IF NOT EXISTS guests(
 		id INTEGER PRIMARY KEY, 
 		first_name VARCHAR(255), 
@@ -27,28 +28,28 @@ create_table_cmd = <<-SQL
 	)
 SQL
 
-create_table_cmd = <<-SQL
+create_entrees_cmd = <<-SQL
 	CREATE TABLE IF NOT EXISTS entrees(
 		id INTEGER PRIMARY KEY, 
 		main VARCHAR(255), 
 		side VARCHAR(255),
-		entree_id INT, 
-		FOREIGN KEY (entree_id) REFERENCES wines(id)
+		wine_id INT, 
+		FOREIGN KEY (wine_id) REFERENCES wines(id)
 	)
 SQL
 
-create_table_cmd = <<-SQL
+create_wines_cmd = <<-SQL
 	CREATE TABLE IF NOT EXISTS wines(
 		id INTEGER PRIMARY KEY, 
 		type VARCHAR(255), 
 		name VARCHAR(255),
 		description VARCHAR (255),
-		wine_id INT, 
-		FOREIGN KEY (wine_id) REFERENCES entrees(id)
+		entree_id INT, 
+		FOREIGN KEY (entree_id) REFERENCES entrees(id)
 	)
 SQL
 
-create_table_cmd = <<-SQL
+create_final_cmd = <<-SQL
 	CREATE TABLE IF NOT EXISTS final_menu(
 		guest_id INT,
 		wine_id INT,
@@ -59,4 +60,28 @@ create_table_cmd = <<-SQL
 	)
 SQL
 
-db.execute(create_table_cmd)
+db.execute(create_guests_cmd)
+db.execute(create_entrees_cmd)
+db.execute(create_wines_cmd)
+
+def add_guest(db, first_name, last_name)
+	db.execute("INSERT INTO guests (first_name, last_name) VALUES (?, ?)", [first_name, last_name])
+end 
+
+def add_wine(db, type, name, desc, pair_id)
+	db.execute("INSERT INTO wines (type, name, desc, pair_id) VALUES (?, ?, ?, ?)", [type, name, desc, pair_id])
+end 
+
+def add_entree(db, main, side, pair_id)
+	db.execute("INSERT INTO entrees (main, side, pair_id) VALUES (?, ?, ?)", [main, side, pair_id])
+end 
+
+
+puts "How many guests will be attending?"
+number_of_guests = gets.to_i
+
+number_of_guests.times do 
+	add_guest(db, Faker::Name.first_name, Faker::Name.last_name)
+end 
+
+
