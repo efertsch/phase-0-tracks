@@ -63,6 +63,7 @@ SQL
 db.execute(create_guests_cmd)
 db.execute(create_entrees_cmd)
 db.execute(create_wines_cmd)
+db.execute(create_final_cmd)
 
 def add_guest(db, first_name, last_name)
 	db.execute("INSERT INTO guests (first_name, last_name) VALUES (?, ?)", [first_name, last_name])
@@ -76,35 +77,38 @@ def add_entree(db, main, side, pair_id)
 	db.execute("INSERT INTO entrees (main, side, wine_id) VALUES (?, ?, ?)", [main, side, pair_id])
 end 
 
-def print_wines(db)
-	wines = db.execute("SELECT * FROM wines")
-	puts "Here is the wine menu:"
-	wines.each do |wine|
-		puts "The #{wine['name']}, is a #{wine['type']} #{wine['description']} wine.}"
-	end 	
+def add_guest_info(db, guest_id, wine_id, meal_id)
+	db.execute("INSERT INTO add_guest_info (guest_id, wine_id, meal) VALUES (?, ?, ?)", [main, side, pair_id])
 end 
+
+def pull_guest_id(db, name)
+	guest_id = db.execute("SELECT id FROM guests WHERE last_name=name")
+end 
+
+def suggest_wine(db, meal_id)
+	wine_id = db.execute("SELECT id FROM wines, entrees WHERE wines.id=entree.wines_id")
+	p wine_id 
+end 
+
+
+def program_intro
+	puts "Welcome to the dinner party planner program!"
+	puts "This program is designed to plan a dinner party based on:\n"
+	puts "The number of guests, and their desired food and beverage pairings."
+	puts "To begin, please enter the number of guests that will be attending."
+end 
+ 
 
 def print_entrees(db)
 	entrees = db.execute("SELECT * FROM entrees")
 	puts "Tonights entree options include:"
 	entrees.each do |entree|
-		puts "#{entree['main']}, served a side of #{entree['side']}."
+		puts "#{entree['id']}.#{entree['main'].capitalize}, served a side of #{entree['side']}."
 	end 	
 end 
 
 
 #DRIVER CODE 
-
-# Adds guests based on number entered
-# puts "How many guests will be attending?"
-# number_of_guests = gets.to_i
-
-# number_of_guests.times do 
-# 	add_guest(db, Faker::Name.first_name, Faker::Name.last_name)
-# end 
-
-#-----------------------------------------------------------------
-
 
 # Adds Wines 
 # add_wine(db, "red", "cabernet sauvignon", "big-structured, dark-fruited", 2)
@@ -122,8 +126,71 @@ end
 
 #--------------------------------------------------------------------
 
-# Print wine menu
-# print_wines(db)
 
-#Print entree menu
-print_entrees(db)
+# puts "For use by The Host Only:"
+
+# program_intro
+
+# puts "How many guests will be attending?"
+# number_of_guests = gets.to_i
+
+# puts "Please provide your guests with the device in order to complete the program."
+
+# number_of_guests.times do
+
+# 	puts "Please enter your first name."
+# 	first_name = gets.chomp
+# 	puts "Please enter your last name."
+# 	last_name = gets.chomp
+# 	add_guest(db, first_name, last_name)
+
+# 	puts "Okay #{first_name}, would you like to see tonight's entree options?"
+
+# 	user_input = gets.chomp.downcase
+# 	if user_input == 'yes'
+# 				print_entrees(db)
+# 	elsif user_input == 'no'
+# 		puts "Oh, you must not be hungry..."
+# 	end
+
+pull_guest_id(db,"Fertsch")
+suggest_wine(db, 1) 
+
+	# puts "Please enter the number assciated with your meal choice and we will pair it with the most appropriate wine!" 
+	# meal_choice = gets.to_i
+	# case meal_choice 
+	# 	when 1,
+	# 		meal_choice = 1
+	# 		pull_guest_id(db, last_name)
+	# 		add_guest_info(db, pull_guest_id(db, last_name),  meal_choice)
+	# 	when 2,
+	# 	when 3,
+	# 	when 4, 
+	# 	when nil 
+	# end 
+
+# end 
+
+
+
+
+
+
+
+
+
+
+
+# Archived Code 
+# def print_wines(db)
+# 	wines = db.execute("SELECT * FROM wines")
+# 	puts "Here is the wine menu:"
+# 	puts "______________________"
+# 	wines.each do |wine|
+# 		puts "Item ID: #{wine['id']}"
+# 		puts "Name: #{wine['name']}"
+# 		puts "Type: #{wine['type']}"
+# 		puts "Description: #{wine['description']}"
+# 		puts "______________________"
+# 	end 	
+# end
