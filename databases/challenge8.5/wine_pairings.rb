@@ -19,4 +19,44 @@ db = SQLite3::Database.new("party_pairings.db")
 db.results_as_hash = true 
 
 
+create_table_cmd = <<-SQL
+	CREATE TABLE IF NOT EXISTS guests(
+		id INTEGER PRIMARY KEY, 
+		first_name VARCHAR(255), 
+		last_name VARCHAR(255)
+	)
+SQL
 
+create_table_cmd = <<-SQL
+	CREATE TABLE IF NOT EXISTS entrees(
+		id INTEGER PRIMARY KEY, 
+		main VARCHAR(255), 
+		side VARCHAR(255),
+		entree_id INT, 
+		FOREIGN KEY (entree_id) REFERENCES wines(id)
+	)
+SQL
+
+create_table_cmd = <<-SQL
+	CREATE TABLE IF NOT EXISTS wines(
+		id INTEGER PRIMARY KEY, 
+		type VARCHAR(255), 
+		name VARCHAR(255),
+		description VARCHAR (255),
+		wine_id INT, 
+		FOREIGN KEY (wine_id) REFERENCES entrees(id)
+	)
+SQL
+
+create_table_cmd = <<-SQL
+	CREATE TABLE IF NOT EXISTS final_menu(
+		guest_id INT,
+		wine_id INT,
+		entree_id INT,
+		FOREIGN KEY (guest_id) REFERENCES guests(id),
+		FOREIGN KEY (wine_id) REFERENCES wines(id),
+		FOREIGN KEY (entree_id) REFERENCES entree(id)
+	)
+SQL
+
+db.execute(create_table_cmd)
