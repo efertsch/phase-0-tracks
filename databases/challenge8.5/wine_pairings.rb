@@ -83,13 +83,11 @@ end
 
 def find_guest_id(db, name)
 	guest_id = db.execute("SELECT id FROM guests WHERE last_name = '#{name}'")
-	p guest_id
+	guest_id[0][0]
 end 
 
 def find_wine_id(db, meal_id)
 	wine_id = db.execute("SELECT id FROM wines WHERE entree_id = '#{meal_id}'")
-	p wine_id
-	# p wine_id['name']
 end 
 
 
@@ -168,19 +166,20 @@ number_of_guests.times do
 		puts "Oh, you must not be hungry..."
 	end
 
-	puts "Please enter the number assciated with your meal choice and we will pair it with the most appropriate wine!" 
-	meal_choice = gets.to_i
-	case meal_choice 
-		when 1,
-			meal_choice = 1
-			find_guest_id(db,last_name)
-				find_wine_id(db, meal_choice)
-			add_final_info(db, find_guest_id(db, last_name), find_wine_id(db,meal_choice))
-		when 2,
-		when 3,
-		when 4, 
-		when nil 
-	end
+	find_guest_id(db,last_name)
+	# p find_wine_id(db, meal_choice)
+	# p add_final_info(db, find_guest_id(db, last_name), find_wine_id(db,meal_choice), meal_choice)
+
+	# puts "Please enter the number assciated with your meal choice and we will pair it with the most appropriate wine!" 
+	# meal_choice = gets.to_i
+	# case meal_choice 
+	# 	when 1,
+	# 		# p find_guest_id(db,last_name)
+	# 		# p find_wine_id(db, meal_choice)
+	# 		# p add_final_info(db, find_guest_id(db, last_name), find_wine_id(db,meal_choice), meal_choice)
+	# 	else 
+	# 		puts "oops"
+	# end
 
 end 
 
