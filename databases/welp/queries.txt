@@ -32,3 +32,13 @@ Angela      Joile       Plumbng by   3           Great service and on
 
 3. How do you view the data of all three tables for just one particular business? 
 
+command:
+sqlite> SELECT * FROM businesses
+   ...> JOIN reviews ON reviews.business_id = businesses.id
+   ...> JOIN users ON users.id = reviews.user_id
+   ...> WHERE businesses.name = "Sushi World";
+
+output:
+id          name         id          stars       comment               user_id     business_id  id          first_name  last_name
+----------  -----------  ----------  ----------  --------------------  ----------  -----------  ----------  ----------  ----------
+6           Sushi World  1           5           Fresh fish and staff  4           6            4           Steven      Wonder
