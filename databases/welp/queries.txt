@@ -1,0 +1,44 @@
+1. You've joined two tables before. How do you join three?
+
+command: 
+sqlite> SELECT * FROM users
+   ...> JOIN reviews ON reviews.user_id = users.id
+   ...> JOIN businesses ON businesses.id = reviews.business_id;
+
+output:
+id          first_name  last_name   id          stars       comment               user_id     business_id  id          name
+----------  ----------  ----------  ----------  ----------  --------------------  ----------  -----------  ----------  -----------
+4           Steven      Wonder      1           5           Fresh fish and staff  4           6            6           Sushi World
+1           Bradford    Pitt        2           0           Towed my car illegal  1           2            2           Amir's Towi
+6           Merryl      Streepman   3           2           didn't play beyonce   6           4            4           Lotus Yoga
+3           Angela      Joile       4           3           Great service and on  3           5            5           Plumbng by
+
+
+2. There are some repetitive columns if we choose to view all fields. Choose instead to just view the user's names, the business name, the star rating, and the comment.
+
+command:
+sqlite> SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment
+   ...> FROM users
+   ...> JOIN reviews on users.id = reviews.user_id
+   ...> JOIN businesses ON reviews.business_id = businesses.id;
+
+output:
+first_name  last_name   name         stars       comment
+----------  ----------  -----------  ----------  --------------------
+Steven      Wonder      Sushi World  5           Fresh fish and staff
+Bradford    Pitt        Amir's Towi  0           Towed my car illegal
+Merryl      Streepman   Lotus Yoga   2           didn't play beyonce
+Angela      Joile       Plumbng by   3           Great service and on
+
+3. How do you view the data of all three tables for just one particular business? 
+
+command:
+sqlite> SELECT * FROM businesses
+   ...> JOIN reviews ON reviews.business_id = businesses.id
+   ...> JOIN users ON users.id = reviews.user_id
+   ...> WHERE businesses.name = "Sushi World";
+
+output:
+id          name         id          stars       comment               user_id     business_id  id          first_name  last_name
+----------  -----------  ----------  ----------  --------------------  ----------  -----------  ----------  ----------  ----------
+6           Sushi World  1           5           Fresh fish and staff  4           6            4           Steven      Wonder
