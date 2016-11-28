@@ -1,6 +1,5 @@
 
 require 'sqlite3'
-require 'table_print'
 
 
 db = SQLite3::Database.new("party_pairings.db")
@@ -171,6 +170,20 @@ registry.each do |item|
 	entree_choice = retrieve_entree_name(db, meal_choice)
 	puts "Guest number #{item['guest_id']} will be enjoying the entree with an ID of: #{item['entree_id']} paired with the wine with an ID of: #{item['wine_id']}"
 end 
+
+
+
+
+
+
+# CONSIDERATIONS AND FUTURE WORK
+	# Users can update items 
+	# Pretty print of final registry table
+	# Make code more DRY - use of more data structures to populate tables
+	# Users want to try multiple types of wine 
+	# Use more integrated table systems to extract meaningful data 
+
+
 
 
 
