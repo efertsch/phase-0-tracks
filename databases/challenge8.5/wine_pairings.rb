@@ -77,18 +77,19 @@ def add_entree(db, main, side, pair_id)
 	db.execute("INSERT INTO entrees (main, side, wine_id) VALUES (?, ?, ?)", [main, side, pair_id])
 end 
 
-def add_guest_info(db, guest_id, wine_id, meal_id)
-	db.execute("INSERT INTO add_guest_info (guest_id, wine_id, entree) VALUES (?, ?, ?)", [guest_id, wine_id, entree_id])
-end 
+# def add_guest_info(db, guest_id, wine_id, meal_id)
+# 	db.execute("INSERT INTO add_guest_info (guest_id, wine_id, entree) VALUES (?, ?, ?)", [guest_id, wine_id, entree_id])
+# end 
 
 def find_guest_id(db, name)
-	guest_id = db.execute("SELECT id FROM guests WHERE last_name=")
+	guest_id = db.execute("SELECT id FROM guests WHERE last_name = '#{name}'")
 	p guest_id
 end 
 
-def suggest_wine(db, meal_id)
-	wine_id = db.execute("SELECT id FROM wines, entrees WHERE wines.id=entree.wines_id")
-	p wine_id 
+def find_wine_id(db, meal_id)
+	wine_id = db.execute("SELECT id FROM wines WHERE entree_id = '#{meal_id}'")
+	p wine_id
+	# p wine_id['name']
 end 
 
 
@@ -96,7 +97,7 @@ def program_intro
 	puts "Welcome to the dinner party planner program!"
 	puts "This program is designed to plan a dinner party based on:\n"
 	puts "The number of guests, and their desired food and beverage pairings."
-	puts "To begin, please enter the number of guests that will be attending."
+	puts "To begin, please enter the number of guests that will be attending.\n"
 end 
  
 
@@ -128,50 +129,55 @@ end
 #--------------------------------------------------------------------
 
 
-# puts "For use by The Host Only:"
+puts "For use by The Host Only:"
 
-# program_intro
+program_intro
 
-# puts "How many guests will be attending?"
-# number_of_guests = gets.to_i
+puts "How many guests will be attending?"
+number_of_guests = gets.to_i
 
-# puts "Please provide your guests with the device in order to complete the program."
+puts "Please provide your guests with the device in order to complete the program."
 
-# number_of_guests.times do
+number_of_guests.times do
 
-# 	puts "Please enter your first name."
-# 	first_name = gets.chomp
-# 	puts "Please enter your last name."
-# 	last_name = gets.chomp
-# 	add_guest(db, first_name, last_name)
+	puts "Please enter your first name."
+	first_name = gets.chomp
+	puts "Please enter your last name."
+	last_name = gets.chomp
+	add_guest(db, first_name, last_name)
 
-# 	puts "Okay #{first_name}, would you like to see tonight's entree options?"
+	puts "Hello, #{first_name}, would you like to see tonight's entree options?"
 
-# 	user_input = gets.chomp.downcase
-# 	if user_input == 'yes'
-# 				print_entrees(db)
-# 	elsif user_input == 'no'
-# 		puts "Oh, you must not be hungry..."
-# 	end
+	user_input = gets.chomp.downcase
+	if user_input == 'yes'
+				print_entrees(db)
+	elsif user_input == 'no'
+		puts "Oh, you must not be hungry..."
+	end
 
-pull_guest_id(db,"you")
-suggest_wine(db, 1) 
+	find_wine_id(db, 2)
 
 	# puts "Please enter the number assciated with your meal choice and we will pair it with the most appropriate wine!" 
 	# meal_choice = gets.to_i
 	# case meal_choice 
 	# 	when 1,
 	# 		meal_choice = 1
-	# 		pull_guest_id(db, last_name)
+	# 		find_guest_id(db,last_name)
 	# 		add_guest_info(db, pull_guest_id(db, last_name),  meal_choice)
 	# 	when 2,
 	# 	when 3,
 	# 	when 4, 
 	# 	when nil 
-	# end 
+	# end
 
-# end 
+end 
 
+
+
+
+
+# Get wine id
+# put guest, wine, entree ids into final roster table 
 
 
 
