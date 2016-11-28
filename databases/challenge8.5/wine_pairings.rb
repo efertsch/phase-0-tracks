@@ -87,10 +87,6 @@ def retrieve_entree_name(db, id)
 	entree_name[0][0]
 end 
 
-def print_final(db)
-	db.execute("SELECT guest_id, wine_id, entree_id, first_name, last_name FROM final_menu INNER JOIN guests ON final_menu.guest_id = guests.id")
-end 
-
 
 def program_intro
 	puts "Welcome to the dinner party planner program!\n"
@@ -160,18 +156,13 @@ number_of_guests.times do
 	puts "Thanks for taking the survey, #{first_name.capitalize}!"
 	puts "Based on your entree choice of #{entree_choice}, we recommend the #{suggested_wine} - we look forward to serving you!"
 
-
 end 
 
 puts "Here's a print out of your final results:"
 registry = db.execute("SELECT * FROM final_menu")
 registry.each do |item|
-	suggested_wine = retrieve_wine_name(db, find_wine_id(db,meal_choice))
-	entree_choice = retrieve_entree_name(db, meal_choice)
 	puts "Guest number #{item['guest_id']} will be enjoying the entree with an ID of: #{item['entree_id']} paired with the wine with an ID of: #{item['wine_id']}"
 end 
-
-
 
 
 
@@ -181,11 +172,8 @@ end
 	# Pretty print of final registry table
 	# Make code more DRY - use of more data structures to populate tables
 	# Users want to try multiple types of wine 
-	# Use more integrated table systems to extract meaningful data 
-
-
-
-
+	# Use more integrated table systems to extract meaningful data (complex joins)
+	# Separate different events - limit the number of guests allowed 
 
 
 
