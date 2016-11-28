@@ -1,4 +1,4 @@
-# Common HTTP status codes 
+# What are some common HTTP status codes?
 
 see [SmartLab Software](https://www.smartlabsoftware.com/ref/http-status-codes.htm)
 
@@ -67,3 +67,52 @@ see [SmartLab Software](https://www.smartlabsoftware.com/ref/http-status-codes.h
 
 ## 550 Permission Denied 
 * Your current (logged in) account does not have permission to perform the attempted action
+
+# What is the difference between a GET request and a POST request? 
+# When might each be used?
+
+see [w3schools: HTTP Methods](http://www.w3schools.com/TAGs/ref_httpmethods.asp)
+see [Tutorials Point](https://www.tutorialspoint.com/http/http_methods.htm)
+
+## GET Requests
+* Requests data from a specified source (given URI)
+* Only retrieves data, should have no other effect 
+* The query string (key/value pairs) is sent in the URL of the GET Request 
+* Example:
+````/test/demo_form.asp?name1=value1&name2=value2````
+* GET Requests:
+	* can be cached
+	* remain in browser history
+	* can be book marked
+	* shouldn't be used for sensitive data 
+	* have length restrictions
+	* should only be used to retrieve data 
+* GET method is used to retrieve data (image files, documents, load page etc.) 
+
+
+## POST Request 
+* POST method is used to send data to the server (i.e, file update, form data)
+* Script on the server side (process.cgi) processes data and sends a response
+* The query string (key/value pairs) is sent in the HTTP message body of the POST Request 
+* Example:
+````POST /test/demo_form.asp HTTP/1.1
+Host: w3schools.com
+name1=value1&name2=value2````
+* POST Requests:
+	* never cached
+	* do not remain in browser history
+	* cannot be book marked 
+	* do not have length restrictions
+* POST method is used to send data to the server (file update etc.,) 
+
+## Other Methods
+* HEAD 
+	* Same as GET but returns only HTTP headers and no body
+* PUT 
+	* Uploads a representation of the specified URI
+* DELETE
+	* Deletes specified resource
+* OPTIONS
+	* Returns HTTP methods supported by the SERVER
+* CONNECT 
+	* Converts request connect to a transparent TCP/IP tunnel
