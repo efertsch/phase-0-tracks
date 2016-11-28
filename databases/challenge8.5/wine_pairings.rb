@@ -78,11 +78,12 @@ def add_entree(db, main, side, pair_id)
 end 
 
 def add_guest_info(db, guest_id, wine_id, meal_id)
-	db.execute("INSERT INTO add_guest_info (guest_id, wine_id, meal) VALUES (?, ?, ?)", [main, side, pair_id])
+	db.execute("INSERT INTO add_guest_info (guest_id, wine_id, entree) VALUES (?, ?, ?)", [guest_id, wine_id, entree_id])
 end 
 
-def pull_guest_id(db, name)
-	guest_id = db.execute("SELECT id FROM guests WHERE last_name=name")
+def find_guest_id(db, name)
+	guest_id = db.execute("SELECT id FROM guests WHERE last_name=")
+	p guest_id
 end 
 
 def suggest_wine(db, meal_id)
@@ -153,7 +154,7 @@ end
 # 		puts "Oh, you must not be hungry..."
 # 	end
 
-pull_guest_id(db,"Fertsch")
+pull_guest_id(db,"you")
 suggest_wine(db, 1) 
 
 	# puts "Please enter the number assciated with your meal choice and we will pair it with the most appropriate wine!" 
