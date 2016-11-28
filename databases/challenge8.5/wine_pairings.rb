@@ -77,9 +77,9 @@ def add_entree(db, main, side, pair_id)
 	db.execute("INSERT INTO entrees (main, side, wine_id) VALUES (?, ?, ?)", [main, side, pair_id])
 end 
 
-# def add_guest_info(db, guest_id, wine_id, meal_id)
-# 	db.execute("INSERT INTO add_guest_info (guest_id, wine_id, entree) VALUES (?, ?, ?)", [guest_id, wine_id, entree_id])
-# end 
+def add_final_info(db, guest_id, wine_id, meal_id)
+	db.execute("INSERT INTO add_final_info (guest_id, wine_id, entree) VALUES (?, ?, ?)", [guest_id, wine_id, entree_id])
+end 
 
 def find_guest_id(db, name)
 	guest_id = db.execute("SELECT id FROM guests WHERE last_name = '#{name}'")
@@ -108,6 +108,19 @@ def print_entrees(db)
 		puts "#{entree['id']}.#{entree['main'].capitalize}, served a side of #{entree['side']}."
 	end 	
 end 
+
+def print_wines(db)
+	wines = db.execute("SELECT * FROM wines")
+	puts "Here is the wine menu:"
+	puts "______________________"
+	wines.each do |wine|
+		puts "Item ID: #{wine['id']}"
+		puts "Name: #{wine['name']}"
+		puts "Type: #{wine['type']}"
+		puts "Description: #{wine['description']}"
+		puts "______________________"
+	end 	
+end
 
 
 #DRIVER CODE 
@@ -155,20 +168,19 @@ number_of_guests.times do
 		puts "Oh, you must not be hungry..."
 	end
 
-	find_wine_id(db, 2)
-
-	# puts "Please enter the number assciated with your meal choice and we will pair it with the most appropriate wine!" 
-	# meal_choice = gets.to_i
-	# case meal_choice 
-	# 	when 1,
-	# 		meal_choice = 1
-	# 		find_guest_id(db,last_name)
-	# 		add_guest_info(db, pull_guest_id(db, last_name),  meal_choice)
-	# 	when 2,
-	# 	when 3,
-	# 	when 4, 
-	# 	when nil 
-	# end
+	puts "Please enter the number assciated with your meal choice and we will pair it with the most appropriate wine!" 
+	meal_choice = gets.to_i
+	case meal_choice 
+		when 1,
+			meal_choice = 1
+			find_guest_id(db,last_name)
+				find_wine_id(db, meal_choice)
+			add_final_info(db, find_guest_id(db, last_name), find_wine_id(db,meal_choice))
+		when 2,
+		when 3,
+		when 4, 
+		when nil 
+	end
 
 end 
 
