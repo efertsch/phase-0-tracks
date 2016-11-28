@@ -1,20 +1,7 @@
-# PSEUDOCODE 
-	# Require sqlite3 gem 
-	# Create SQLite3 database and store in a variable for accessibility 
-	# Determine data structure to store data in 
-	# Create tables:
-		# Guests 
-		# Wines 
-		# Entrees 
-	# Method to generate table size based upon number of guests?
-	# Methods to add values to tables 
-	# Method to update column information 
-	# Method to print guests, menus, etc.,
-	# Method to generate pairing based upon entree entry
-	# Method to generate pariing based upon wine entry (id)
 
 require 'sqlite3'
-require 'faker'
+require 'table_print'
+
 
 db = SQLite3::Database.new("party_pairings.db")
 db.results_as_hash = true 
@@ -86,40 +73,42 @@ def find_guest_id(db, name)
 	guest_id[0][0]
 end 
 
-def find_wine(db, meal_id)
+def find_wine_id(db, meal_id)
 	suggested_wine = db.execute("SELECT id FROM wines WHERE entree_id = '#{meal_id}'")
 	suggested_wine[0][0]
 end 
 
+def retrieve_wine_name(db, id)
+	wine_name = db.execute("SELECT name FROM wines WHERE id = '#{id}'")
+	wine_name[0][0]
+end 
+
+def retrieve_entree_name(db, id)
+	entree_name = db.execute("SELECT main FROM entrees WHERE id = '#{id}'")
+	entree_name[0][0]
+end 
+
+def print_final(db)
+	db.execute("SELECT guest_id, wine_id, entree_id, first_name, last_name FROM final_menu INNER JOIN guests ON final_menu.guest_id = guests.id")
+end 
+
 
 def program_intro
-	puts "Welcome to the dinner party planner program!"
+	puts "Welcome to the dinner party planner program!\n"
 	puts "This program is designed to plan a dinner party based on:\n"
-	puts "The number of guests, and their desired food and beverage pairings."
-	puts "To begin, please enter the number of guests that will be attending.\n"
+	puts "The number of guests, and their desired food and beverage pairings.\n"
+	puts "To begin, please enter the number of guests that will be attending.\n\n"
 end 
  
 
 def print_entrees(db)
 	entrees = db.execute("SELECT * FROM entrees")
-	puts "Tonights entree options include:"
 	entrees.each do |entree|
 		puts "#{entree['id']}.#{entree['main'].capitalize}, served a side of #{entree['side']}."
 	end 	
 end 
 
-def print_wines(db)
-	wines = db.execute("SELECT * FROM wines")
-	puts "Here is the wine menu:"
-	puts "______________________"
-	wines.each do |wine|
-		puts "Item ID: #{wine['id']}"
-		puts "Name: #{wine['name']}"
-		puts "Type: #{wine['type']}"
-		puts "Description: #{wine['description']}"
-		puts "______________________"
-	end 	
-end
+
 
 
 #DRIVER CODE 
@@ -141,7 +130,7 @@ end
 #--------------------------------------------------------------------
 
 
-puts "For use by The Host Only:"
+puts "For use by The Host Only:\n\n"
 
 program_intro
 
@@ -153,33 +142,53 @@ puts "Please provide your guests with the device in order to complete the progra
 number_of_guests.times do
 
 	puts "Please enter your first name."
-	first_name = gets.chomp
+	first_name = gets.chomp.downcase
 	puts "Please enter your last name."
-	last_name = gets.chomp
+	last_name = gets.chomp.downcase
 	add_guest(db, first_name, last_name)
 
-	puts "Hello, #{first_name}, would you like to see tonight's entree options?"
+	puts "Hello, #{first_name.capitalize}, below is a list of tonight's entree options:\n\n"
 
-	user_input = gets.chomp.downcase
-	if user_input == 'yes'
-				print_entrees(db)
-	elsif user_input == 'no'
-		puts "Oh, you must not be hungry..."
-	end
+	print_entrees(db)
 
-
-	puts "Please enter the number assciated with your meal choice and we will pair it with the most appropriate wine!" 
+	puts "Please enter the number associated with your meal choice and we will pair it with the most appropriate wine!" 
 	meal_choice = gets.to_i
-	add_final_info(db, find_guest_id(db, last_name), find_wine(db,meal_choice), meal_choice)
+	add_final_info(db, find_guest_id(db, last_name), find_wine_id(db,meal_choice), meal_choice)
 
+	suggested_wine = retrieve_wine_name(db, find_wine_id(db,meal_choice))
+	entree_choice = retrieve_entree_name(db, meal_choice)
 
-
-
-	puts "Thanks for taking the survey, #{first_name}!"
-	puts "Based on your entree choice, the wine we recommend is ... we look forward to serving you!"
+	puts "Thanks for taking the survey, #{first_name.capitalize}!"
+	puts "Based on your entree choice of #{entree_choice}, we recommend the #{suggested_wine} - we look forward to serving you!"
 
 
 end 
 
+puts "Here's a print out of your final results:"
+registry = db.execute("SELECT * FROM final_menu")
+registry.each do |item|
+	suggested_wine = retrieve_wine_name(db, find_wine_id(db,meal_choice))
+	entree_choice = retrieve_entree_name(db, meal_choice)
+	puts "Guest number #{item['guest_id']} will be enjoying the entree with an ID of: #{item['entree_id']} paired with the wine with an ID of: #{item['wine_id']}"
+end 
 
+
+
+
+
+
+# PSEUDOCODE 
+	# Require sqlite3 gem 
+	# Create SQLite3 database and store in a variable for accessibility 
+	# Determine data structure to store data in 
+	# Create tables:
+		# Guests 
+		# Wines 
+		# Entrees 
+	# Method to generate table size based upon number of guests?
+	# Methods to add values to tables 
+	# Method to update column information 
+	# Method to print guests, menus, etc.,
+	# Method to generate pairing based upon entree entry
+	# Method to generate pariing based upon wine entry (id)
 
