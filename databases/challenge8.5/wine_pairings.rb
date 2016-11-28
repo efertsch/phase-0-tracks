@@ -78,7 +78,7 @@ def add_entree(db, main, side, pair_id)
 end 
 
 def add_final_info(db, guest_id, wine_id, meal_id)
-	db.execute("INSERT INTO add_final_info (guest_id, wine_id, entree) VALUES (?, ?, ?)", [guest_id, wine_id, entree_id])
+	db.execute("INSERT INTO final_menu (guest_id, wine_id, entree_id) VALUES (?, ?, ?)", [guest_id, wine_id, meal_id])
 end 
 
 def find_guest_id(db, name)
@@ -86,8 +86,9 @@ def find_guest_id(db, name)
 	guest_id[0][0]
 end 
 
-def find_wine_id(db, meal_id)
-	wine_id = db.execute("SELECT id FROM wines WHERE entree_id = '#{meal_id}'")
+def find_wine(db, meal_id)
+	suggested_wine = db.execute("SELECT id FROM wines WHERE entree_id = '#{meal_id}'")
+	suggested_wine[0][0]
 end 
 
 
@@ -166,49 +167,19 @@ number_of_guests.times do
 		puts "Oh, you must not be hungry..."
 	end
 
-	find_guest_id(db,last_name)
-	# p find_wine_id(db, meal_choice)
-	# p add_final_info(db, find_guest_id(db, last_name), find_wine_id(db,meal_choice), meal_choice)
 
-	# puts "Please enter the number assciated with your meal choice and we will pair it with the most appropriate wine!" 
-	# meal_choice = gets.to_i
-	# case meal_choice 
-	# 	when 1,
-	# 		# p find_guest_id(db,last_name)
-	# 		# p find_wine_id(db, meal_choice)
-	# 		# p add_final_info(db, find_guest_id(db, last_name), find_wine_id(db,meal_choice), meal_choice)
-	# 	else 
-	# 		puts "oops"
-	# end
+	puts "Please enter the number assciated with your meal choice and we will pair it with the most appropriate wine!" 
+	meal_choice = gets.to_i
+	add_final_info(db, find_guest_id(db, last_name), find_wine(db,meal_choice), meal_choice)
+
+
+
+
+	puts "Thanks for taking the survey, #{first_name}!"
+	puts "Based on your entree choice, the wine we recommend is ... we look forward to serving you!"
+
 
 end 
 
 
 
-
-
-# Get wine id
-# put guest, wine, entree ids into final roster table 
-
-
-
-
-
-
-
-
-
-
-# Archived Code 
-# def print_wines(db)
-# 	wines = db.execute("SELECT * FROM wines")
-# 	puts "Here is the wine menu:"
-# 	puts "______________________"
-# 	wines.each do |wine|
-# 		puts "Item ID: #{wine['id']}"
-# 		puts "Name: #{wine['name']}"
-# 		puts "Type: #{wine['type']}"
-# 		puts "Description: #{wine['description']}"
-# 		puts "______________________"
-# 	end 	
-# end
