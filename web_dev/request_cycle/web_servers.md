@@ -30,6 +30,11 @@ see:
 
 A VPS or virtual private server is a virtual (cloud-based) machine hosted by a company (marketed and sold as a service) that allows users access to and control of an operating system. 
 
+see:
+[hub:Pros and Cons of VPS Web Hosting](http://www.webhostinghub.com/web-hosting-guide/the-pros-and-cons-of-vps-web-hosting)
+[bytehouse:Pros and Cons of VPS Web Hosting](https://www.bytehouse.co.uk/pros-and-cons-of-vps-hosting/)
+
+
 ## PROS 
 * Short-term cost
 * Support
@@ -43,3 +48,14 @@ A VPS or virtual private server is a virtual (cloud-based) machine hosted by a c
 * Long-term cost (when compared to shared hosting)
 * Maintenance
 * Less power than dedicated servers
+
+## Whis is it considered a bad idea to run programs as the root user on a Linux System?
+
+It is best practice to operate on a user-level for security purposes, with the root user performing administrative tasks on an as needed basis. 
+
+As a user, the changes made are saved only to that user's home directory and remain partitioned from the entirety of the system helping to keep the computer secure from user mistakes and buggy applications.
+
+
+
+
+
