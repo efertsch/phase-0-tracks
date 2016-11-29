@@ -16,3 +16,14 @@ function changeFontColor(color, list_element) {
 changeFontColor("blue", first_element);
 changeFontColor("purple", second_element);
 changeFontColor("green", third_element);
+
+
+function hideElement(event) {
+	event.target.style.visibility = "hidden";
+}
+
+var header = document.getElementsByTagName("h1");
+headerTag = header[0]
+headerTag.addEventListener("mouseover", hideElement);
+
+
