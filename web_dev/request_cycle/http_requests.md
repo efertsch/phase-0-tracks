@@ -75,7 +75,7 @@ see [w3schools: HTTP Methods](http://www.w3schools.com/TAGs/ref_httpmethods.asp)
 see [Tutorials Point](https://www.tutorialspoint.com/http/http_methods.htm)
 
 ## GET Requests
-* Requests data from a specified source (given URI)
+GET method requests data from a specified source (given URI)
 * Only retrieves data, should have no other effect 
 * The query string (key/value pairs) is sent in the URL of the GET Request 
 * Example:
@@ -91,7 +91,7 @@ see [Tutorials Point](https://www.tutorialspoint.com/http/http_methods.htm)
 
 
 ## POST Request 
-* POST method is used to send data to the server (i.e, file update, form data)
+POST method is used to send data to the server (i.e, file update, form data)
 * Script on the server side (process.cgi) processes data and sends a response
 * The query string (key/value pairs) is sent in the HTTP message body of the POST Request 
 * Example:
@@ -116,3 +116,44 @@ name1=value1&name2=value2````
 	* Returns HTTP methods supported by the SERVER
 * CONNECT 
 	* Converts request connect to a transparent TCP/IP tunnel
+
+
+# What is a cookie and how does it relate to HTTP requests?
+
+see [MDN: HTTP Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
+
+## HTTP Cookies General
+Also referred to as web or browser cookies.
+
+A cookie is a small piece of data that a server sends to a user's web browser.
+
+The browser may store it and send it back together with the next request to the same server.
+
+Used to know if two requests came from the same browser.
+
+It remembers stateful information for the stateless HTTP protocol. 
+
+3 Main Purposes for Cookie Use:
+- Session Management (user logins, shopping carts)
+- Personalization (user preferences)
+- Tracking (analyzing user behavior)
+
+Has also been used for:
+	* general client-side storage (no longer used due to storage APIs)
+
+## Creating Cookies 
+
+When an HTTP request is recieved, a server can send a Set-Cookie header with the response 
+
+Thereafter, the cookie value is sent along with every request made to the same server as the content of a Cookie HTTP header.
+
+Expiration delays and domain/path restrictions can be set 
+
+## Types of Cookies
+- Session Cookies
+- Permanent Cookies 
+- Secure and HttpOnly Cookies
+- SameSite Cookies 
+
+
+
