@@ -1,1 +1,2 @@
-console.log("Our javascript file is linked!");
+console.log("Our script is linked!");
+
