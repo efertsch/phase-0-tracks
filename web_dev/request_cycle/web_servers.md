@@ -9,20 +9,20 @@ see:
 [OpenSource Philosophy](http://docstore.mik.ua/orelly/linux/run/ch01_07.htm)
 
 ## Philosophies and Tenants
-	- Open Source:
-		- Afforadable
-		- Accessible
-		- Flexible
-		- Increased Control 
-		- Community Built and Driven
-	- Break down programs into most efficient, smallest units 
-	- Prototype early on
-	- Protability over efficiency
-	- Store data in flat text files
-	- Use Software Leverage
-	- Use shell scripts to increase leverage and portability
-	- Avoid captive user interfaces
-	- Make every program a filter 
+* Open Source:
+	* Afforadable
+	* Accessible
+	* Flexible
+	* Increased Control 
+	* Community Built and Driven
+*Break down programs into most efficient, smallest units 
+*Prototype early on
+*Protability over efficiency
+*Store data in flat text files
+*Use Software Leverage
+*Use shell scripts to increase leverage and portability
+*Avoid captive user interfaces
+*Make every program a filter 
 
 # In your own words, what is a VPS and what are the advantages of running one?
 
