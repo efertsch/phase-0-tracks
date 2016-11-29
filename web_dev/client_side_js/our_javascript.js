@@ -23,7 +23,7 @@ function hideElement(event) {
 }
 
 var header = document.getElementsByTagName("h1");
-headerTag = header[0]
+var headerTag = header[0];
 headerTag.addEventListener("mouseover", hideElement);
 
 
