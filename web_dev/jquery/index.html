@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Basic jQuery Tutorial</title>
+	<link href="/Users/ethan_fertsch/devbootcamp/phase-0-tracks/web_dev/jquery/style.css" type="text/css" rel="stylesheet"/>
+	<script src="jquery-3.1.1.js"></script>
+	<script type = "text/javascript" src="script.js"></script>
+</head>
+<body>
+<img src="/Users/ethan_fertsch/Desktop/jquery_logo.png"/>
+<h1>jQuery in Brief: A Tutorial for the Novice Programmer</h1>
+	<h2> What is jQuery? </h2>
+		<p>jQuery is a lightweight Javascript library that:</p>
+			<ul>
+				<li>Simplifies Javascript Programming</li>
+				<li>Is easy to learn and interact with</li>
+				<li>Allows developers to add dynamic features to web pages</li>
+				<li>Includes many useful plug-ins</li>
+			</ul>
+	<h2> What languages should prospective learners be familiar with?</h2>
+		<ul>
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>Javascript</li>
+		</ul>
+	<h2> Getting Started </h2>
+		<p>jQuery can be downloaded from <a href="http://jquery.com/">The jQuery Website</a> or can be included from a Content Delivery Network (CDN) such as Google or Microsoft.</p>
+		<p>If jQuery is downloaded locally, the decompressed version should be used for development and debugging.</p>
+		<p>The jQuery file can be referenced in an HTML file and incorporated directly or kept in a separate javascript file within the same directory and externally linked to the HTML file (recommended). </p>
+	<h2>The document ready event</h2>
+		<p>Using the document ready event prevents jQuery code from running before the page has rendered allowing the developer to place the script file in the head tag of the HTML file as opposed to within the body. This is also applicable for the Javascript file!</p>
+		<p>Example Syntax:</p>
+			<code>
+			$(document).ready(function(){ jQuery methods go here... });
+			</code>
+	<h2>Basic Syntax</h2>
+		<p>The basic syntax is as follows:</p>
+			<code>$(selector).action()</code>
+		<ul>
+			<li> The '$' defines/accesses jQuery</li>
+			<li> The selector finds HTML elements</li>
+			<li> The 'action' represents the jquery action to be performed</li>
+		</ul>
+		<p> CSS selectors are used to access elements but some are custom to jQuery</p>
+	<h2>jQuery Events Methods</h2>
+		<p>jQuery is designed to respond to HTML events</p>
+		<p>HTML events are described as different visitor actions that a webpage can respond to.</p>
+		<p>An event is a precise moment when some action happens. The term fires/fired is often used to describe that moment.</p>
+		<p>Syntax for setting events:
+			<ol>
+				<li>Assign click event</li>
+					<code>$(“selector”).someEvent();</code>
+				<li>Define what happens when the event fires (pass the function to an event)</li>
+					<code>
+						$("p").click(function(){ // action goes here!!});
+					</code>
+			</ol>
+		</p>
+		<h2>Other jQuery Features Include DOM Manipulation and Effects!</h2>
+			<p>Please take the time to explore more about jQuery! There are many wonderful resources available including but not limited to:
+				<ul>
+					<li><a href="http://jquery.com/">The jQuery Website</a></li>
+					<li><a href="http://www.w3schools.com/jquery/default.asp">w3 Schools jQuery Tutorial</a></li>
+					<li><a href="https://www.tutorialspoint.com/jquery/index.htm">Tutorials Point</a></li>
+					<li><a href="https://www.codecademy.com/courses/web-beginner-en-bay3D/0/1">CodeAcademy</a></li>
+				</ul>
+			</p>
+</body>
+</html>
