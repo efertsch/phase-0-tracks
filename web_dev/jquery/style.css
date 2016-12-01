@@ -1,0 +1,22 @@
+body {
+	max-width: 960px;
+	background-color: #e5e5dc
+}
+
+h1 {
+	color: #042d70
+}
+
+h2 {
+	color: #1b5dc6
+}
+
+code {
+	border: ridge black 1px;
+}
+
+img {
+	position: fixed;
+	width: 960px;
+	opacity:0.2
+}
