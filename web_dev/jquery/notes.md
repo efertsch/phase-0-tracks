@@ -25,4 +25,14 @@ Etimated Time: 1 hr
 
 
 
+## Reflections:
 
+Took extensive notes including links to useful sites, book marked many pages referenced in tutorials. 
+
+Taking a break in between learning sessions was useful.
+
+I found it to me more helpful use w3 schools and tutorials point for learning because they have interactive portions to them.
+
+CodeAcademy was confusing to go through again (cannot re-start course once it has already been taken).
+
+Plan to start release 3 and refer back to tutorials and Duckett book for reference as needed.
