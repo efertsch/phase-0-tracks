@@ -10,7 +10,7 @@
   <p>Click <a href="students/skills">here</a> to view the skills aquired by Phase 0 students!</p>
   <ul>
     <% @students.each do |student| %>
-      <li><%= student['name'] %>, <%= student['age'] %></li>
+      <li><%= student['name'] %>, <%= student['age'] %>, <%= student['campus'] %> </li>
     <% end %>
   </ul>
 </body>

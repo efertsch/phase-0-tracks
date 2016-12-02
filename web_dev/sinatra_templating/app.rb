@@ -29,3 +29,4 @@ end
 get '/students/skills' do
 	erb :skills
 end 
+
