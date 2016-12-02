@@ -86,7 +86,7 @@ end
 
 # Not working
 get '/students/:campus' do
-  student_by_campus = db.execute("SELECT * FROM students WHERE campus=?", [params[:campus]])
+  student_by_campus = db.execute("SELECT * FROM students WHERE campus=?", [params[:campus]])[2]
   student_by_campus.to_s
 end
 
