@@ -9,9 +9,9 @@ db.results_as_hash = true
 #write a basic GET route
 #add a query parameter
 #GET /
-get '/' do
-  "#{params[:name]} is #{params[:age]} years old."
-end
+# get '/' do
+#   "#{params[:name]} is #{params[:age]} years old."
+# end
 
 # write a GET route with
 # route parameters
@@ -23,6 +23,8 @@ end
 get '/:person_1/loves/:person_2' do
   "#{params[:person_1]} loves #{params[:person_2]}"
 end
+
+
 
 # write a GET route that retrieves
 # all student data
@@ -41,9 +43,13 @@ end
 # write a GET route that retrieves
 # a particular student
 
-get '/students/:id' do
+
+
+get '/student/:id' do
   student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
   student.to_s
+  params[:id].to_s
+  student["campus"]
 end
 
 
@@ -76,18 +82,10 @@ end
 
 
 #Optional Challenge:
+# Select all students by a certain campus 
 
-# get '/students' do
-#   sf_students = db.execute("SELECT name FROM students WHERE campus=SF")
-#   sf_students.each do
-#      "#{sf_students['name']} will be attending the San Francisco DBC campus!"
-#   end 
-# end
-
-# Not working
 get '/students/:campus' do
-  student_by_campus = db.execute("SELECT * FROM students WHERE campus=?", [params[:campus]])[2]
+  student_by_campus = db.execute("SELECT * FROM students WHERE campus=?", params[:campus])
   student_by_campus.to_s
 end
-
 
