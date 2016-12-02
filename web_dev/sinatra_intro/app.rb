@@ -1,17 +1,17 @@
 # require gems
 require 'sinatra'
 require 'sqlite3'
-require 'Faker'
+
 
 db = SQLite3::Database.new("students.db")
 db.results_as_hash = true
 
-# write a basic GET route
-# add a query parameter
-# GET /
-# get '/' do
-#   "#{params[:name]} is #{params[:age]} years old."
-# end
+#write a basic GET route
+#add a query parameter
+#GET /
+get '/' do
+  "#{params[:name]} is #{params[:age]} years old."
+end
 
 # write a GET route with
 # route parameters
@@ -75,11 +75,19 @@ end
 
 
 
+#Optional Challenge:
 
+# get '/students' do
+#   sf_students = db.execute("SELECT name FROM students WHERE campus=SF")
+#   sf_students.each do
+#      "#{sf_students['name']} will be attending the San Francisco DBC campus!"
+#   end 
+# end
 
-
-
-
-
+# Not working
+get '/students/:campus' do
+  student_by_campus = db.execute("SELECT * FROM students WHERE campus=?", [params[:campus]])
+  student_by_campus.to_s
+end
 
 
