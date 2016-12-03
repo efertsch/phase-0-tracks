@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Skills Acquired in Phase 0</title>
+</head>
+<body>
+	<h1>Skills Acquired in Phase 0</h1>
+		<ul>
+			<li> HTML </li>
+			<li> CSS </li>
+			<li> Ruby </li>
+			<li> Javascript </li>
+			<li> SQLite </li>
+			<li> Sinatra </li>
+		</ul>
+		<p>Are there other languages would you like to see on this list? Fill out the form below!</p>
+		<form action="/languages" method="POST">
+    <input type="text" name="language" placeholder="Language">
+    <button type="submit">Submit!</button>
+  </form>
+  	<p>Here are some languages others have requested!</p>
+      <ul> <% @languages.each do |language| %>
+      <li> <%= language['language'] %> </li>
+    <% end %>
+  </ul>
+</body>
+</html>
