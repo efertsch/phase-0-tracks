@@ -27,6 +27,14 @@ end
 # add static resources
 
 get '/students/skills' do
+	@languages = db.execute("SELECT * FROM languages")
 	erb :skills
 end 
+
+
+post '/languages' do
+	db.execute("INSERT INTO languages (language) VALUES (?)", params['language'])
+  redirect '/'
+end
+
 
